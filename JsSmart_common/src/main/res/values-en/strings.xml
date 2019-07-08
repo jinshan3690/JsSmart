@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">BOOMERANG iT</string>
+
+    <string name="shareView1">shareView1</string>
+    <string name="shareView2">shareView2</string>
+    <string name="shareView3">shareView3</string>
+    <string name="shareView4">shareView4</string>
+    <string name="shareView5">shareView5</string>
+    <string name="shareViewTitle">shareViewTitle</string>
+
+    <string name="language_cn">中文</string>
+    <string name="language_en">ENGLISH</string>
+    <string name="language_auto">自动</string>
+
+    <string name="language_select">当前选择的语言: %s</string>
+
+    <string name="press_exit_again">Press exit again!</string>
+    <string name="network_error">Network abnormal, please check network status!</string>
+    <string name="server_exception">Server exception!</string>
+    <string name="request_failed">request failed:</string>
+    <string name="emoticons_supported">Emoticons are not supported</string>
+    <string name="special_characters_supported">Special characters cannot be entered</string>
+    <string name="cancel">Cancel</string>
+    <string name="sure">Sure</string>
+    <string name="confirm">Confirm</string>
+    <string name="ok">OK</string>
+    <string name="camera">Camera</string>
+    <string name="album">Album</string>
+    <string name="turn_on_flash">Turn ON flash</string>
+    <string name="gender_selection">Gender selection</string>
+    <string name="male">male</string>
+    <string name="female">female</string>
+</resources>

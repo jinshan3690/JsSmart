@@ -1,0 +1,30 @@
+<!-- "初始化策略"配置 -->
+<strategies>
+
+    <!-- ======================================================================= -->
+    <!--  -->
+    <!-- 参数说明: -->
+    <!--  -->
+    <!-- <strategy> 可选属性 process , 指定进程才会执行该组初始化操作 name 策略名称-->
+    <!-- 固定参数 forgot 只有在主进程才会执行 -->
+    <!-- 不加process属性，主进程会执行，但子进程不会执行 -->
+    <!-- <action> -->
+    <!-- name: 初始化策略实现对象 -->
+    <!-- async: (可选)执行初始化过程中，是否异步执行，默认为false -->
+    <!--  -->
+    <!-- 其他说明: -->
+    <!-- 初始化过程中，将按照actions中的顺序依次执行 -->
+    <!--  -->
+    <!-- ======================================================================== -->
+    <strategy name="main">
+
+        <actions>
+            <action name="com.js.smart.ui.app.UIInitTask" async="false"/>
+
+            <!--<action name="com.qmx163.boomerang.home.HomeInitTask" async="true"/>-->
+
+        </actions>
+
+    </strategy>
+
+</strategies>

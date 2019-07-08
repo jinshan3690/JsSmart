@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF7814</color>
+    <color name="colorPrimaryTrans">#10FF7814</color>
+    <color name="colorPrimaryTint">#75CA11</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#FF984A</color>
+    <color name="colorBlue">#40A9FF</color>
+
+    <color name="colorPrimary70">#70FF7814</color>
+    <color name="colorStateDark">#9F4B0C</color>
+    <color name="colorBackground">#F8F8F8</color>
+
+    <color name="colorDivider">#AEAEAE</color>
+    <color name="colorDividerDark">#C6C6C6</color>
+
+    <color name="btnTextColor">#333333</color>
+    <color name="textColor">#333333</color>
+    <color name="textColorYellow">#F5A623</color>
+    <color name="editBorderColor">#AEAEAE</color>
+</resources>

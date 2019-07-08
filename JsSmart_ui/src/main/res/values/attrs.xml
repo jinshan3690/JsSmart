@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CancelEditText">
+        <attr name="cet_cancelIco" format="reference" />
+        <attr name="cet_downIco" format="reference" />
+        <attr name="cet_switchIco" format="reference" />
+        <attr name="cet_digits" format="string" />
+        <attr name="cet_imeOptions" format="enum">
+            <enum name="actionDone" value="1" />
+            <enum name="actionNext" value="2" />
+            <enum name="actionSend" value="3" />
+            <enum name="actionSearch" value="4" />
+            <enum name="actionGo" value="5" />
+        </attr>
+        <attr name="cet_length" format="integer" />
+        <attr name="cet_inputType" format="enum">
+            <enum name="textPassword" value="1" />
+            <enum name="textVisiblePassword" value="2" />
+            <enum name="textEmailAddress" value="3" />
+        </attr>
+        <attr name="cet_textEnabled" format="boolean" />
+        <attr name="cet_selectBackground" format="reference" />
+        <attr name="cet_background" format="reference" />
+        <attr name="cet_textPaddingLeft" format="reference|dimension" />
+        <attr name="cet_textPaddingRight" format="reference|dimension" />
+        <attr name="cet_textPaddingBottom" format="reference|dimension" />
+        <attr name="cet_textPaddingTop" format="reference|dimension" />
+        <attr name="cet_text" format="reference|string" />
+        <attr name="cet_textColor" format="reference|color" />
+        <attr name="cet_textSize" format="reference|dimension" />
+        <attr name="cet_label" format="reference|string" />
+        <attr name="cet_labelColor" format="reference|string" />
+        <attr name="cet_hint" format="reference|string" />
+        <attr name="cet_hintColor" format="reference|color" />
+    </declare-styleable>
+
+    <declare-styleable name="MultiImageView">
+        <attr name="miv_lineCount" format="integer|reference" />
+        <attr name="miv_ico" format="reference" />
+        <attr name="miv_padding" format="dimension|reference" />
+        <attr name="miv_count" format="integer|reference" />
+        <attr name="miv_maxCount" format="integer|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CountDownView">
+        <attr name="cd_padding" format="reference|dimension" />
+        <attr name="cd_paddingTop" format="reference|dimension" />
+        <attr name="cd_paddingBottom" format="reference|dimension" />
+        <attr name="cd_paddingRight" format="reference|dimension" />
+        <attr name="cd_paddingLeft" format="reference|dimension" />
+        <attr name="cd_space" format="reference|dimension" />
+        <attr name="cd_round" format="reference|dimension" />
+        <attr name="cd_textColor" format="reference|color" />
+        <attr name="cd_blockColor" format="reference|color" />
+        <attr name="cd_textSize" format="reference|dimension" />
+        <attr name="cd_hour" format="reference|boolean" />
+        <attr name="cd_minute" format="reference|boolean" />
+        <attr name="cd_second" format="reference|boolean" />
+    </declare-styleable>
+
+</resources>

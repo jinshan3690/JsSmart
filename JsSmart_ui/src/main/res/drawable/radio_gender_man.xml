@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="false">
+        <layer-list>
+            <item>
+                <shape>
+                    <solid android:color="@color/colorTransparent"/>
+                    <corners android:radius="@dimen/btnRadiusLarge"/>
+                </shape>
+            </item>
+            <item android:top="@dimen/lay_8" android:left="@dimen/lay_8" android:right="@dimen/lay_8" android:bottom="@dimen/lay_8">
+                <bitmap android:src="@mipmap/ico_man"/>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_checked="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <solid android:color="@color/colorPrimary"/>
+                    <corners android:radius="@dimen/btnRadiusLarge"/>
+                </shape>
+            </item>
+            <item android:top="@dimen/lay_8" android:left="@dimen/lay_8" android:right="@dimen/lay_8" android:bottom="@dimen/lay_8">
+                <bitmap android:src="@mipmap/ico_man_s"/>
+            </item>
+        </layer-list>
+    </item>
+</selector>

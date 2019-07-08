@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="btnRadius">@dimen/lay_4</dimen>
+    <dimen name="btnRadiusLarge">@dimen/lay_500</dimen>
+    <dimen name="btnBorder">@dimen/lay_2</dimen>
+    <dimen name="editBorder">@dimen/lay_1</dimen>
+    <dimen name="textSize">@dimen/font_14</dimen>
+    <dimen name="btnTextSize">@dimen/font_18</dimen>
+
+</resources>

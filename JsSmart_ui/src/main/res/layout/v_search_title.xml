@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/title"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/statusBarColor"
+    android:transitionName="shareViewTitle">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="@dimen/lay_15"
+        android:background="@drawable/btn_shape_white"
+        android:layout_toLeftOf="@id/titleRight"
+        android:layout_centerVertical="true">
+
+        <RelativeLayout
+            android:id="@+id/titleLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingRight="@dimen/lay_10">
+        
+        <ImageView
+            android:id="@+id/titleLeftImage"
+            android:layout_width="8dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/lay_10"
+            android:src="@mipmap/ico_gray_left_arrow"/>
+
+        </RelativeLayout>
+
+        <com.js.smart.ui.widget.CancelEditText
+            android:id="@+id/titleEdit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/titleLeft"
+            app:cet_textSize="@dimen/font_14"
+            app:cet_hint="@string/search_power_bank"
+            app:cet_hintColor="@color/textColorTintDark"
+            app:cet_cancelIco="@mipmap/ico_close"
+            app:cet_imeOptions="actionNext" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/titleRight"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/lay_15"
+        android:layout_marginLeft="@dimen/lay_10">
+
+    <TextView
+        android:id="@+id/titleRightText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="@string/search"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/font_16"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

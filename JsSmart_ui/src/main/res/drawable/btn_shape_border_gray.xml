@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:exitFadeDuration="200">
+    <item android:state_enabled="true" android:color="@color/textColorTint">
+        <shape>
+            <stroke android:width="@dimen/editBorder"
+                android:color="@color/colorDivider"/>
+            <corners android:radius="@dimen/btnRadius" />
+        </shape>
+    </item>
+    <item android:state_enabled="false" android:color="@color/colorWhite">
+        <shape>
+            <solid android:color="@color/colorDivider"/>
+            <corners android:radius="@dimen/btnRadius" />
+        </shape>
+    </item>
+</selector>

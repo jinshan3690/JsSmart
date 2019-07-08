@@ -1,0 +1,1 @@
+include ':app', ':JsSmart_common', ':JsSmart_http', ':JsSmart_ui'

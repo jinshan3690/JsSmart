@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="textView1" type="id"/>
+    <item name="textView2" type="id"/>
+    <item name="textView3" type="id"/>
+    <item name="textView4" type="id"/>
+    <item name="textView5" type="id"/>
+    <item name="textView6" type="id"/>
+    <item name="textView7" type="id"/>
+    <item name="textView8" type="id"/>
+    <item name="textView9" type="id"/>
+    <item name="textView10" type="id"/>
+    <item name="textView11" type="id"/>
+    <item name="textView12" type="id"/>
+    <item name="textView13" type="id"/>
+    <item name="textView14" type="id"/>
+    <item name="textView15" type="id"/>
+    <item name="textView16" type="id"/>
+    <item name="textView17" type="id"/>
+    <item name="textView18" type="id"/>
+    <item name="textView19" type="id"/>
+    <item name="textView20" type="id"/>
+    <item name="textView21" type="id"/>
+    <item name="textView22" type="id"/>
+    <item name="textView23" type="id"/>
+    <item name="textView24" type="id"/>
+    <item name="textView25" type="id"/>
+    <item name="textView26" type="id"/>
+    <item name="textView27" type="id"/>
+    <item name="textView28" type="id"/>
+    <item name="textView29" type="id"/>
+    <item name="textView30" type="id"/>
+    <item name="textView31" type="id"/>
+
+    <item name="imageView1" type="id"/>
+    <item name="imageView2" type="id"/>
+    <item name="imageView3" type="id"/>
+    <item name="imageView4" type="id"/>
+    <item name="imageView5" type="id"/>
+    <item name="imageView6" type="id"/>
+    <item name="imageView7" type="id"/>
+    <item name="imageView8" type="id"/>
+    <item name="imageView9" type="id"/>
+
+    <item name="scrollView1" type="id"/>
+    <item name="scrollView2" type="id"/>
+    <item name="scrollView3" type="id"/>
+    <item name="scrollView4" type="id"/>
+
+    <item name="ico1" type="id"/>
+    <item name="ico2" type="id"/>
+    <item name="ico3" type="id"/>
+    <item name="ico4" type="id"/>
+    <item name="ico5" type="id"/>
+    <item name="ico6" type="id"/>
+    <item name="ico7" type="id"/>
+    <item name="ico8" type="id"/>
+    <item name="ico9" type="id"/>
+
+    <item name="listView1" type="id"/>
+    <item name="listView2" type="id"/>
+    <item name="listView3" type="id"/>
+
+    <item name="mapView1" type="id"/>
+    <item name="mapView2" type="id"/>
+
+    <item name="seekBar1" type="id"/>
+    <item name="seekBar2" type="id"/>
+    <item name="seekBar3" type="id"/>
+
+    <item name="datePicker1" type="id"/>
+    <item name="datePicker2" type="id"/>
+    <item name="datePicker3" type="id"/>
+
+    <item name="timePicker1" type="id"/>
+    <item name="timePicker2" type="id"/>
+    <item name="timePicker3" type="id"/>
+
+    <item name="tabLayout1" type="id"/>
+    <item name="tabLayout2" type="id"/>
+    <item name="tabLayout3" type="id"/>
+
+    <item name="gifView1" type="id"/>
+    <item name="gifView2" type="id"/>
+    <item name="gifView3" type="id"/>
+
+    <item name="customView1" type="id"/>
+    <item name="customView2" type="id"/>
+    <item name="customView3" type="id"/>
+    <item name="customView4" type="id"/>
+    <item name="customView5" type="id"/>
+    <item name="customView6" type="id"/>
+    <item name="customView7" type="id"/>
+    <item name="customView8" type="id"/>
+
+    <item name="cardView1" type="id"/>
+    <item name="cardView2" type="id"/>
+    <item name="cardView3" type="id"/>
+    <item name="cardView4" type="id"/>
+
+    <item name="surfaceView1" type="id"/>
+    <item name="surfaceView2" type="id"/>
+    <item name="surfaceView3" type="id"/>
+
+    <item name="btn1" type="id"/>
+    <item name="btn2" type="id"/>
+    <item name="btn3" type="id"/>
+    <item name="btn4" type="id"/>
+    <item name="btn5" type="id"/>
+    <item name="btn6" type="id"/>
+    <item name="btn7" type="id"/>
+    <item name="btn8" type="id"/>
+    <item name="btn9" type="id"/>
+
+    <item name="editText1" type="id"/>
+    <item name="editText2" type="id"/>
+    <item name="editText3" type="id"/>
+    <item name="editText4" type="id"/>
+    <item name="editText5" type="id"/>
+    <item name="editText6" type="id"/>
+    <item name="editText7" type="id"/>
+    <item name="editText8" type="id"/>
+    <item name="editText9" type="id"/>
+
+    <item name="swipeRefresh1" type="id"/>
+    <item name="swipeRefresh2" type="id"/>
+
+    <item name="ratingBar1" type="id"/>
+    <item name="ratingBar2" type="id"/>
+    <item name="ratingBar3" type="id"/>
+
+    <item name="radioGroup1" type="id"/>
+    <item name="radioGroup2" type="id"/>
+    <item name="radioGroup3" type="id"/>
+
+    <item name="radioButton1" type="id"/>
+    <item name="radioButton2" type="id"/>
+    <item name="radioButton3" type="id"/>
+    <item name="radioButton4" type="id"/>
+    <item name="radioButton5" type="id"/>
+    <item name="radioButton6" type="id"/>
+    <item name="radioButton7" type="id"/>
+
+    <item name="layout1" type="id"/>
+    <item name="layout2" type="id"/>
+    <item name="layout3" type="id"/>
+    <item name="layout4" type="id"/>
+    <item name="layout5" type="id"/>
+    <item name="layout6" type="id"/>
+    <item name="layout7" type="id"/>
+    <item name="layout8" type="id"/>
+    <item name="layout9" type="id"/>
+
+    <item name="drawerLayout1" type="id"/>
+    <item name="drawerLayout2" type="id"/>
+    <item name="navigationView1" type="id"/>
+
+    <item name="shareView1" type="id"/>
+    <item name="shareView2" type="id"/>
+    <item name="shareView3" type="id"/>
+    <item name="shareView4" type="id"/>
+    <item name="shareView5" type="id"/>
+    <item name="shareView6" type="id"/>
+    <item name="shareView7" type="id"/>
+    <item name="shareView8" type="id"/>
+    <item name="shareView9" type="id"/>
+
+    <item name="chart1" type="id"/>
+    <item name="chart2" type="id"/>
+    <item name="chart3" type="id"/>
+    <item name="chart4" type="id"/>
+    <item name="chart5" type="id"/>
+    <item name="chart6" type="id"/>
+    <item name="chart7" type="id"/>
+
+    <item name="checkBox1" type="id"/>
+    <item name="checkBox2" type="id"/>
+    <item name="checkBox3" type="id"/>
+    <item name="checkBox4" type="id"/>
+    <item name="checkBox5" type="id"/>
+    <item name="checkBox6" type="id"/>
+    <item name="checkBox7" type="id"/>
+    <item name="checkBox8" type="id"/>
+    <item name="checkBox9" type="id"/>
+
+    <item name="viewPager1" type="id"/>
+    <item name="viewPager2" type="id"/>
+    <item name="viewPager3" type="id"/>
+
+    <item name="recyclerView1" type="id"/>
+    <item name="recyclerView2" type="id"/>
+    <item name="recyclerView3" type="id"/>
+
+    <item name="refer1" type="id"/>
+    <item name="refer2" type="id"/>
+    <item name="refer3" type="id"/>
+    <item name="refer4" type="id"/>
+    <item name="refer5" type="id"/>
+    <item name="refer6" type="id"/>
+    <item name="refer7" type="id"/>
+    <item name="refer8" type="id"/>
+    <item name="refer9" type="id"/>
+    <item name="refer10" type="id"/>
+    <item name="refer11" type="id"/>
+    <item name="refer12" type="id"/>
+    <item name="refer13" type="id"/>
+    <item name="refer14" type="id"/>
+    <item name="refer15" type="id"/>
+    <item name="refer16" type="id"/>
+    <item name="refer17" type="id"/>
+    <item name="refer18" type="id"/>
+    <item name="refer19" type="id"/>
+    <item name="refer20" type="id"/>
+
+    <item name="loadingView1" type="id"/>
+    <item name="loadingView2" type="id"/>
+
+    <item name="progress1" type="id"/>
+    <item name="progress2" type="id"/>
+    <item name="progress3" type="id"/>
+    <item name="progress4" type="id"/>
+    <item name="progress5" type="id"/>
+    <item name="progress6" type="id"/>
+
+    <item name="webView1" type="id"/>
+    <item name="webView2" type="id"/>
+    <item name="webView3" type="id"/>
+
+    <item name="gridView1" type="id"/>
+    <item name="gridView2" type="id"/>
+    <item name="gridView3" type="id"/>
+
+    <item name="wheelView1" type="id"/>
+    <item name="wheelView2" type="id"/>
+    <item name="wheelView3" type="id"/>
+
+</resources>

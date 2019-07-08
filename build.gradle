@@ -1,0 +1,38 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply from: "dependencies.gradle"
+apply plugin: 'com.alibaba.arouter'
+
+buildscript {
+    ext.kotlin_version = '1.3.21'
+
+    // 仓库
+    repositories {
+        mavenCentral()
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // Replace with the latest version
+        classpath "com.alibaba:arouter-register:1.0.2"
+        classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0'
+        // NOTE: Do not place your application config here; they belong
+        // in the individual module build.gradle files
+    }
+}
+// 所有项目都依赖于已下中央仓库
+allprojects {
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.google.com' }//glide
+        jcenter()
+        maven { url "https://jitpack.io" }
+        google()
+    }
+}
+
+// gradle在执行构建任务时的清理配置
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

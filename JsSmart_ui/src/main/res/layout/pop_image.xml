@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20px"
+    android:paddingRight="20px">
+
+    <TextView
+        android:id="@id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/btn_shape_t_white"
+        android:gravity="center"
+        android:text="@string/camera"
+        android:textSize="@dimen/font_18"
+        android:textColor="@color/textColorTint" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorGray" />
+
+    <TextView
+        android:id="@id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/btn_white"
+        android:gravity="center"
+        android:text="@string/album"
+        android:textSize="@dimen/font_18"
+        android:textColor="@color/textColorTint" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorGray" />
+
+    <TextView
+        android:id="@id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/btn_shape_b_white"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textSize="@dimen/font_18"
+        android:textColor="@color/textColorTint" />
+
+</LinearLayout>

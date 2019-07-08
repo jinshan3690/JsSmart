@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.js.smart.ui">
+
+    <application>
+
+        <activity android:name="com.js.smart.ui.view.StartPageActivity"/>
+
+        <activity android:name="com.js.smart.ui.view.GuidePageActivity"/>
+
+        <activity android:name="com.js.smart.ui.view.WebActivity"/>
+
+        <activity android:name="com.js.smart.ui.view.PhotoPagerActivity"/>
+
+    </application>
+</manifest>

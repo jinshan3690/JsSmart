@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_shape_white"
+        android:layout_marginLeft="@dimen/lay_25"
+        android:layout_marginRight="@dimen/lay_25"
+        android:paddingTop="@dimen/lay_30">
+
+        <TextView
+            android:id="@id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="提示"
+            android:textSize="@dimen/titleTextSize" />
+
+        <TextView
+            android:id="@id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/textView1"
+            android:layout_marginBottom="@dimen/lay_20"
+            android:gravity="center"
+            android:textSize="@dimen/font_16" />
+
+        <View
+            android:id="@id/refer1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/lay_0_5"
+            android:layout_below="@id/textView2"
+            android:background="@color/colorPrimary" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/refer1"
+            android:orientation="horizontal">
+
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@id/layout1"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_dialog_shape_left_white"
+                app:mrl_rippleAlpha="0.2"
+                app:mrl_rippleColor="@color/colorPrimaryTrans"
+                app:mrl_rippleDimension="0dp"
+                app:mrl_rippleDuration="0"
+                app:mrl_rippleHover="true"
+                app:mrl_rippleOverlay="true"
+                app:mrl_rippleRoundedCorners="0dp">
+
+                <TextView
+                    android:id="@id/btn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/btn_shape_ripple_primary"
+                    android:gravity="center"
+                    android:text="@string/cancel"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/btnTextSize" />
+
+            </com.balysv.materialripple.MaterialRippleLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/colorBackgroundDark" />
+
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@id/layout2"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_dialog_shape_right_primary"
+                app:mrl_rippleAlpha="0.2"
+                app:mrl_rippleColor="@color/defaultPressed"
+                app:mrl_rippleDimension="0dp"
+                app:mrl_rippleDuration="0"
+                app:mrl_rippleHover="true"
+                app:mrl_rippleOverlay="true"
+                app:mrl_rippleRoundedCorners="0dp">
+
+                <TextView
+                    android:id="@id/btn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/btn_shape_ripple"
+                    android:gravity="center"
+                    android:text="@string/confirm"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/btnTextSize" />
+
+            </com.balysv.materialripple.MaterialRippleLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

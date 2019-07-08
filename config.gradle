@@ -1,0 +1,33 @@
+/*全局配置信息及第三方依赖统一管理*/
+project.ext {
+    //统一设置APP配置
+    setDefaultConfig = { extension ->
+        //相对于APP中的build.gradle android {}的内容
+        extension.android{
+            compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+            buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+            defaultConfig {
+                minSdkVersion rootProject.ext.android["minSdkVersion"]
+                targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+                versionCode rootProject.ext.android["versionCode"]
+                versionName rootProject.ext.android["versionName"]
+
+                testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+                multiDexEnabled true
+                //ARouter路由配置
+                javaCompileOptions {
+                    annotationProcessorOptions {
+                        arguments = [AROUTER_MODULE_NAME: project.getName()]
+                    }
+                }
+            }
+
+            compileOptions {
+                sourceCompatibility = JavaVersion.VERSION_1_8
+                targetCompatibility = JavaVersion.VERSION_1_8
+            }
+        }
+
+    }
+
+}

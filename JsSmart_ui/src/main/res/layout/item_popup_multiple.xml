@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.balysv.materialripple.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:paddingLeft="@dimen/lay_15"
+    android:paddingRight="@dimen/lay_15"
+    app:mrl_rippleAlpha="0.2"
+    app:mrl_rippleColor="@color/defaultPressed"
+    app:mrl_rippleDimension="0dp"
+    app:mrl_rippleHover="true"
+    app:mrl_rippleOverlay="true"
+    app:mrl_rippleDuration="0"
+    app:mrl_rippleRoundedCorners="0dp">
+
+<RelativeLayout
+    android:id="@id/layout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+   <TextView
+       android:id="@id/textView1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_centerVertical="true"/>
+
+    <CheckBox
+        android:id="@id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"/>
+
+    <include layout="@layout/v_divider"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
+</com.balysv.materialripple.MaterialRippleLayout>

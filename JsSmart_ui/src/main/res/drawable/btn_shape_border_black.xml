@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:exitFadeDuration="200">
+    <item>
+        <shape>
+            <stroke android:width="@dimen/btnBorder"
+                android:color="@color/colorBlack"/>
+            <corners android:radius="@dimen/btnRadius" />
+        </shape>
+    </item>
+</selector>

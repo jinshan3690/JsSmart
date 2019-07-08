@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="370px"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="85px"
+        android:background="@drawable/dialog_title_primary"
+        android:gravity="center"
+        android:text="提示"
+        android:textColor="@color/colorWhite"
+        android:textSize="30px" />
+
+    <LinearLayout
+        android:id="@id/refer1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView1"
+        android:gravity="center"
+        android:padding="15px"
+        android:orientation="vertical"
+        android:background="@color/colorWhite">
+
+        <TimePicker
+            android:id="@id/timePicker1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/refer1"
+        android:paddingBottom="20px"
+        android:orientation="horizontal">
+
+        <com.balysv.materialripple.MaterialRippleLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90px"
+            android:background="@drawable/btn_shape_primary"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="10px"
+            app:mrl_rippleColor="@color/defaultPressedAccent"
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleOverlay="true"
+            app:mrl_rippleDuration="0"
+            app:mrl_rippleRoundedCorners="20dp"
+            app:mrl_rippleDimension="20dp"
+            app:mrl_rippleHover="true">
+
+            <Button
+                android:id="@id/btn1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/btn_shape_ripple"
+                android:textSize="@dimen/btnTextSize"
+                android:text="确定"/>
+
+        </com.balysv.materialripple.MaterialRippleLayout>
+
+        <com.balysv.materialripple.MaterialRippleLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90px"
+            android:background="@drawable/btn_shape_primary"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="20px"
+            app:mrl_rippleColor="@color/defaultPressedAccent"
+            app:mrl_rippleAlpha="0.2"
+            app:mrl_rippleDuration="0"
+            app:mrl_rippleOverlay="true"
+            app:mrl_rippleRoundedCorners="20dp"
+            app:mrl_rippleDimension="20dp"
+            app:mrl_rippleHover="true">
+
+            <Button
+                android:id="@id/btn2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:text="取消"
+                android:textSize="@dimen/btnTextSize"
+                android:background="@drawable/btn_shape_ripple"/>
+
+        </com.balysv.materialripple.MaterialRippleLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
