@@ -60,7 +60,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/lay_12"
-                android:src="@mipmap/ico_grey_right_arrow" />
+                android:src="@mipmap/ico_arrow_grey_right" />
 
         </RelativeLayout>
 

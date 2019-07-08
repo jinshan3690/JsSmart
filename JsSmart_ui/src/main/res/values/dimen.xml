@@ -7,5 +7,6 @@
     <dimen name="editBorder">@dimen/lay_1</dimen>
     <dimen name="textSize">@dimen/font_14</dimen>
     <dimen name="btnTextSize">@dimen/font_18</dimen>
+    <dimen name="titleTextSize">@dimen/font_18</dimen>
 
 </resources>

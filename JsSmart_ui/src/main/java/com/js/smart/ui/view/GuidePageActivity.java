@@ -102,7 +102,7 @@ public class GuidePageActivity extends UIBaseActivity {
             ImageView photoView = new ImageView(container.getContext());
 //            Glide.with(context).load(ApiManager.HOST + images[position])
 //                    .crossFade().into(photoView);
-            photoView.setImageResource(R.mipmap.ic_launcher);
+            photoView.setImageResource(R.mipmap.ico_logo);
             container.addView(photoView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             return photoView;
         }

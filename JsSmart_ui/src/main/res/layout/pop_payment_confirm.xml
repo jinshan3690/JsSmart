@@ -44,7 +44,7 @@
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ico_close1"/>
+            android:src="@mipmap/ico_close"/>
 
         </RelativeLayout>
 
@@ -118,7 +118,7 @@
             android:id="@id/refer3"
             android:layout_width="13dp"
             android:layout_height="13dp"
-            android:src="@mipmap/ico_grey_right_arrow"
+            android:src="@mipmap/ico_arrow_grey_right"
             android:scaleType="fitXY"
             android:adjustViewBounds="true"
             android:layout_centerVertical="true"

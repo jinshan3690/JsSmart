@@ -43,7 +43,7 @@ public class NotificationUtil {
     private static void init(){
         // 设置Notification
         builder = new NotificationCompat.Builder(util.context, "DEFAULT_ID");
-        builder.setSmallIcon(R.mipmap.ic_launcher)
+        builder.setSmallIcon(R.mipmap.ico_logo)
                 .setContentTitle("通知")
                 .setContentText("这是一条消息");
 //                .setDefaults(Notification.DEFAULT_ALL);

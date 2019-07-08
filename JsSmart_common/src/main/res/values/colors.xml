@@ -5,10 +5,6 @@
     <color name="colorPrimaryDark">@color/colorRed</color>
     <color name="colorAccent">#51b2f8</color>
     <color name="statusBarColor">@color/colorPrimary</color>
-    <color name="statusBarTextColor">#333333</color>
-    <color name="colorAccent30">#3051b2f8</color>
-
-    <color name="btnTextColor">#333333</color>
 
     <color name="colorWhite">#ffffff</color>
     <color name="colorBackground">#fafafa</color>

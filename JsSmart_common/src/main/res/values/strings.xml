@@ -20,15 +20,15 @@
     <string name="request_failed">请求失败：</string>
     <string name="emoticons_supported">不支持输入表情</string>
     <string name="special_characters_supported">不能输入特殊字符</string>
-    <string name="cancel">Cancel</string>
-    <string name="sure">Sure</string>
-    <string name="confirm">Confirm</string>
-    <string name="ok">OK</string>
-    <string name="camera">Camera</string>
-    <string name="album">Album</string>
-    <string name="turn_on_flash">Turn ON flash</string>
-    <string name="gender_selection">Gender selection</string>
-    <string name="male">male</string>
-    <string name="female">female</string>
+    <string name="cancel">取消</string>
+    <string name="sure">确定</string>
+    <string name="confirm">确定</string>
+    <string name="ok">确定</string>
+    <string name="camera">相机</string>
+    <string name="album">相册</string>
+    <string name="turn_on_flash">闪光灯</string>
+    <string name="gender_selection">性别</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
 
 </resources>

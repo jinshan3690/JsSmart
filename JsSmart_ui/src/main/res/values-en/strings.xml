@@ -1,23 +1,6 @@
 <resources>
     <string name="app_name">common_ui</string>
 
-    <string name="selection_date">Selection date</string>
-    <string name="successfully_signed_up">Successfully signed up</string>
-    <string name="confirm_payment">Confirm payment</string>
-    <string name="payment_method">Payment Method</string>
-    <string name="choose_payment_method">Choose payment method</string>
-    <string name="master_card">MasterCard</string>
-    <string name="american_express">American Express</string>
-    <string name="please_enter_the_correct_phone_number">Please enter the correct phone number</string>
-    <string name="visa_credit_card">Visa credit card</string>
-    <string name="apple_pay">Apple Pay</string>
-    <string name="alipay">Alipay</string>
-    <string name="android_pay">Google Pay</string>
-    <string name="permissions">Please open permissions and try again</string>
-    <string name="search">Search</string>
-    <string name="address">Address</string>
-    <string name="search_power_bank">Search power bank</string>
-    <string name="please_enter">Please enter</string>
-    <string name="please_enter_the_correct_email_address">Please enter the correct email address</string>
-    <string name="Please_select_payment_method">Please select payment method</string>
+    <string name="please_enter">Please Enter</string>
+
 </resources>

@@ -19,12 +19,6 @@ ext {
             "cardview-v7"                              : "com.android.support:cardview-v7:${android["androidSupportSdkVersion"]}",
             "constraint-layout"                        : "com.android.support.constraint:constraint-layout:1.1.3",
 
-            // 聚合支付
-            "braintree"                           : "com.braintreepayments.api:drop-in:3.7.1",
-            // 谷歌地图
-            "googleMaps"                           : "com.google.android.gms:play-services-maps:16.1.0",
-            "googlePlaces"                           : "com.google.android.libraries.places:places:1.1.0",
-
             // 固定头listView
             "pinnedListview"                           : "de.halfbit:pinned-section-listview:1.0.0",
             // 树形listView
