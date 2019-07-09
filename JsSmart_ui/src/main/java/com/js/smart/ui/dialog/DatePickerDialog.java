@@ -19,7 +19,10 @@ import com.js.smart.common.ui.dialog.DialogBuilder;
 import com.js.smart.common.util.DateUtil;
 import com.js.smart.ui.R;
 
+import org.apache.commons.lang.StringUtils;
+
 import java.lang.reflect.Field;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by Js on 2016/6/22.
@@ -33,10 +36,19 @@ public class DatePickerDialog extends DialogBuilder<DatePickerDialog> {
     /**
      * date样式
      */
-    public Dialog showDatePickerDialog(int year, int month, int day, View.OnClickListener listener) {
+    public DatePickerDialog showDatePickerDialog(String date, View.OnClickListener listener) {
+        int year = 0, month = 0, day = 0;
+        if (StringUtils.isNotBlank(date)) {
+            if (date.length() >= 4)
+                year = Integer.valueOf(date.substring(0, 4));
+            if (date.length() >= 7)
+                month = Integer.valueOf(date.substring(date.indexOf("-") + 1, date.lastIndexOf("-")));
+            if (date.length() >= 10)
+                day = Integer.valueOf(date.substring(date.lastIndexOf("-") + 1));
+        }
         view = LayoutInflater.from(context).inflate(R.layout.dialog_date, null);
-        TextView titleTv = (TextView) view.findViewById(R.id.textView1);
-        datePicker = (DatePicker) view.findViewById(R.id.datePicker1);
+        TextView titleTv = view.findViewById(R.id.textView1);
+        datePicker = view.findViewById(R.id.datePicker1);
         titleTv.setText(title);
         if (year != 0 && month != 0 && day != 0)
             datePicker.init(year, month - 1, day, dateChangedListener);
@@ -45,8 +57,8 @@ public class DatePickerDialog extends DialogBuilder<DatePickerDialog> {
         }
         result = DateUtil.getDate(DateUtil.toTime(datePicker.getYear() + "-" + (datePicker.getMonth() + 1) + "-" + datePicker.getDayOfMonth()));
         setDatePickerDividerColor(ContextCompat.getColor(context, R.color.colorPrimary), datePicker);
-        Button rightBt = (Button) view.findViewById(R.id.btn2);
-        Button leftBt = (Button) view.findViewById(R.id.btn1);
+        Button rightBt = view.findViewById(R.id.btn2);
+        Button leftBt = view.findViewById(R.id.btn1);
         leftBt.setOnClickListener(listener);
         rightBt.setOnClickListener(listener);
         if (!TextUtils.isEmpty(leftStr)) {
@@ -55,7 +67,8 @@ public class DatePickerDialog extends DialogBuilder<DatePickerDialog> {
         if (!TextUtils.isEmpty(rightStr)) {
             rightBt.setText(rightStr);
         }
-        return setDialog(show());
+        setDialog(show());
+        return this;
     }
 
     private DatePicker datePicker;

@@ -3,13 +3,21 @@
 
     <application>
 
-        <activity android:name="com.js.smart.ui.view.StartPageActivity"/>
+        <activity android:name="com.js.smart.ui.view.StartPageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
 
-        <activity android:name="com.js.smart.ui.view.GuidePageActivity"/>
+        <activity android:name="com.js.smart.ui.view.GuidePageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
 
-        <activity android:name="com.js.smart.ui.view.WebActivity"/>
+        <activity android:name="com.js.smart.ui.view.WebActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
 
-        <activity android:name="com.js.smart.ui.view.PhotoPagerActivity"/>
+        <activity android:name="com.js.smart.ui.view.PhotoPagerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
 
     </application>
 </manifest>

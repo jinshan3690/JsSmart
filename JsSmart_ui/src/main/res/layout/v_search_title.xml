@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/lay_10"
-            android:src="@mipmap/ico_gray_left_arrow"/>
+            android:src="@mipmap/ico_arrow_gray_left"/>
 
         </RelativeLayout>
 
@@ -37,7 +37,7 @@
             android:layout_height="match_parent"
             android:layout_toRightOf="@id/titleLeft"
             app:cet_textSize="@dimen/font_14"
-            app:cet_hint="@string/search_power_bank"
+            app:cet_hint="@string/search"
             app:cet_hintColor="@color/textColorTintDark"
             app:cet_cancelIco="@mipmap/ico_close"
             app:cet_imeOptions="actionNext" />

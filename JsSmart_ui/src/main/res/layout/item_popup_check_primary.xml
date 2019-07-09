@@ -48,7 +48,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/lay_15"
-                android:background="@drawable/check_payment"
+                android:background="@drawable/check_primary"
                 android:button="@null"
                 android:clickable="false"
                 android:focusable="false" />

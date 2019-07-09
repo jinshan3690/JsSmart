@@ -38,11 +38,11 @@ public class DateTimePickerDialog extends DialogBuilder<DateTimePickerDialog> {
     /**
      * date样式
      */
-    public Dialog showDateTimePickerDialog(String date, View.OnClickListener listener) {
+    public DateTimePickerDialog showDateTimePickerDialog(String date, View.OnClickListener listener) {
         view = LayoutInflater.from(context).inflate(R.layout.dialog_date_time,null);
-        TextView titleTv = (TextView) view.findViewById(R.id.textView1);
-        datePicker = (DatePicker) view.findViewById(R.id.datePicker1);
-        timePicker = (TimePicker) view.findViewById(R.id.timePicker1);
+        TextView titleTv =  view.findViewById(R.id.textView1);
+        datePicker = view.findViewById(R.id.datePicker1);
+        timePicker = view.findViewById(R.id.timePicker1);
         timePicker.setIs24HourView(true);
         titleTv.setText(title);
         if (!TextUtils.isEmpty(date)) {
@@ -51,7 +51,7 @@ public class DateTimePickerDialog extends DialogBuilder<DateTimePickerDialog> {
             int day = Integer.valueOf(date.substring(date.lastIndexOf("-") + 1, date.indexOf(" ")));
             datePicker.init(year, month - 1, day, dateChangedListener);
             int hour = Integer.valueOf(date.substring(date.indexOf(" ") + 1, date.indexOf(":")));
-            int minute = Integer.valueOf(date.substring(date.indexOf(":") + 1, date.length()));
+            int minute = Integer.valueOf(date.substring(date.indexOf(":") + 1, date.lastIndexOf(":") == -1? date.length():date.lastIndexOf(":")));
             timePicker.setCurrentHour(hour);
             timePicker.setCurrentMinute(minute);
         } else {
@@ -63,8 +63,8 @@ public class DateTimePickerDialog extends DialogBuilder<DateTimePickerDialog> {
 
         timePicker.setOnTimeChangedListener(timeChangedListener);
         setDatePickerDividerColor(ContextCompat.getColor(context, R.color.colorPrimary), datePicker);
-        Button rightBt = (Button) view.findViewById(R.id.btn2);
-        Button leftBt = (Button) view.findViewById(R.id.btn1);
+        Button rightBt = view.findViewById(R.id.btn2);
+        Button leftBt = view.findViewById(R.id.btn1);
         leftBt.setOnClickListener(listener);
         rightBt.setOnClickListener(listener);
         if (!TextUtils.isEmpty(leftStr)) {
@@ -73,7 +73,8 @@ public class DateTimePickerDialog extends DialogBuilder<DateTimePickerDialog> {
         if (!TextUtils.isEmpty(rightStr)) {
             rightBt.setText(rightStr);
         }
-        return show();
+        setDialog(show());
+        return this;
     }
 
     private DatePicker datePicker;

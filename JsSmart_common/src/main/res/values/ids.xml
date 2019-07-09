@@ -112,6 +112,12 @@
     <item name="btn7" type="id"/>
     <item name="btn8" type="id"/>
     <item name="btn9" type="id"/>
+    <item name="btn10" type="id"/>
+    <item name="btn11" type="id"/>
+    <item name="btn12" type="id"/>
+    <item name="btn13" type="id"/>
+    <item name="btn14" type="id"/>
+    <item name="btn15" type="id"/>
 
     <item name="editText1" type="id"/>
     <item name="editText2" type="id"/>

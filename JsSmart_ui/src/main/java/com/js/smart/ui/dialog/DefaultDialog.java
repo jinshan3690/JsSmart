@@ -24,7 +24,7 @@ public class DefaultDialog extends DialogBuilder<DefaultDialog> {
     /**
      * 默认样式
      */
-    public Dialog showDefaultDialog(String content, DialogInterface.OnDismissListener listener) {
+    public DefaultDialog showDefaultDialog(String content, DialogInterface.OnDismissListener listener) {
         view = LayoutInflater.from(context).inflate(R.layout.dialog_default, null);
         ImageView titleIco = view.findViewById(R.id.imageView1);
         TextView contentTv = view.findViewById(R.id.textView2);
@@ -33,9 +33,9 @@ public class DefaultDialog extends DialogBuilder<DefaultDialog> {
         });
 
         contentTv.setText(content);
-        Dialog dialog = show();
+        setDialog(show());
         dialog.setOnDismissListener(listener);
-        return dialog;
+        return this;
     }
 
 }

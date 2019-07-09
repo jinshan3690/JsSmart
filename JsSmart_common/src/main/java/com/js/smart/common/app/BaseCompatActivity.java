@@ -53,8 +53,8 @@ public abstract class BaseCompatActivity extends RxAppCompatActivity implements
         this.view = view;
         super.setContentView(view);
         ButterKnife.bind(this);
-        acManager.changeStatusBar(view);
         initViewBefore();
+        acManager.changeStatusBar(view);
         initView();
     }
 

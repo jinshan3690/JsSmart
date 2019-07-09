@@ -41,7 +41,7 @@ public class MultiplePopupWindow extends BasePopupWindow<MultiplePopupWindow> {
         recyclerView = content.findViewById(R.id.recyclerView1);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        adapter = new MultipleAdapter(context, new ArrayList<>(), selected);
+        adapter = new MultipleAdapter(context, new ArrayList<>(), new ArrayList<>(selected));
         recyclerView.setAdapter(adapter);
 
     }
@@ -52,7 +52,7 @@ public class MultiplePopupWindow extends BasePopupWindow<MultiplePopupWindow> {
     }
 
     public MultiplePopupWindow setItems(List<String> items) {
-        adapter.setList(items);
+        adapter.setList(new ArrayList<>(items));
         return this;
     }
 

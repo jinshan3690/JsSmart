@@ -10,6 +10,8 @@ import android.os.Build;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
+import android.view.View;
+import android.widget.ZoomButtonsController;
 
 import com.js.smart.common.app.BaseCompatActivity;
 import com.js.smart.http.cookies.PersistentCookieStore;
@@ -24,6 +26,7 @@ import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -78,8 +81,9 @@ public class X5WebView extends WebView {
         webSetting.setJavaScriptEnabled(true);
         webSetting.setJavaScriptCanOpenWindowsAutomatically(true);
         webSetting.setLayoutAlgorithm(LayoutAlgorithm.NARROW_COLUMNS);
-//		webSetting.setSupportZoom(true);
+		webSetting.setSupportZoom(true);
         webSetting.setBuiltInZoomControls(true);
+        webSetting.setDisplayZoomControls(false);
         webSetting.setUseWideViewPort(true);
         webSetting.setSupportMultipleWindows(true);
         webSetting.setLoadWithOverviewMode(true);

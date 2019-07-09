@@ -26,11 +26,11 @@ public class ConfirmDialog extends DialogBuilder<ConfirmDialog> {
     }
 
 
-    public Dialog showConfirmDialog(String title, String content, View.OnClickListener listener) {
+    public ConfirmDialog showConfirmDialog(String title, String content, View.OnClickListener listener) {
         return showConfirmDialog(title, new SpannedString(content), listener);
     }
 
-    public Dialog showConfirmDialog(String title, Spanned content, View.OnClickListener listener) {
+    public ConfirmDialog showConfirmDialog(String title, Spanned content, View.OnClickListener listener) {
         view = LayoutInflater.from(context).inflate(R.layout.dialog_confirm, null);
         TextView titleTv = view.findViewById(R.id.textView1);
         TextView contentTv = view.findViewById(R.id.textView2);
@@ -51,7 +51,8 @@ public class ConfirmDialog extends DialogBuilder<ConfirmDialog> {
             rightBt.setText(rightStr);
         }
 
-        return show();
+        setDialog(show());
+        return this;
     }
 
 }

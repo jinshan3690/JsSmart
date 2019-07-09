@@ -1,5 +1,7 @@
 package com.js.smart.ui.app;
 
+import android.os.Bundle;
+
 import com.js.smart.common.app.BaseCompatActivity;
 import com.js.smart.common.util.LocalManager;
 import com.js.smart.http.AppInfo;

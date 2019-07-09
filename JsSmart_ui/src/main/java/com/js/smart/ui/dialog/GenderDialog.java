@@ -20,7 +20,7 @@ public class GenderDialog extends DialogBuilder<GenderDialog> {
         super(context);
     }
 
-    public Dialog showGenderDialog(String text, OnGenderListener listener) {
+    public GenderDialog showGenderDialog(String text, OnGenderListener listener) {
         view = LayoutInflater.from(context).inflate(R.layout.dialog_gender, null);
         RadioGroup radioGroup = view.findViewById(R.id.radioGroup1);
         RadioButton radioButton1 = view.findViewById(R.id.radioButton1);
@@ -35,7 +35,8 @@ public class GenderDialog extends DialogBuilder<GenderDialog> {
             listener.change(content);
         });
 
-        return show();
+        setDialog(show());
+        return this;
     }
 
     public interface OnGenderListener {

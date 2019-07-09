@@ -30,5 +30,6 @@
     <string name="gender_selection">性别</string>
     <string name="male">男</string>
     <string name="female">女</string>
+    <string name="search">搜索</string>
 
 </resources>

@@ -21,7 +21,7 @@ public class MessageDialog extends DialogBuilder<MessageDialog> {
         super(context);
     }
 
-    public Dialog showMessageDialog(String content, View.OnClickListener listener) {
+    public MessageDialog showMessageDialog(String content, View.OnClickListener listener) {
         view = LayoutInflater.from(context).inflate(R.layout.dialog_message, null);
         TextView contentTv = view.findViewById(R.id.textView1);
 
@@ -35,7 +35,9 @@ public class MessageDialog extends DialogBuilder<MessageDialog> {
             leftBt.setText(leftStr);
         }
 
-        return show();
+        setDialog(show());
+
+        return this;
     }
 
 }

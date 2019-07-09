@@ -10,6 +10,7 @@ import com.js.smart.common.app.adapter.BaseRecyclerAdapter;
 import com.js.smart.common.app.adapter.BaseViewHolder;
 import com.js.smart.ui.R;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -52,7 +53,23 @@ public class MultipleAdapter extends BaseRecyclerAdapter<MultipleAdapter.ItemVie
     }
 
     public List<String> getMultiple() {
-        Collections.sort(selected, new Comparator<String>() {
+
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < getItemCount(); i++) {
+            for (int j = 0; j < selected.size(); j++) {
+                if(getData(i).equals(selected.get(j))){
+                    list.add(selected.get(j));
+                    break;
+                }
+            }
+        }
+
+        return list;
+    }
+
+    @Override
+    public void setList(List<String> list) {
+        Collections.sort(list, new Comparator<String>() {
             String[] weeks = {"周一", "周二", "周三", "周四", "周五", "周六", "周日"};
 
             @Override
@@ -65,11 +82,6 @@ public class MultipleAdapter extends BaseRecyclerAdapter<MultipleAdapter.ItemVie
                 return 0;
             }
         });
-        return selected;
-    }
-
-    @Override
-    public void setList(List<String> list) {
         super.setList(list);
     }
 

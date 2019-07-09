@@ -34,24 +34,24 @@ public class TimePickerDialog extends DialogBuilder<TimePickerDialog> {
     /**
      * time样式
      */
-    public Dialog showTimePickerDialog(String time, View.OnClickListener listener) {
+    public TimePickerDialog showTimePickerDialog(String time, View.OnClickListener listener) {
         view = LayoutInflater.from(context).inflate(R.layout.dialog_time, null);
-        TextView titleTv = (TextView) view.findViewById(R.id.textView1);
-        timePicker = (TimePicker) view.findViewById(R.id.timePicker1);
+        TextView titleTv = view.findViewById(R.id.textView1);
+        timePicker = view.findViewById(R.id.timePicker1);
 
         timePicker.setOnTimeChangedListener(timeChangedListener);
         timePicker.setIs24HourView(true);
         titleTv.setText(title);
         if (!TextUtils.isEmpty(time)) {
             timePicker.setCurrentHour(Integer.valueOf(time.substring(0, time.indexOf(":"))));
-            timePicker.setCurrentMinute(Integer.valueOf(time.substring(time.indexOf(":") + 1, time.length())));
+            timePicker.setCurrentMinute(Integer.valueOf(time.substring(time.indexOf(":") + 1, time.lastIndexOf(":") == -1? time.length():time.lastIndexOf(":"))));
         } else {
             result = DateUtil.getCurrentDate("HH:mm");
         }
 
         setDatePickerDividerColor(ContextCompat.getColor(context, R.color.colorPrimary), timePicker);
-        Button rightBt = (Button) view.findViewById(R.id.btn2);
-        Button leftBt = (Button) view.findViewById(R.id.btn1);
+        Button rightBt = view.findViewById(R.id.btn2);
+        Button leftBt = view.findViewById(R.id.btn1);
         leftBt.setOnClickListener(listener);
         rightBt.setOnClickListener(listener);
         if (!TextUtils.isEmpty(leftStr)) {
@@ -60,7 +60,9 @@ public class TimePickerDialog extends DialogBuilder<TimePickerDialog> {
         if (!TextUtils.isEmpty(rightStr)) {
             rightBt.setText(rightStr);
         }
-        return show();
+        setDialog(show());
+
+        return this;
     }
 
     private TimePicker timePicker;

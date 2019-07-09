@@ -11,6 +11,7 @@ import com.js.smart.ui.R;
 import com.js.smart.ui.widget.WheelView;
 import com.js.smart.common.ui.popup.BasePopupWindow;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -47,34 +48,34 @@ public class ThreeWheelPopupWindow<T> extends BasePopupWindow<T> {
         return (T) this;
     }
 
-    public T setItemsOne(List<String> items) {
+    public ThreeWheelPopupWindow setItemsOne(List<String> items) {
         return setItemsOne(items, 0);
     }
 
-    public T setItemsOne(List<String> items, int index) {
-        wheelView1.setItems(items);
+    public ThreeWheelPopupWindow setItemsOne(List<String> items, int index) {
+        wheelView1.setItems(new ArrayList<>(items));
         wheelView1.setSeletion(index);
-        return (T) this;
+        return this;
     }
 
-    public T setItemsTwo(List<String> items) {
+    public ThreeWheelPopupWindow setItemsTwo(List<String> items) {
         return setItemsTwo(items, 0);
     }
 
-    public T setItemsTwo(List<String> items, int index) {
-        wheelView2.setItems(items);
+    public ThreeWheelPopupWindow setItemsTwo(List<String> items, int index) {
+        wheelView2.setItems(new ArrayList<>(items));
         wheelView2.setSeletion(index);
-        return (T) this;
+        return this;
     }
 
-    public T setItemsThree(List<String> items) {
+    public ThreeWheelPopupWindow setItemsThree(List<String> items) {
         return setItemsThree(items, 0);
     }
 
-    public T setItemsThree(List<String> items, int index) {
-        wheelView3.setItems(items);
+    public ThreeWheelPopupWindow setItemsThree(List<String> items, int index) {
+        wheelView3.setItems(new ArrayList<>(items));
         wheelView3.setSeletion(index);
-        return (T) this;
+        return this;
     }
 
     public String getSelectedItemOne(){

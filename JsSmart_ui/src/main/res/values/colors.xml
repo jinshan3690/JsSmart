@@ -17,5 +17,6 @@
     <color name="btnTextColor">#333333</color>
     <color name="textColor">#333333</color>
     <color name="textColorYellow">#F5A623</color>
+    <color name="textTitleColor">@color/colorWhite</color>
     <color name="editBorderColor">#AEAEAE</color>
 </resources>

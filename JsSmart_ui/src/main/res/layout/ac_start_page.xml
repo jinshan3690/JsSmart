@@ -22,6 +22,6 @@
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
-        android:src="@drawable/img_start_page"/>
+        android:src="@drawable/ico_start_page"/>
 
 </RelativeLayout>

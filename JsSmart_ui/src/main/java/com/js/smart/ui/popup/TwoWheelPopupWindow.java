@@ -10,6 +10,7 @@ import com.js.smart.ui.R;
 import com.js.smart.ui.widget.WheelView;
 import com.js.smart.common.ui.popup.BasePopupWindow;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,24 +44,24 @@ public class TwoWheelPopupWindow<T> extends BasePopupWindow<T> {
         return (T) this;
     }
 
-    public T setItemsOne(List<String> items) {
+    public TwoWheelPopupWindow setItemsOne(List<String> items) {
         return setItemsOne(items, 0);
     }
 
-    public T setItemsOne(List<String> items, int index) {
-        wheelView1.setItems(items);
+    public TwoWheelPopupWindow setItemsOne(List<String> items, int index) {
+        wheelView1.setItems(new ArrayList<>(items));
         wheelView1.setSeletion(index);
-        return (T) this;
+        return this;
     }
 
-    public T setItemsTwo(List<String> items) {
+    public TwoWheelPopupWindow setItemsTwo(List<String> items) {
         return setItemsTwo(items, 0);
     }
 
-    public T setItemsTwo(List<String> items, int index) {
-        wheelView2.setItems(items);
+    public TwoWheelPopupWindow setItemsTwo(List<String> items, int index) {
+        wheelView2.setItems(new ArrayList<>(items));
         wheelView2.setSeletion(index);
-        return (T) this;
+        return this;
     }
 
     public String getSelectedItemOne(){

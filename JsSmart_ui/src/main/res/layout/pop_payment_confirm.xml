@@ -13,7 +13,7 @@
     <ImageView
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@mipmap/ico_mini_logo"
+        android:src="@mipmap/ico_logo"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/lay_10"
         android:layout_toLeftOf="@id/refer1"/>
@@ -26,8 +26,7 @@
         android:layout_marginBottom="@dimen/lay_14"
         android:layout_centerHorizontal="true"
         android:textSize="@dimen/font_18"
-        android:textColor="@color/textColor"
-        android:text="@string/confirm_payment"/>
+        android:textColor="@color/textColor"/>
 
         <RelativeLayout
             android:id="@id/layout2"
@@ -111,7 +110,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/refer1"
             android:layout_centerVertical="true"
-            android:hint="@string/payment_method"
             android:textSize="@dimen/font_18"/>
 
         <ImageView

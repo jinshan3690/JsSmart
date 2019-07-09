@@ -24,7 +24,7 @@
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/ico_gray_left_arrow" />
+                android:src="@mipmap/ico_arrow_gray_left" />
 
         </RelativeLayout>
 
@@ -35,7 +35,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/lay_14"
             android:layout_marginBottom="@dimen/lay_14"
-            android:text="@string/choose_payment_method"
             android:textColor="@color/textColor"
             android:textSize="@dimen/font_18" />
 

@@ -16,8 +16,8 @@
 
     <string name="press_exit_again">Press exit again!</string>
     <string name="network_error">Network abnormal, please check network status!</string>
-    <string name="server_exception">Server exception!</string>
-    <string name="request_failed">request failed:</string>
+    <string name="server_exception">Server Exception!</string>
+    <string name="request_failed">Request Failed:</string>
     <string name="emoticons_supported">Emoticons are not supported</string>
     <string name="special_characters_supported">Special characters cannot be entered</string>
     <string name="cancel">Cancel</string>
@@ -26,8 +26,9 @@
     <string name="ok">OK</string>
     <string name="camera">Camera</string>
     <string name="album">Album</string>
-    <string name="turn_on_flash">Turn ON flash</string>
-    <string name="gender_selection">Gender selection</string>
-    <string name="male">male</string>
-    <string name="female">female</string>
+    <string name="turn_on_flash">Turn ON Flash</string>
+    <string name="gender_selection">Gender Selection</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="search">Search</string>
 </resources>

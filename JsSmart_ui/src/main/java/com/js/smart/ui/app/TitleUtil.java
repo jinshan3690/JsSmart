@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -61,10 +62,14 @@ public class TitleUtil implements View.OnClickListener {
                 rightTv = layout.findViewById(R.id.titleRightText);
                 leftTv = layout.findViewById(R.id.titleLeftText);
                 if (right != null && left != null) {
-                    leftHeadIv.setVisibility(View.INVISIBLE);
-                    leftIv.setVisibility(View.INVISIBLE);
-                    leftTv.setVisibility(View.INVISIBLE);
-                    rightTv.setVisibility(View.INVISIBLE);
+                    leftHeadIv.setVisibility(View.GONE);
+                    leftIv.setVisibility(View.GONE);
+                    leftTv.setVisibility(View.GONE);
+                    rightTv.setVisibility(View.GONE);
+                    rightTv.setVisibility(View.GONE);
+                    rightIv.setVisibility(View.GONE);
+                    titleIv.setVisibility(View.GONE);
+                    titleTv.setVisibility(View.GONE);
                 }
             }
         } catch (NoSuchFieldError e) {
@@ -89,20 +94,26 @@ public class TitleUtil implements View.OnClickListener {
         return this;
     }
 
+    public TitleUtil setTitleSrc(int drawable) {
+        titleIv.setImageDrawable(context.getResources().getDrawable(drawable));
+        titleIv.setVisibility(View.VISIBLE);
+        titleTv.setVisibility(View.GONE);
+        return this;
+    }
+
     /**
      * 设置left图片
      */
     public TitleUtil setLeftSrc(Drawable drawable) {
         leftIv.setImageDrawable(drawable);
         leftTv.setVisibility(View.GONE);
-        left.setVisibility(View.VISIBLE);
         return this;
     }
 
     public TitleUtil setLeftSrc(int id) {
         leftIv.setImageResource(id);
         leftTv.setVisibility(View.GONE);
-        left.setVisibility(View.VISIBLE);
+        leftIv.setVisibility(View.VISIBLE);
         return this;
     }
 
@@ -110,7 +121,6 @@ public class TitleUtil implements View.OnClickListener {
         leftHeadIv.setImageResource(id);
         leftTv.setVisibility(View.GONE);
         leftHeadIv.setVisibility(View.VISIBLE);
-        left.setVisibility(View.VISIBLE);
         return this;
     }
 
@@ -140,14 +150,13 @@ public class TitleUtil implements View.OnClickListener {
     public TitleUtil setRightSrc(Drawable drawable) {
         rightIv.setImageDrawable(drawable);
         rightTv.setVisibility(View.GONE);
-        right.setVisibility(View.VISIBLE);
         return this;
     }
 
     public TitleUtil setRightSrc(int id) {
         rightIv.setImageResource(id);
         rightTv.setVisibility(View.GONE);
-        right.setVisibility(View.VISIBLE);
+        rightIv.setVisibility(View.VISIBLE);
         return this;
     }
 
@@ -174,6 +183,7 @@ public class TitleUtil implements View.OnClickListener {
 
     public TitleUtil setDefaultLeftClick() {
         left.setOnClickListener(this);
+        leftIv.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
         leftIv.setVisibility(View.VISIBLE);
         return this;
     }
