@@ -81,7 +81,7 @@ public class TwoWheelPopupWindow<T> extends BasePopupWindow<T> {
             threeWheelListener.item(getSelectedItemOne(), getSelectedItemTwo());
             windowUtil.dismiss();
         });
-        return windowUtil.setObscure().showAtLocation(gravity, x, y);
+        return show(gravity, x, y);
     }
 
     public interface ThreeWheelPopupListener {

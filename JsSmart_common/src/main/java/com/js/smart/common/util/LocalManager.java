@@ -24,7 +24,7 @@ public class LocalManager {
 
     private Context context;
     private static LocalManager manager;
-    private static String appName;
+    private static String appName = android.R.class.getPackage().getName();
     //默认的共享参数名字
     private static String DEFAULT_PARAMETER_NAME = appName;
     private static String DEFAULT_PARAMETER_NAME_TEMP = appName + ".temp";
@@ -40,7 +40,6 @@ public class LocalManager {
 
     private LocalManager(Context context) {
         this.context = context;
-        appName = context.getApplicationInfo().packageName;
     }
 
     public static LocalManager getInstance(Context context) {

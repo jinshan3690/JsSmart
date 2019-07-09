@@ -1,13 +1,11 @@
 package com.js.smart.ui.dialog;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.FrameLayout;
@@ -16,6 +14,7 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.js.smart.common.app.AntiShakeOnClickListener;
 import com.js.smart.common.ui.dialog.DialogBuilder;
 import com.js.smart.common.util.DateUtil;
 import com.js.smart.ui.R;
@@ -38,7 +37,7 @@ public class DateTimePickerDialog extends DialogBuilder<DateTimePickerDialog> {
     /**
      * date样式
      */
-    public DateTimePickerDialog showDateTimePickerDialog(String date, View.OnClickListener listener) {
+    public DateTimePickerDialog showDateTimePickerDialog(String date, AntiShakeOnClickListener listener) {
         view = LayoutInflater.from(context).inflate(R.layout.dialog_date_time,null);
         TextView titleTv =  view.findViewById(R.id.textView1);
         datePicker = view.findViewById(R.id.datePicker1);

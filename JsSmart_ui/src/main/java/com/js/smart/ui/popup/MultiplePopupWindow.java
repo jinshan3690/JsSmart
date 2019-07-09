@@ -69,7 +69,7 @@ public class MultiplePopupWindow extends BasePopupWindow<MultiplePopupWindow> {
             multiplePopupListener.item(getMultiple());
             windowUtil.dismiss();
         });
-        return windowUtil.setObscure().showAtLocation(gravity, x, y);
+        return show(gravity, x, y);
     }
 
     public interface MultiplePopupListener {

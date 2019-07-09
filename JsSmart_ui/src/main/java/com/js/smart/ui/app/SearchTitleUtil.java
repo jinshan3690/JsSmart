@@ -6,12 +6,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.js.smart.common.app.AntiShakeOnClickListener;
 import com.js.smart.common.app.BaseCompatActivity;
 import com.js.smart.ui.R;
 import com.js.smart.ui.widget.CancelEditText;
 
 
-public class SearchTitleUtil implements View.OnClickListener {
+public class SearchTitleUtil extends AntiShakeOnClickListener {
 
     private BaseCompatActivity context;
     private View view;
@@ -78,18 +79,18 @@ public class SearchTitleUtil implements View.OnClickListener {
     /**
      * 设置监听
      */
-    public SearchTitleUtil setLeftOnRightClick(View.OnClickListener listener) {
+    public SearchTitleUtil setLeftOnRightClick(AntiShakeOnClickListener listener) {
         titleRight.setOnClickListener(listener);
         titleLeft.setOnClickListener(listener);
         return this;
     }
 
-    public SearchTitleUtil setRightClick(View.OnClickListener listener) {
+    public SearchTitleUtil setRightClick(AntiShakeOnClickListener listener) {
         titleRight.setOnClickListener(listener);
         return this;
     }
 
-    public SearchTitleUtil setLeftClick(View.OnClickListener listener) {
+    public SearchTitleUtil setLeftClick(AntiShakeOnClickListener listener) {
         titleLeft.setOnClickListener(listener);
         return this;
     }
@@ -134,7 +135,7 @@ public class SearchTitleUtil implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View v) {
+    protected void antiShakeOnClick(View v) {
         int i = v.getId();
         if (i == R.id.titleLeft) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

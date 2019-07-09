@@ -1,13 +1,11 @@
 package com.js.smart.ui.dialog;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.FrameLayout;
@@ -15,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
+import com.js.smart.common.app.AntiShakeOnClickListener;
 import com.js.smart.common.ui.dialog.DialogBuilder;
 import com.js.smart.common.util.DateUtil;
 import com.js.smart.ui.R;
@@ -22,7 +21,6 @@ import com.js.smart.ui.R;
 import org.apache.commons.lang.StringUtils;
 
 import java.lang.reflect.Field;
-import java.text.SimpleDateFormat;
 
 /**
  * Created by Js on 2016/6/22.
@@ -36,7 +34,7 @@ public class DatePickerDialog extends DialogBuilder<DatePickerDialog> {
     /**
      * date样式
      */
-    public DatePickerDialog showDatePickerDialog(String date, View.OnClickListener listener) {
+    public DatePickerDialog showDatePickerDialog(String date, AntiShakeOnClickListener listener) {
         int year = 0, month = 0, day = 0;
         if (StringUtils.isNotBlank(date)) {
             if (date.length() >= 4)

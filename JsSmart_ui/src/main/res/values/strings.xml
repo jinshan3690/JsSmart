@@ -2,5 +2,6 @@
     <string name="app_name">JsSmartUI</string>
 
     <string name="please_enter">请输入</string>
+    <string name="permissions">请打开权限后重试</string>
 
 </resources>

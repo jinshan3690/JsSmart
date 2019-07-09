@@ -118,6 +118,11 @@
     <item name="btn13" type="id"/>
     <item name="btn14" type="id"/>
     <item name="btn15" type="id"/>
+    <item name="btn16" type="id"/>
+    <item name="btn17" type="id"/>
+    <item name="btn18" type="id"/>
+    <item name="btn19" type="id"/>
+    <item name="btn20" type="id"/>
 
     <item name="editText1" type="id"/>
     <item name="editText2" type="id"/>
