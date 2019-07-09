@@ -13,6 +13,8 @@ import com.js.smart.http.HttpApp;
 
 public class UIApp extends HttpApp {
 
+    public static String BaseUrl = "";
+
     @Override
     public void onCreate() {
         super.onCreate();

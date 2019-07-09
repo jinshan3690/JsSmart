@@ -8,7 +8,7 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.js.smart.http.R;
-import com.js.smart.http.bean.RespMsg;
+import com.js.smart.http.bean.BaseResp;
 import com.js.smart.http.exception.HttpException;
 import com.js.smart.common.util.L;
 import com.js.smart.common.util.ReceiverManager;
@@ -45,7 +45,7 @@ public abstract class HttpResult<Y> extends DisposableObserver<Y> {
     @Override
     public void onError(Throwable e) {
         String message = e.getMessage();
-        int code = -999;
+        int code;
         HttpException httpException;
 
         if (e instanceof HttpException) {
@@ -74,7 +74,7 @@ public abstract class HttpResult<Y> extends DisposableObserver<Y> {
                 try {
                     message = httpException1.response().errorBody().string();
 
-                    RespMsg respMsg = new Gson().fromJson(message, RespMsg.class);
+                    BaseResp<String> respMsg = new Gson().fromJson(message, BaseResp.class);
                     T.showError(respMsg.getMessage());
                 } catch (Exception e1) {
                     L.e("appHttp", context.getResources().getString(R.string.request_failed)+ message);

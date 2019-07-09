@@ -7,12 +7,10 @@ import com.google.gson.Gson;
 import com.js.smart.ui.UIApp;
 import com.js.smart.common.init.strategy.InitTask;
 import com.js.smart.common.util.L;
-import com.js.smart.http.config.CheckUpdate;
 import com.js.smart.http.config.factory.GsonConverterFactory;
 import com.google.gson.GsonBuilder;
-import com.js.smart.http.HttpConfig;
 import com.js.smart.http.cookies.CookiesManager;
-import com.js.smart.http.gson.StringTypeAdaptor;
+import com.js.smart.http.gson.StringTypeAdapter;
 import com.js.smart.http.interceptor.HeaderInterceptor;
 import com.js.smart.http.interceptor.ParameterInterceptor;
 import com.squareup.leakcanary.LeakCanary;
@@ -43,16 +41,14 @@ public class UIInitTask implements InitTask {
 
         initHttp(context);
 
-        UIApp.checkUpdate = CheckUpdate.getInstance(context);
-
     }
 
     private void initHttp(Context context) {
-        RetrofitUrlManager.getInstance().setGlobalDomain(HttpConfig.BaseUrl);
+        RetrofitUrlManager.getInstance().setGlobalDomain(UIApp.BaseUrl);
 //        RetrofitUrlManager.getInstance().putDomain("douban", "https://api.douban.com");
 
         UIApp.gson = new GsonBuilder()
-                .registerTypeAdapter(String.class, new StringTypeAdaptor())
+                .registerTypeAdapter(String.class, new StringTypeAdapter())
                 .create();
 
         File httpCacheDirectory = new File(context.getCacheDir(), "httpCache");
@@ -73,14 +69,14 @@ public class UIInitTask implements InitTask {
                 .build();
 
         UIApp.retrofit = new Retrofit.Builder().
-                baseUrl(HttpConfig.BaseUrl).
+                baseUrl(UIApp.BaseUrl).
                 addConverterFactory(GsonConverterFactory.create(UIApp.gson)).
                 addCallAdapterFactory(RxJava2CallAdapterFactory.create()).
                 client(UIApp.client).
                 build();
 
         UIApp.retrofitSDK = new Retrofit.Builder().
-                baseUrl(HttpConfig.BaseUrl).
+                baseUrl(UIApp.BaseUrl).
                 addConverterFactory(retrofit2.converter.gson.GsonConverterFactory.create(new Gson())).
                 addCallAdapterFactory(RxJava2CallAdapterFactory.create()).
                 client(UIApp.client).

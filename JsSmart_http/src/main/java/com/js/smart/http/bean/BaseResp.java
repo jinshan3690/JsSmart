@@ -8,6 +8,8 @@ public class BaseResp<T> implements Serializable {
 
     private T data;
 
+    private String message;
+
     public int getCode() {
         return code;
     }
@@ -22,5 +24,13 @@ public class BaseResp<T> implements Serializable {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

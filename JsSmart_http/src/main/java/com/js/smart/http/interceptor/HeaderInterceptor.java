@@ -17,15 +17,24 @@ import okhttp3.Response;
  */
 public class HeaderInterceptor implements Interceptor {
 
+    public static String[] headers;
+    public static String[] values;
+
+    public static void setHeaders(String[] headers, String[] values) {
+        HeaderInterceptor.headers = headers;
+        HeaderInterceptor.values = values;
+    }
+
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request oldRequest = chain.request();
 
         // 新的请求
-        String token = LocalManager.getInstance().getShareString("token");
         Request.Builder builder = oldRequest.newBuilder();
-        if (StringUtils.isNotBlank(token)) {
-            builder.addHeader("req_token", token);
+        if (headers != null && headers.length > 0) {
+            for (int i = 0; i < headers.length; i++) {
+                builder.addHeader(headers[i], values[i]);
+            }
         }
         Request newRequest = builder.build();
 

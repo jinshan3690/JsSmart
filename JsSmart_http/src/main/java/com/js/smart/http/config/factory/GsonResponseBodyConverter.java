@@ -2,7 +2,6 @@ package com.js.smart.http.config.factory;
 
 
 import com.js.smart.http.bean.BaseResp;
-import com.js.smart.http.bean.RespMsg;
 import com.js.smart.http.exception.HttpException;
 import com.js.smart.common.util.ReflectUtil;
 import com.google.gson.Gson;
@@ -34,7 +33,7 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
 
             L.e("appHttp", ":Response " + type.toString() + " = " + response);
             try {
-                RespMsg t = new Gson().fromJson(response, RespMsg.class);
+                BaseResp<String> t = new Gson().fromJson(response, BaseResp.class);
 
                 if (t.getCode() != 200) {
                     throw new HttpException(t.getMessage(), t.getCode());
