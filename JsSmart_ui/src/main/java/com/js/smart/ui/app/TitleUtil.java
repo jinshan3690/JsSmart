@@ -8,12 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.js.smart.common.app.AntiShakeOnClickListener;
+import com.js.smart.common.app.BaseCompatActivity;
 import com.js.smart.ui.R;
 import com.js.smart.ui.widget.CircleImageView;
-import com.js.smart.common.app.BaseCompatActivity;
 
 
-public class TitleUtil implements View.OnClickListener {
+public class TitleUtil extends AntiShakeOnClickListener {
 
     private BaseCompatActivity context;
     private View view;
@@ -163,7 +164,7 @@ public class TitleUtil implements View.OnClickListener {
     /**
      * 设置监听
      */
-    public TitleUtil setLeftOnRightClick(View.OnClickListener listener) {
+    public TitleUtil setLeftOnRightClick(AntiShakeOnClickListener listener) {
         right.setOnClickListener(listener);
         left.setOnClickListener(listener);
         rightTv.setVisibility(View.VISIBLE);
@@ -171,12 +172,12 @@ public class TitleUtil implements View.OnClickListener {
         return this;
     }
 
-    public TitleUtil setRightClick(View.OnClickListener listener) {
+    public TitleUtil setRightClick(AntiShakeOnClickListener listener) {
         right.setOnClickListener(listener);
         return this;
     }
 
-    public TitleUtil setLeftClick(View.OnClickListener listener) {
+    public TitleUtil setLeftClick(AntiShakeOnClickListener listener) {
         left.setOnClickListener(listener);
         return this;
     }
@@ -240,7 +241,7 @@ public class TitleUtil implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View v) {
+    protected void antiShakeOnClick(View v) {
         int i = v.getId();
         if (i == R.id.titleLeft) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

@@ -1,13 +1,11 @@
 package com.js.smart.ui.dialog;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -15,6 +13,7 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.js.smart.common.app.AntiShakeOnClickListener;
 import com.js.smart.common.ui.dialog.DialogBuilder;
 import com.js.smart.common.util.DateUtil;
 import com.js.smart.ui.R;
@@ -34,7 +33,7 @@ public class TimePickerDialog extends DialogBuilder<TimePickerDialog> {
     /**
      * time样式
      */
-    public TimePickerDialog showTimePickerDialog(String time, View.OnClickListener listener) {
+    public TimePickerDialog showTimePickerDialog(String time, AntiShakeOnClickListener listener) {
         view = LayoutInflater.from(context).inflate(R.layout.dialog_time, null);
         TextView titleTv = view.findViewById(R.id.textView1);
         timePicker = view.findViewById(R.id.timePicker1);

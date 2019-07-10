@@ -1,13 +1,12 @@
 package com.js.smart.ui.dialog;
 
 
-import android.app.Dialog;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.TextView;
 
+import com.js.smart.common.app.AntiShakeOnClickListener;
 import com.js.smart.common.ui.dialog.DialogBuilder;
 import com.js.smart.ui.R;
 
@@ -21,7 +20,7 @@ public class MessageDialog extends DialogBuilder<MessageDialog> {
         super(context);
     }
 
-    public MessageDialog showMessageDialog(String content, View.OnClickListener listener) {
+    public MessageDialog showMessageDialog(String content, AntiShakeOnClickListener listener) {
         view = LayoutInflater.from(context).inflate(R.layout.dialog_message, null);
         TextView contentTv = view.findViewById(R.id.textView1);
 

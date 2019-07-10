@@ -44,13 +44,8 @@ public class ImageUtil {
     public static Uri imageUri;
 
     // 图片保存路径
-    public static String imagePath;
-    public static String imageCache;
-
-    public static void init(Context context){
-        imagePath = Environment.getExternalStorageDirectory().getPath() + File.separator + context.getApplicationInfo().packageName + "/image";
-        imageCache = Environment.getExternalStorageDirectory().getPath() + File.separator + context.getApplicationInfo().packageName + "/image/cache";
-    }
+    public static String imagePath = Environment.getExternalStorageDirectory().getPath() + File.separator + android.R.class.getPackage().getName() + "/image";
+    public static String imageCache = Environment.getExternalStorageDirectory().getPath() + File.separator + android.R.class.getPackage().getName() + "/image/cache";
 
     /**
      * 选择相册照片

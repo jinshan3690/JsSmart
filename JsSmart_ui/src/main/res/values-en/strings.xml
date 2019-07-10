@@ -2,5 +2,6 @@
     <string name="app_name">common_ui</string>
 
     <string name="please_enter">Please Enter</string>
+    <string name="permissions">Please open permissions and try again</string>
 
 </resources>

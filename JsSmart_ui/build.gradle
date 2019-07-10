@@ -18,7 +18,7 @@ android {
 
     sourceSets {
         main {
-            if (rootProject.ext.moduleCommonUi) {
+            if (rootProject.ext.moduleJsSmartUi) {
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'

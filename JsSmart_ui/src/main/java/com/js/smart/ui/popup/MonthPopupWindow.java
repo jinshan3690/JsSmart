@@ -96,7 +96,7 @@ public class MonthPopupWindow extends TwoWheelPopupWindow<MonthPopupWindow> {
             listener.item(getSelectedItemOne(), getSelectedItemTwo());
             windowUtil.dismiss();
         });
-        return windowUtil.setObscure().showAtLocation(Gravity.BOTTOM, 0, 0);
+        return show(Gravity.BOTTOM, 0, 0);
     }
 
     public interface MonthPopupListener {

@@ -50,11 +50,15 @@ public class PopupWindowUtil {
      * 显示的位置
      */
     public PopupWindow showAtLocation(int gravity, int x, int y) {
+        if (AntiShakeUtils.isInvalidClick(parent))
+            return null;
         window.showAtLocation(parent, gravity, x, y);
         return window;
     }
 
     public PopupWindow showAsDropDown(int x, int y) {
+        if (AntiShakeUtils.isInvalidClick(parent))
+            return null;
         window.showAsDropDown(parent, x, y);
         return window;
     }

@@ -5,6 +5,7 @@ import android.support.annotation.LayoutRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupWindow;
 
 import com.js.smart.common.R;
 import com.js.smart.common.util.PopupWindowUtil;
@@ -26,6 +27,10 @@ public class BasePopupWindow<T> {
 
     public T setTitle(String title){
         return (T) this;
+    }
+
+    public PopupWindow show(int gravity, int x, int y){
+        return windowUtil.setObscure().showAtLocation(gravity, x, y);
     }
 
 }

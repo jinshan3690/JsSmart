@@ -26,12 +26,13 @@ import android.view.ViewGroup.LayoutParams;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bumptech.glide.Glide;
+import com.github.chrisbanes.photoview.PhotoView;
+import com.js.smart.common.app.AntiShakeOnClickListener;
 import com.js.smart.ui.R;
 import com.js.smart.ui.R2;
 import com.js.smart.ui.UIRoute;
 import com.js.smart.ui.app.UIBaseActivity;
 import com.js.smart.ui.widget.Indicator;
-import com.github.chrisbanes.photoview.PhotoView;
 
 import java.io.File;
 
@@ -59,11 +60,14 @@ public class PhotoPagerActivity extends UIBaseActivity {
     public void initView() {
         titleUtil.setDefaultLeftClick();
 
-        titleUtil.setRightText(getIntent().getStringExtra("titleRight")).setRightClick(view -> {
-            Intent intent = getIntent();
-            intent.putExtra("position",current);
-            setResult(RESULT_OK, intent);
-            finish();
+        titleUtil.setRightText(getIntent().getStringExtra("titleRight")).setRightClick(new AntiShakeOnClickListener() {
+            @Override
+            protected void antiShakeOnClick(View v) {
+                Intent intent = getIntent();
+                intent.putExtra("position",current);
+                setResult(RESULT_OK, intent);
+                finish();
+            }
         });
 
         titleUtil.setTitle(1 +"/"+images.length);

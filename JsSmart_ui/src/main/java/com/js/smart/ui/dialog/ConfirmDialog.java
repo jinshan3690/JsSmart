@@ -1,7 +1,6 @@
 package com.js.smart.ui.dialog;
 
 
-import android.app.Dialog;
 import android.content.Context;
 import android.text.Spanned;
 import android.text.SpannedString;
@@ -10,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.js.smart.common.app.AntiShakeOnClickListener;
 import com.js.smart.common.ui.dialog.DialogBuilder;
 import com.js.smart.ui.R;
 
@@ -26,11 +26,11 @@ public class ConfirmDialog extends DialogBuilder<ConfirmDialog> {
     }
 
 
-    public ConfirmDialog showConfirmDialog(String title, String content, View.OnClickListener listener) {
+    public ConfirmDialog showConfirmDialog(String title, String content, AntiShakeOnClickListener listener) {
         return showConfirmDialog(title, new SpannedString(content), listener);
     }
 
-    public ConfirmDialog showConfirmDialog(String title, Spanned content, View.OnClickListener listener) {
+    public ConfirmDialog showConfirmDialog(String title, Spanned content, AntiShakeOnClickListener listener) {
         view = LayoutInflater.from(context).inflate(R.layout.dialog_confirm, null);
         TextView titleTv = view.findViewById(R.id.textView1);
         TextView contentTv = view.findViewById(R.id.textView2);

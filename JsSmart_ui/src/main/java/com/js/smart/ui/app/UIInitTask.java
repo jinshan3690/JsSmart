@@ -4,13 +4,13 @@ import android.app.Application;
 import android.content.Context;
 
 import com.google.gson.Gson;
+import com.js.smart.http.gson.StringTypeAdapter;
 import com.js.smart.ui.UIApp;
 import com.js.smart.common.init.strategy.InitTask;
 import com.js.smart.common.util.L;
 import com.js.smart.http.config.factory.GsonConverterFactory;
 import com.google.gson.GsonBuilder;
 import com.js.smart.http.cookies.CookiesManager;
-import com.js.smart.http.gson.StringTypeAdapter;
 import com.js.smart.http.interceptor.HeaderInterceptor;
 import com.js.smart.http.interceptor.ParameterInterceptor;
 import com.squareup.leakcanary.LeakCanary;

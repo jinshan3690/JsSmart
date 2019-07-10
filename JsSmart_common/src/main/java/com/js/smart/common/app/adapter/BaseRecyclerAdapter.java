@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.js.smart.common.app.AntiShakeOnClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,9 +71,9 @@ public abstract class BaseRecyclerAdapter<Y extends BaseViewHolder, T extends Ob
     }
 
     protected void setOnClickListener(final View view, final int position) {
-        view.setOnClickListener(new View.OnClickListener() {
+        view.setOnClickListener(new AntiShakeOnClickListener() {
             @Override
-            public void onClick(View v) {
+            protected void antiShakeOnClick(View v) {
                 if (itemClickListener != null)
                     itemClickListener.OnItemClick(view, position);
             }

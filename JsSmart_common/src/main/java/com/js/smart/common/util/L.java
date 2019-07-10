@@ -5,7 +5,7 @@ import android.util.Log;
 //Logcat统一管理类
 public class L {
 
-    static String TAG = "Qmx Log";
+    static String TAG = "JsSmart Log";
     static String className;
     static String methodName;
     static int lineNumber;
