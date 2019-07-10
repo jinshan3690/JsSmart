@@ -67,9 +67,6 @@ public abstract class CommonApp extends BaseApplication {
         }
         ARouter.init(this);
 
-        //设置语言
-        LanguageManage.changeLanguage(2);
-
     }
 
     protected abstract void init();
