@@ -45,7 +45,6 @@ public class UIInitTask implements InitTask {
 
     private void initHttp(Context context) {
         RetrofitUrlManager.getInstance().setGlobalDomain(UIApp.BaseUrl);
-//        RetrofitUrlManager.getInstance().putDomain("douban", "https://api.douban.com");
 
         UIApp.gson = new GsonBuilder()
                 .registerTypeAdapter(String.class, new StringTypeAdapter())
