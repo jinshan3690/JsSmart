@@ -28,7 +28,9 @@
             android:id="@+id/titleLeftHeadImage"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_margin="@dimen/lay_10"
+            android:layout_marginLeft="@dimen/lay_10"
+            android:layout_marginTop="@dimen/lay_3"
+            android:layout_marginBottom="@dimen/lay_3"
             android:src="@mipmap/ico_default"/>
 
         <TextView

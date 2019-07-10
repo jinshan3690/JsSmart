@@ -228,6 +228,62 @@ public class AcManager {
     /**
      * 跳转方法
      */
+    public static void toActivity(Context context, String url) {
+        ARouter.getInstance().build(url).navigation(context);
+    }
+
+    public static void toActivity(Context context, String url, AcAnimInterface animInterface) {
+        ARouter.getInstance().build(url).withTransition(animInterface.enterAnim(), animInterface.exitAnim()).navigation(context);
+    }
+
+    public static void toActivity(Context context, String url, ActivityOptionsCompat compat) {
+        ARouter.getInstance()
+                .build(url)
+                .withOptionsCompat(compat).navigation(context);
+    }
+
+    public static void toActivityForResult(Activity context, String url, int request) {
+        ARouter.getInstance().build(url).navigation(context, request);
+    }
+
+    public static void toActivityForResult(Activity context, String url, AcAnimInterface animInterface, int request) {
+        ARouter.getInstance().build(url).withTransition(animInterface.enterAnim(), animInterface.exitAnim()).navigation(context, request);
+    }
+
+    public static void toActivityForResult(Activity context, String url, ActivityOptionsCompat compat, int request) {
+        ARouter.getInstance()
+                .build(url)
+                .withOptionsCompat(compat).navigation(context, request);
+    }
+
+    public static void toActivity(String url, LoadDataDoneCallback callback) {
+        Postcard postcard = ARouter.getInstance().build(url);
+        if (callback != null)
+            callback.done(postcard);
+    }
+
+    public static void toActivity(String url, AcAnimInterface animInterface, LoadDataDoneCallback callback) {
+        Postcard postcard = ARouter.getInstance().build(url).withTransition(animInterface.enterAnim(), animInterface.exitAnim());
+        if (callback != null)
+            callback.done(postcard);
+    }
+
+    public static void toActivity(String url, ActivityOptionsCompat compat, LoadDataDoneCallback callback) {
+        Postcard postcard = ARouter.getInstance()
+                .build(url)
+                .withOptionsCompat(compat);
+        if (callback != null)
+            callback.done(postcard);
+    }
+
+    public static ActivityOptionsCompat getCompat(Activity context, View v, String target) {
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(context, v, target);
+        return options;
+    }
+
+    /**
+     * 防抖
+     */
     public static void toActivity(Context context, View v, String url) {
         if (v != null && AntiShakeUtils.isInvalidClick(v))
             return;
@@ -292,11 +348,6 @@ public class AcManager {
                 .withOptionsCompat(compat);
         if (callback != null)
             callback.done(postcard);
-    }
-
-    public static ActivityOptionsCompat getCompat(Activity context, View v, String target) {
-        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(context, v, target);
-        return options;
     }
 
     public interface LoadDataDoneCallback {

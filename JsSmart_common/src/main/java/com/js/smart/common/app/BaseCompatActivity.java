@@ -86,6 +86,50 @@ public abstract class BaseCompatActivity extends RxAppCompatActivity implements
     /**
      * 跳转
      */
+    public void toActivity(String url) {
+        AcManager.toActivity(context, url);
+    }
+
+    public void toActivity(String url, AcAnimInterface animInterface) {
+        AcManager.toActivity(context, url, animInterface);
+    }
+
+    public void toActivity(String url, ActivityOptionsCompat compat) {
+        AcManager.toActivity(context, url, compat);
+    }
+
+    public void toActivityForResult(String url, int request) {
+        AcManager.toActivityForResult(context, url, request);
+    }
+
+    public void toActivityForResult(String url, AcAnimInterface animInterface, int request) {
+        AcManager.toActivityForResult(context, url, animInterface, request);
+    }
+
+    public void toActivityForResult(String url, ActivityOptionsCompat compat, int request) {
+        AcManager.toActivityForResult(context, url, compat, request);
+    }
+
+    public void toActivityForData(String url, AcManager.LoadDataDoneCallback callback) {
+        AcManager.toActivity(url, callback);
+    }
+
+    public void toActivityForData(String url, AcAnimInterface animInterface, AcManager.LoadDataDoneCallback callback) {
+        AcManager.toActivity(url, animInterface, callback);
+    }
+
+    public void toActivityForData(String url, ActivityOptionsCompat compat, AcManager.LoadDataDoneCallback callback) {
+        AcManager.toActivity(url, compat, callback);
+    }
+
+    public ActivityOptionsCompat getCompat(View v, String target) {
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(context, v, target);
+        return options;
+    }
+
+    /**
+     * 跳转 防抖
+     */
     public void toActivity(View v, String url) {
         AcManager.toActivity(context, v, url);
     }
@@ -120,11 +164,6 @@ public abstract class BaseCompatActivity extends RxAppCompatActivity implements
 
     public void toActivityForData(View v, String url, ActivityOptionsCompat compat, AcManager.LoadDataDoneCallback callback) {
         AcManager.toActivity(v, url, compat, callback);
-    }
-
-    public ActivityOptionsCompat getCompat(View v, String target) {
-        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(context, v, target);
-        return options;
     }
 
     @Override
