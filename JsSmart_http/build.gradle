@@ -16,6 +16,11 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(':JsSmart_common')
+    annotationProcessor rootProject.ext.dependencies["annotationProcessor-arouter"]
+    annotationProcessor rootProject.ext.dependencies["annotationProcessor-butterknife"]
+    annotationProcessor rootProject.ext.dependencies["annotationProcessor-permissionsdispatcher"]
     annotationProcessor rootProject.ext.dependencies["annotationProcessor-glide"]
+
+    implementation project(':JsSmart_common')
+
 }

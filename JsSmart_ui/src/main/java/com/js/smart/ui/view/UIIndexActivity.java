@@ -22,6 +22,7 @@ import com.js.smart.common.util.ImageUtil;
 import com.js.smart.common.util.L;
 import com.js.smart.common.util.PopupWindowUtil;
 import com.js.smart.common.util.T;
+import com.js.smart.http.result.HttpResult;
 import com.js.smart.ui.R;
 import com.js.smart.ui.R2;
 import com.js.smart.ui.UIRoute;
@@ -94,6 +95,7 @@ public class UIIndexActivity extends UIBaseActivity {
         menu.findViewById(R.id.textView1).setOnClickListener(imageClickListener);
         menu.findViewById(R.id.textView2).setOnClickListener(imageClickListener);
         menu.findViewById(R.id.textView3).setOnClickListener(imageClickListener);
+
     }
 
     /**

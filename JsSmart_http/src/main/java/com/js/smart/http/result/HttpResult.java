@@ -26,7 +26,7 @@ import io.reactivex.observers.DisposableObserver;
  */
 public abstract class HttpResult<Y> extends DisposableObserver<Y> {
 
-    private Context context;
+    protected Context context;
 
     protected HttpResult(Context context) {
         this.context = context;
@@ -57,14 +57,14 @@ public abstract class HttpResult<Y> extends DisposableObserver<Y> {
         } else if (e instanceof ConnectException || e instanceof SocketTimeoutException) {
             message = context.getResources().getString(R.string.network_error);
 
-            code = -98;
+            code = -998;
             T.showWarning(message);
         }else if(e instanceof retrofit2.HttpException){
             retrofit2.HttpException httpException1 = (retrofit2.HttpException) e;
             code = httpException1.code();
             if(code == 500){
-                message = "服务器异常";
-                code = -97;
+                message = context.getResources().getString(R.string.server_exception);
+                code = -997;
                 T.showError(message);
             }else if (code == 401) {
                 L.e("appHttp", context.getResources().getString(R.string.request_failed)+ message);
@@ -86,7 +86,7 @@ public abstract class HttpResult<Y> extends DisposableObserver<Y> {
         } else {
             message = e.getMessage();
             e.printStackTrace();
-            code = -96;
+            code = -996;
         }
         L.e("appHttp", context.getResources().getString(R.string.request_failed)+ message);
         onError(code ,message);
