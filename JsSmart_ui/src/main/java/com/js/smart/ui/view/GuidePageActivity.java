@@ -72,7 +72,7 @@ public class GuidePageActivity extends UIBaseActivity {
                             if (StringUtils.isBlank(nextRoute)) {
                                 nextRoute = UIRoute.ui_index;
                             }
-                            toActivity(view, nextRoute, AcAnimFast.get());
+                            toActivity(nextRoute, AcAnimFast.get());
                             finish();
                         }
                         downX = 0;

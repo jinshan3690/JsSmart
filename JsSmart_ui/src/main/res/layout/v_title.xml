@@ -18,7 +18,8 @@
         <ImageView
             android:id="@+id/titleLeftImage"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
+            android:maxHeight="30dp"
             android:scaleType="fitXY"
             android:adjustViewBounds="true"
             android:layout_margin="@dimen/lay_10"
@@ -29,8 +30,8 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginLeft="@dimen/lay_10"
-            android:layout_marginTop="@dimen/lay_3"
-            android:layout_marginBottom="@dimen/lay_3"
+            android:layout_marginTop="@dimen/lay_5"
+            android:layout_marginBottom="@dimen/lay_5"
             android:src="@mipmap/ico_default"/>
 
         <TextView
@@ -66,7 +67,8 @@
         <ImageView
             android:id="@+id/titleImg"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
+            android:maxHeight="30dp"
             android:layout_margin="@dimen/lay_10"
             android:scaleType="fitXY"
             android:adjustViewBounds="true"
@@ -86,7 +88,8 @@
         <ImageView
             android:id="@+id/titleRightImage"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
+            android:maxHeight="30dp"
             android:layout_margin="@dimen/lay_10"
             android:scaleType="fitXY"
             android:adjustViewBounds="true"

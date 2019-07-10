@@ -52,7 +52,7 @@ public class StartPageActivity extends UIBaseActivity {
                         if (StringUtils.isBlank(nextRoute)) {
                             nextRoute = UIRoute.ui_index;
                         }
-                        toActivity(null, nextRoute, AcAnimFast.get());
+                        toActivity(nextRoute, AcAnimFast.get());
                         finish();
                     }
                 });
