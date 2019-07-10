@@ -66,10 +66,6 @@ public abstract class HttpResult<Y> extends DisposableObserver<Y> {
                 message = context.getResources().getString(R.string.server_exception);
                 code = -997;
                 T.showError(message);
-            }else if (code == 401) {
-                L.e("appHttp", context.getResources().getString(R.string.request_failed)+ message);
-                ReceiverManager.sendBroadcast(context, ReceiverManager.Action.ACTION_Logout);
-                return;
             }else{
                 try {
                     message = httpException1.response().errorBody().string();
