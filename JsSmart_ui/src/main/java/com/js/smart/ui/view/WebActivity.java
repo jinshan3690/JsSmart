@@ -8,6 +8,7 @@ import com.js.smart.ui.R;
 import com.js.smart.ui.R2;
 import com.js.smart.ui.UIRoute;
 import com.js.smart.ui.app.UIBaseActivity;
+import com.js.smart.ui.app.UILoadingActivity;
 import com.js.smart.ui.widget.X5WebView;
 import com.js.smart.common.util.WebViewJavaScriptFunction;
 
@@ -23,6 +24,8 @@ public class WebActivity extends UIBaseActivity {
     String title;
     @Autowired
     String url;
+    @Autowired
+    boolean isLoading;
 
     @Override
     public int createView(Bundle savedInstanceState) {
@@ -35,6 +38,7 @@ public class WebActivity extends UIBaseActivity {
 
         webView.loadUrl(url);
         webView.addJavascriptInterface(new WebViewJavaScriptFunction(context),"App");
+        webView.setLoading(isLoading);
 
     }
 

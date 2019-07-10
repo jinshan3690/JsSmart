@@ -1,21 +1,28 @@
 package com.js.smart.ui.widget;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ZoomButtonsController;
 
 import com.js.smart.common.app.BaseCompatActivity;
+import com.js.smart.common.util.T;
 import com.js.smart.http.cookies.PersistentCookieStore;
 import com.js.smart.common.util.ImageUtil;
+import com.js.smart.ui.R;
 import com.tencent.smtt.export.external.interfaces.WebResourceRequest;
 import com.tencent.smtt.export.external.interfaces.WebResourceResponse;
 import com.tencent.smtt.sdk.ValueCallback;
@@ -28,33 +35,49 @@ import com.tencent.smtt.sdk.WebViewClient;
 import java.io.IOException;
 import java.lang.reflect.Field;
 
+import io.reactivex.functions.Consumer;
+
 import static android.app.Activity.RESULT_OK;
 
 public class X5WebView extends WebView {
 
     private BaseCompatActivity context;
     private PersistentCookieStore cookieStore;
+    private View loadingView;
+    private boolean isLoading = true;
 
     private WebViewClient client = new WebViewClient() {
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+            if (isLoading)
+                loadingView.setVisibility(GONE);
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+            if (isLoading)
+                loadingView.setVisibility(VISIBLE);
+        }
+
         /**
          * 防止加载网页时调起系统浏览器
          */
         @SuppressWarnings("deprecation")
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            view.loadUrl(url);
-            return true;
-        }
+            boolean event = htmlEvent(url);
+            if (!event)
+                return false;
 
-        @TargetApi(Build.VERSION_CODES.N)
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-            view.loadUrl(request.getUrl().toString());
+            view.loadUrl(url);
             return true;
         }
 
         @Override
         public WebResourceResponse shouldInterceptRequest(WebView webView, String s) {
+
             return super.shouldInterceptRequest(webView, s);
         }
 
@@ -67,13 +90,16 @@ public class X5WebView extends WebView {
     @SuppressLint("SetJavaScriptEnabled")
     public X5WebView(Context arg0, AttributeSet arg1) {
         super(arg0, arg1);
-//		context = (BaseCompatActivity) arg0;
+        context = (BaseCompatActivity) arg0;
 //		cookieStore = new PersistentCookieStore(context);
         this.setWebViewClient(client);
         // this.setWebChromeClient(chromeClient);
         // WebStorage webStorage = WebStorage.getInstance();
         initWebViewSettings();
         this.getView().setClickable(true);
+
+        loadingView = LayoutInflater.from(context).inflate(R.layout.v_loading, this, false);
+        addView(loadingView);
     }
 
     private void initWebViewSettings() {
@@ -81,7 +107,7 @@ public class X5WebView extends WebView {
         webSetting.setJavaScriptEnabled(true);
         webSetting.setJavaScriptCanOpenWindowsAutomatically(true);
         webSetting.setLayoutAlgorithm(LayoutAlgorithm.NARROW_COLUMNS);
-		webSetting.setSupportZoom(true);
+        webSetting.setSupportZoom(true);
         webSetting.setBuiltInZoomControls(true);
         webSetting.setDisplayZoomControls(false);
         webSetting.setUseWideViewPort(true);
@@ -108,6 +134,47 @@ public class X5WebView extends WebView {
 
     public X5WebView(Context arg0) {
         super(arg0);
+    }
+
+    private boolean htmlEvent(String url) {
+        String tag = "tel";
+        if (url.contains(tag)) {
+            final String mobile = url.substring(url.lastIndexOf("/") + 1);
+
+            if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                Intent mIntent = new Intent(Intent.ACTION_CALL);
+                Uri data = Uri.parse(mobile);
+                mIntent.setData(data);
+                context.startActivity(mIntent);
+            } else {
+                T.showWarning(getResources().getString(R.string.permissions));
+            }
+            return false;
+        }
+        //H5调起微信app支付方法二（可使用）
+        if (url.contains("weixin://wap/pay?")) {
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            context.startActivity(intent);
+
+            return false;
+        } else if (url.contains("alipays:") || url.contains("alipay")) {
+            try {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                intent.addCategory("android.intent.category.DEFAULT");
+                context.startActivity(intent);
+            } catch (Exception e) {
+                new android.app.AlertDialog.Builder(context)
+                        .setMessage("未检测到支付宝客户端，请安装后重试。")
+                        .setPositiveButton("立即安装", (dialog, which) -> {
+                            Uri alipayUrl = Uri.parse("https://d.alipay.com");
+                            context.startActivity(new Intent("android.intent.action.VIEW", alipayUrl));
+                        }).setNegativeButton("取消", null).show();
+            }
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -241,4 +308,7 @@ public class X5WebView extends WebView {
         this.destroy();
     }
 
+    public void setLoading(boolean loading) {
+        isLoading = loading;
+    }
 }

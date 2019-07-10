@@ -27,6 +27,7 @@ import com.js.smart.ui.R;
 import com.js.smart.ui.R2;
 import com.js.smart.ui.UIRoute;
 import com.js.smart.ui.app.UIBaseActivity;
+import com.js.smart.ui.app.UILoadingActivity;
 import com.js.smart.ui.dialog.ConfirmDialog;
 import com.js.smart.ui.dialog.DatePickerDialog;
 import com.js.smart.ui.dialog.DateTimePickerDialog;
@@ -49,7 +50,7 @@ import permissions.dispatcher.RuntimePermissions;
 
 @RuntimePermissions
 @Route(path = UIRoute.ui_index)
-public class UIIndexActivity extends UIBaseActivity {
+public class UIIndexActivity extends UILoadingActivity {
 
     private DialogBuilder dialog;
     private PopupWindow popupWindow;
@@ -65,7 +66,13 @@ public class UIIndexActivity extends UIBaseActivity {
     public void initView() {
         titleUtil
                 .setTitle("JsSmartUI")
-                .setRightText("设置");
+                .setRightText("设置")
+                .setRightClick(new AntiShakeOnClickListener() {
+                    @Override
+                    protected void antiShakeOnClick(View v) {
+                        hideLoading();
+                    }
+                });
 
         initPopupWindow();
     }
@@ -117,6 +124,7 @@ public class UIIndexActivity extends UIBaseActivity {
         } else if (R.id.btn3 == v.getId()) {
             toActivityForData(v, UIRoute.ui_web, postcard -> postcard.withString("title", "百度").withString("url", "https://github.com/").navigation(context));
         } else if (R.id.btn4 == v.getId()) {
+            showLoading();
 //            toActivityForData(v, UIRoute.ui_web, postcard -> postcard.withString("title", "百度").withString("url", "www.baidu.com").navigation(context));
         } else if (R.id.btn5 == v.getId()) {
             dialog = new ConfirmDialog(context).showConfirmDialog("标题", "内容", new AntiShakeOnClickListener() {
