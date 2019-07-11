@@ -55,7 +55,7 @@
                     android:id="@id/btn1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/btn_ripple_arch"
+                    android:background="@drawable/btn_shape_arch_ripple"
                     android:text="取消"
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/btnTextSize" />
@@ -84,7 +84,7 @@
                     android:id="@id/btn2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/btn_ripple_arch"
+                    android:background="@drawable/btn_shape_arch_ripple"
                     android:text="确定"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/btnTextSize" />

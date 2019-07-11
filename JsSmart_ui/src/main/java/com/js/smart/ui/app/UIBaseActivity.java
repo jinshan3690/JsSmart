@@ -29,7 +29,11 @@ public abstract class UIBaseActivity extends BaseCompatActivity implements Custo
     }
 
     protected String getVerifyHint(CharSequence hint){
-        return String.format("%s %s", getResources().getString(R.string.please_enter), hint);
+        return getVerifyHint("%s %s", hint);
+    }
+
+    protected String getVerifyHint(String format,CharSequence hint){
+        return String.format(format, getResources().getString(R.string.please_enter), hint);
     }
 
 

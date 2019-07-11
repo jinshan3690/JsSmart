@@ -5,6 +5,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.js.smart.common.app.CommonApp;
 import com.js.smart.common.init.strategy.InitStrategy;
+import com.js.smart.common.util.LanguageManage;
 import com.js.smart.http.HttpApp;
 
 /**

@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_below="@id/refer1"
-            android:background="@drawable/btn_dialog_shape_primary"
+            android:background="@drawable/btn_shape_bottom_primary"
             app:mrl_rippleAlpha="0.2"
             app:mrl_rippleColor="@color/defaultPressed"
             app:mrl_rippleDimension="0dp"

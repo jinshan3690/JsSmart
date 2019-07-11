@@ -3,33 +3,33 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" android:exitFadeDuration="200">
     <item android:state_window_focused="false">
         <shape>
+            <corners android:radius="@dimen/btnRadiusLarge" />
             <solid android:color="@color/colorTransparent" />
-            <corners android:radius="@dimen/lay_40"/>
         </shape>
     </item>
 
     <item android:state_enabled="false" android:state_focused="true" android:state_pressed="true" >
         <shape>
+            <corners android:radius="@dimen/btnRadiusLarge" />
             <solid android:color="@color/colorTransparent" />
-            <corners android:radius="@dimen/lay_40"/>
         </shape>
     </item>
     <item android:state_enabled="false" android:state_focused="true" >
         <shape>
+            <corners android:radius="@dimen/btnRadiusLarge" />
             <solid android:color="@color/colorTransparent" />
-            <corners android:radius="@dimen/lay_40"/>
         </shape>
     </item>
     <item android:state_enabled="true" android:state_focused="true" android:state_pressed="true">
         <shape>
-            <solid android:color="#10000000" />
-            <corners android:radius="@dimen/lay_40"/>
+            <corners android:radius="@dimen/btnRadiusLarge" />
+            <solid android:color="@color/colorPrimaryTrans" />
         </shape>
     </item>
     <item android:state_focused="false" android:state_pressed="true">
         <shape>
-            <solid android:color="#10000000" />
-            <corners android:radius="@dimen/lay_40"/>
+            <corners android:radius="@dimen/btnRadiusLarge" />
+            <solid android:color="@color/colorPrimaryTrans" />
         </shape>
     </item>
 
