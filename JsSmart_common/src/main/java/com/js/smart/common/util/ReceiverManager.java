@@ -19,18 +19,14 @@ public class ReceiverManager {
 
     public static List<BroadcastReceiver> receivers = new ArrayList<>();
 
-    public enum Action{
-        ACTION_Logout, ACTION_Home
-    }
-
     /**
      * 注册广播
      */
-    public static void registerReceiver(Context context, Action action,
+    public static void registerReceiver(Context context, String action,
                                         BroadcastReceiver receiver) {
         IntentFilter myIntentFilter = new IntentFilter();
         myIntentFilter.addAction(R.class.getPackage().getName()
-                + action.toString());
+                + action);
         context.registerReceiver(receiver, myIntentFilter);
         receivers.add(receiver);
     }
@@ -65,13 +61,13 @@ public class ReceiverManager {
     /**
      * 发送广播
      */
-    public static void sendBroadcast(Context context, Action action,
+    public static void sendBroadcast(Context context, String action,
                                      Intent intent) {
         if (intent == null) {
             intent = new Intent(R.class.getPackage().getName()
-                    + action.toString());
+                    + action);
         } else {
-            intent.setAction(R.class.getPackage().getName() + action.toString());
+            intent.setAction(R.class.getPackage().getName() + action);
         }
         context.sendBroadcast(intent);
     }
@@ -79,11 +75,12 @@ public class ReceiverManager {
     /**
      * 发送动态广播
      */
-    public static void sendBroadcast(Context context, Action action) {
+    public static void sendBroadcast(Context context, String action) {
         sendBroadcast(context, action, null);
     }
 
-    public static boolean hasAction(Action action, Intent intent) {
-        return (R.class.getPackage().getName()+ action.toString()).equals(intent.getAction());
+    public static boolean hasAction(String action, Intent intent) {
+        return (R.class.getPackage().getName() + action).equals(intent.getAction());
     }
+
 }
