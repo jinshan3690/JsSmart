@@ -16,10 +16,11 @@ import retrofit2.Converter;
 /**
  * Created by Js on 2016/5/19.
  */
-final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
+public final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
 
     private final Gson gson;
     private final Type type;
+    private OnGsonResponseListener gsonResponseListener;
 
     GsonResponseBodyConverter(Gson gson, Type type) {
         this.gson = gson;
@@ -32,26 +33,35 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
             String response = value.string();
 
             L.e("appHttp", ":Response " + type.toString() + " = " + response);
-            try {
-                BaseResp<String> t = new Gson().fromJson(response, BaseResp.class);
 
-                if (t.getCode() != 200) {
-                    throw new HttpException(t.getMessage(), t.getCode());
+            if (gsonResponseListener != null) {
+                BaseResp<String> failed = gsonResponseListener.failed(response);
+
+                if (failed.getCode() != failed.getSucceedCode()) {
+                    throw new HttpException(failed.getMessage(), failed.getCode());
                 }
-            } catch (JsonSyntaxException e) {
-//                e.printStackTrace();
-            }
 
-            BaseResp baseResp = new Gson().fromJson(response, BaseResp.class);
-            if (baseResp.getData() == null)
-                return (T) ReflectUtil.getRawType(type).newInstance();
-            return gson.fromJson(new Gson().toJson(baseResp.getData()), type);
+                BaseResp succeed = gsonResponseListener.succeed(response);
+                if (succeed.getData() == null)
+                    return (T) ReflectUtil.getRawType(type).newInstance();
+                return gson.fromJson(new Gson().toJson(succeed.getData()), type);
+            }else{
+                return gson.fromJson(response, type);
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            throw new HttpException(e.getMessage(), -33);
+            throw new HttpException(e.getMessage(), -9999);
         }
     }
 
+    public void setGsonResponseListener(OnGsonResponseListener gsonResponseListener) {
+        this.gsonResponseListener = gsonResponseListener;
+    }
+
+    public interface OnGsonResponseListener{
+        BaseResp<String> failed(String json);
+        BaseResp succeed(String json);
+    }
 
 
 }

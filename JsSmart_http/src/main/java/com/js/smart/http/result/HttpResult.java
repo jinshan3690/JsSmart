@@ -57,14 +57,13 @@ public abstract class HttpResult<Y> extends DisposableObserver<Y> {
         } else if (e instanceof ConnectException || e instanceof SocketTimeoutException) {
             message = context.getResources().getString(R.string.network_error);
 
-            code = -998;
+            code = -9998;
             T.showWarning(message);
         }else if(e instanceof retrofit2.HttpException){
             retrofit2.HttpException httpException1 = (retrofit2.HttpException) e;
             code = httpException1.code();
             if(code == 500){
                 message = context.getResources().getString(R.string.server_exception);
-                code = -997;
                 T.showError(message);
             }else{
                 try {
@@ -82,7 +81,7 @@ public abstract class HttpResult<Y> extends DisposableObserver<Y> {
         } else {
             message = e.getMessage();
             e.printStackTrace();
-            code = -996;
+            code = -9996;
         }
         L.e("appHttp", context.getResources().getString(R.string.request_failed)+ message);
         onError(code ,message);
