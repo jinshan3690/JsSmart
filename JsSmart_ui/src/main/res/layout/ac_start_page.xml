@@ -8,7 +8,7 @@
         android:id="@id/textView1"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:background="@drawable/btn_shape_trans"
+        android:background="@drawable/btn_shape_arch_trans"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/font_16"
         android:gravity="center"

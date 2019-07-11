@@ -62,8 +62,9 @@ public class DateTimePickerDialog extends DialogBuilder<DateTimePickerDialog> {
 
         timePicker.setOnTimeChangedListener(timeChangedListener);
         setDatePickerDividerColor(ContextCompat.getColor(context, R.color.colorPrimary), datePicker);
-        Button rightBt = view.findViewById(R.id.btn2);
-        Button leftBt = view.findViewById(R.id.btn1);
+        setDatePickerDividerColor(ContextCompat.getColor(context, R.color.colorPrimary), timePicker);
+        TextView rightBt = view.findViewById(R.id.btn2);
+        TextView leftBt = view.findViewById(R.id.btn1);
         leftBt.setOnClickListener(listener);
         rightBt.setOnClickListener(listener);
         if (!TextUtils.isEmpty(leftStr)) {

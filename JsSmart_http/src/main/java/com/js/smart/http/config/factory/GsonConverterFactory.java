@@ -17,6 +17,8 @@ import retrofit2.Converter;
 import retrofit2.Retrofit;
 
 public final class GsonConverterFactory extends Converter.Factory {
+
+    private static GsonResponseBodyConverter.OnGsonResponseListener gsonResponseListener;
     /**
      * Create an instance using HouseAdapter default {@link Gson} instance for conversion. Encoding to JSON and
      * decoding from JSON (when no charset is specified by HouseAdapter header) will use UTF-8.
@@ -25,11 +27,11 @@ public final class GsonConverterFactory extends Converter.Factory {
         return create(new Gson());
     }
 
-    /**
-     * Create an instance using {@code gson} for conversion. Encoding to JSON and
-     * decoding from JSON (when no charset is specified by HouseAdapter header) will use UTF-8.
-     */
     public static GsonConverterFactory create(Gson gson) {
+        return create(gson, gsonResponseListener);
+    }
+    public static GsonConverterFactory create(Gson gson, GsonResponseBodyConverter.OnGsonResponseListener gsonResponseListener) {
+        GsonConverterFactory.gsonResponseListener = gsonResponseListener;
         return new GsonConverterFactory(gson);
     }
 
@@ -42,7 +44,7 @@ public final class GsonConverterFactory extends Converter.Factory {
 
     @Override
     public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
-        return new GsonResponseBodyConverter<>(gson, type);
+        return new GsonResponseBodyConverter<>(gson, type).setGsonResponseListener(gsonResponseListener);
     }
 
     @Override

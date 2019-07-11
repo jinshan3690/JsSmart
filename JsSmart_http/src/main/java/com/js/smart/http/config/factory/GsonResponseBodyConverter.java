@@ -16,10 +16,11 @@ import retrofit2.Converter;
 /**
  * Created by Js on 2016/5/19.
  */
-final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
+public final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
 
     private final Gson gson;
     private final Type type;
+    private OnGsonResponseListener gsonResponseListener;
 
     GsonResponseBodyConverter(Gson gson, Type type) {
         this.gson = gson;
@@ -32,26 +33,39 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
             String response = value.string();
 
             L.e("appHttp", ":Response " + type.toString() + " = " + response);
-            try {
-                BaseResp<String> t = new Gson().fromJson(response, BaseResp.class);
 
-                if (t.getCode() != 200) {
-                    throw new HttpException(t.getMessage(), t.getCode());
+            if (gsonResponseListener != null) {
+                BaseResp gsonResponse = gsonResponseListener.response(response);
+
+                try {
+                    if (gsonResponse.getCode() != gsonResponse.getSucceedCode()) {
+                        throw new HttpException(gsonResponse.getMessage(), gsonResponse.getCode());
+                    }
+                }catch (HttpException e){
+
                 }
-            } catch (JsonSyntaxException e) {
-//                e.printStackTrace();
-            }
 
-            BaseResp baseResp = new Gson().fromJson(response, BaseResp.class);
-            if (baseResp.getData() == null)
-                return (T) ReflectUtil.getRawType(type).newInstance();
-            return gson.fromJson(new Gson().toJson(baseResp.getData()), type);
+                gsonResponse = gsonResponseListener.response(response);
+                if (gsonResponse.getData() == null)
+                    return (T) ReflectUtil.getRawType(type).newInstance();
+                return gson.fromJson(new Gson().toJson(gsonResponse.getData()), type);
+            }else{
+                return gson.fromJson(response, type);
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            throw new HttpException(e.getMessage(), -33);
+            throw new HttpException(e.getMessage(), -9999);
         }
     }
 
+    public GsonResponseBodyConverter setGsonResponseListener(OnGsonResponseListener gsonResponseListener) {
+        this.gsonResponseListener = gsonResponseListener;
+        return this;
+    }
+
+    public interface OnGsonResponseListener{
+        BaseResp response(String json);
+    }
 
 
 }

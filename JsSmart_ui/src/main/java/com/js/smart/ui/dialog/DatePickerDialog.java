@@ -55,8 +55,8 @@ public class DatePickerDialog extends DialogBuilder<DatePickerDialog> {
         }
         result = DateUtil.getDate(DateUtil.toTime(datePicker.getYear() + "-" + (datePicker.getMonth() + 1) + "-" + datePicker.getDayOfMonth()));
         setDatePickerDividerColor(ContextCompat.getColor(context, R.color.colorPrimary), datePicker);
-        Button rightBt = view.findViewById(R.id.btn2);
-        Button leftBt = view.findViewById(R.id.btn1);
+        TextView rightBt = view.findViewById(R.id.btn2);
+        TextView leftBt = view.findViewById(R.id.btn1);
         leftBt.setOnClickListener(listener);
         rightBt.setOnClickListener(listener);
         if (!TextUtils.isEmpty(leftStr)) {

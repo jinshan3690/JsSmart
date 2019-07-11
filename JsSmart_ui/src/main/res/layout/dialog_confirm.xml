@@ -10,7 +10,7 @@
         android:background="@drawable/btn_shape_white"
         android:layout_marginLeft="@dimen/lay_25"
         android:layout_marginRight="@dimen/lay_25"
-        android:paddingTop="@dimen/lay_30">
+        android:paddingTop="@dimen/lay_15">
 
         <TextView
             android:id="@id/textView1"
@@ -47,7 +47,7 @@
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:background="@drawable/btn_dialog_shape_left_white"
+                android:background="@drawable/btn_shape_left_bottom_white"
                 app:mrl_rippleAlpha="0.2"
                 app:mrl_rippleColor="@color/colorPrimaryTrans"
                 app:mrl_rippleDimension="0dp"
@@ -78,7 +78,7 @@
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:background="@drawable/btn_dialog_shape_right_primary"
+                android:background="@drawable/btn_shape_right_bottom_primary"
                 app:mrl_rippleAlpha="0.2"
                 app:mrl_rippleColor="@color/defaultPressed"
                 app:mrl_rippleDimension="0dp"
