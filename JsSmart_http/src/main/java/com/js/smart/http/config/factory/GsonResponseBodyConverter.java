@@ -37,8 +37,12 @@ public final class GsonResponseBodyConverter<T> implements Converter<ResponseBod
             if (gsonResponseListener != null) {
                 BaseResp gsonResponse = gsonResponseListener.response(response);
 
-                if (gsonResponse.getCode() != gsonResponse.getSucceedCode()) {
-                    throw new HttpException(gsonResponse.getMessage(), gsonResponse.getCode());
+                try {
+                    if (gsonResponse.getCode() != gsonResponse.getSucceedCode()) {
+                        throw new HttpException(gsonResponse.getMessage(), gsonResponse.getCode());
+                    }
+                }catch (HttpException e){
+
                 }
 
                 gsonResponse = gsonResponseListener.response(response);
