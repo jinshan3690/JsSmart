@@ -35,16 +35,16 @@ public final class GsonResponseBodyConverter<T> implements Converter<ResponseBod
             L.e("appHttp", ":Response " + type.toString() + " = " + response);
 
             if (gsonResponseListener != null) {
-                BaseResp<String> failed = gsonResponseListener.failed(response);
+                BaseResp gsonResponse = gsonResponseListener.response(response);
 
-                if (failed.getCode() != failed.getSucceedCode()) {
-                    throw new HttpException(failed.getMessage(), failed.getCode());
+                if (gsonResponse.getCode() != gsonResponse.getSucceedCode()) {
+                    throw new HttpException(gsonResponse.getMessage(), gsonResponse.getCode());
                 }
 
-                BaseResp succeed = gsonResponseListener.succeed(response);
-                if (succeed.getData() == null)
+                gsonResponse = gsonResponseListener.response(response);
+                if (gsonResponse.getData() == null)
                     return (T) ReflectUtil.getRawType(type).newInstance();
-                return gson.fromJson(new Gson().toJson(succeed.getData()), type);
+                return gson.fromJson(new Gson().toJson(gsonResponse.getData()), type);
             }else{
                 return gson.fromJson(response, type);
             }
@@ -54,13 +54,13 @@ public final class GsonResponseBodyConverter<T> implements Converter<ResponseBod
         }
     }
 
-    public void setGsonResponseListener(OnGsonResponseListener gsonResponseListener) {
+    public GsonResponseBodyConverter setGsonResponseListener(OnGsonResponseListener gsonResponseListener) {
         this.gsonResponseListener = gsonResponseListener;
+        return this;
     }
 
     public interface OnGsonResponseListener{
-        BaseResp<String> failed(String json);
-        BaseResp succeed(String json);
+        BaseResp response(String json);
     }
 
 

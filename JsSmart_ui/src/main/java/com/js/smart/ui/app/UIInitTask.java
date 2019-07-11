@@ -69,7 +69,7 @@ public class UIInitTask implements InitTask {
 
         UIApp.retrofit = new Retrofit.Builder().
                 baseUrl(UIApp.BaseUrl).
-                addConverterFactory(GsonConverterFactory.create(UIApp.gson)).
+                addConverterFactory(GsonConverterFactory.create(UIApp.gson, UIApp.gsonResponseListener)).
                 addCallAdapterFactory(RxJava2CallAdapterFactory.create()).
                 client(UIApp.client).
                 build();
