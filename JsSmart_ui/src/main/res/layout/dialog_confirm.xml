@@ -10,7 +10,7 @@
         android:background="@drawable/btn_shape_white"
         android:layout_marginLeft="@dimen/lay_25"
         android:layout_marginRight="@dimen/lay_25"
-        android:paddingTop="@dimen/lay_30">
+        android:paddingTop="@dimen/lay_15">
 
         <TextView
             android:id="@id/textView1"

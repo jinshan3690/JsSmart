@@ -174,7 +174,7 @@ public class UIIndexActivity extends UILoadingActivity {
                 }
             });
         } else if (R.id.btn11 == v.getId()) {
-            dialog = new TimePickerDialog(context).showTimePickerDialog("13:15:20", new AntiShakeOnClickListener() {
+            dialog = new TimePickerDialog(context).setTitle("标题").showTimePickerDialog("13:15:20", new AntiShakeOnClickListener() {
                 @Override
                 protected void antiShakeOnClick(View v) {
                     if (v.getId() == R.id.btn2) {
