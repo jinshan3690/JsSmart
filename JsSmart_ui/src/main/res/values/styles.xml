@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textColorHint">@color/textColorTint</item>
+        <item name="android:textSize">@dimen/textSize</item>
+    </style>
+
     <!-- 应用启动页(StartingWindow)的theme -->
     <style name="AppTheme.StartingWindowTheme" parent="AppTheme">
         <!-- 可以设置成纯颜色（设置一个和Activity UI相似的背景） -->
