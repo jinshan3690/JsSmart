@@ -1,12 +1,11 @@
 package com.js.smart.http.config.factory;
 
 
+import com.google.gson.Gson;
+import com.js.smart.common.util.L;
+import com.js.smart.common.util.ReflectUtil;
 import com.js.smart.http.bean.BaseResp;
 import com.js.smart.http.exception.HttpException;
-import com.js.smart.common.util.ReflectUtil;
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
-import com.js.smart.common.util.L;
 
 import java.lang.reflect.Type;
 
@@ -37,19 +36,15 @@ public final class GsonResponseBodyConverter<T> implements Converter<ResponseBod
             if (gsonResponseListener != null) {
                 BaseResp gsonResponse = gsonResponseListener.response(response);
 
-                try {
-                    if (gsonResponse.getCode() != gsonResponse.getSucceedCode()) {
-                        throw new HttpException(gsonResponse.getMessage(), gsonResponse.getCode());
-                    }
-                }catch (HttpException e){
-
+                if (gsonResponse.getCode() != gsonResponse.getSucceedCode()) {
+                    throw new HttpException(gsonResponse.getMessage(), gsonResponse.getCode());
                 }
 
                 gsonResponse = gsonResponseListener.response(response);
                 if (gsonResponse.getData() == null)
                     return (T) ReflectUtil.getRawType(type).newInstance();
                 return gson.fromJson(new Gson().toJson(gsonResponse.getData()), type);
-            }else{
+            } else {
                 return gson.fromJson(response, type);
             }
         } catch (Exception e) {
@@ -63,7 +58,7 @@ public final class GsonResponseBodyConverter<T> implements Converter<ResponseBod
         return this;
     }
 
-    public interface OnGsonResponseListener{
+    public interface OnGsonResponseListener {
         BaseResp response(String json);
     }
 
