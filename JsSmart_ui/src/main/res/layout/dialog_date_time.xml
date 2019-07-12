@@ -1,121 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:layout_width="match_parent"
-android:layout_height="match_parent">
-
-<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/btn_shape_white"
-    android:layout_marginLeft="@dimen/lay_25"
-    android:layout_marginRight="@dimen/lay_25"
-    android:paddingTop="@dimen/lay_15">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@id/textView1"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="提示"
-        android:textSize="@dimen/titleTextSize" />
+        android:layout_marginLeft="@dimen/lay_25"
+        android:layout_marginRight="@dimen/lay_25"
+        android:background="@drawable/btn_shape_white"
+        android:paddingTop="@dimen/lay_15">
 
-    <DatePicker
-        android:id="@id/datePicker1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textView1"
-        android:layout_centerHorizontal="true"
-        android:calendarViewShown="false"
-        android:theme="@android:style/Theme.Holo.Light"/>
+        <TextView
+            android:id="@id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="提示"
+            android:textSize="@dimen/titleTextSize" />
 
-    <View
-        android:id="@id/refer1"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/lay_0_5"
-        android:layout_below="@id/datePicker1"
-        android:background="@color/colorPrimary" />
+        <RelativeLayout
+            android:id="@id/layout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView1">
 
-    <TimePicker
-        android:id="@id/timePicker1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/refer1"
-        android:layout_centerHorizontal="true"
-        android:calendarViewShown="false"
-        android:theme="@android:style/Theme.Holo.Light"/>
+            <DatePicker
+                android:id="@id/datePicker1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:calendarViewShown="false"
+                android:theme="@android:style/Theme.Holo.Light" />
 
-    <View
-        android:id="@id/refer2"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/lay_0_5"
-        android:layout_below="@id/timePicker1"
-        android:background="@color/colorPrimary" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/refer2"
-        android:orientation="horizontal">
-
-        <com.balysv.materialripple.MaterialRippleLayout
-            android:id="@id/layout1"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_weight="1"
-            android:background="@drawable/btn_shape_left_bottom_white"
-            app:mrl_rippleAlpha="0.2"
-            app:mrl_rippleColor="@color/colorPrimaryRippleDark"
-            app:mrl_rippleDimension="0dp"
-            app:mrl_rippleDuration="0"
-            app:mrl_rippleHover="true"
-            app:mrl_rippleOverlay="true"
-            app:mrl_rippleRoundedCorners="0dp">
-
-            <TextView
-                android:id="@id/btn1"
+            <View
+                android:id="@id/refer1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/btn_ripple_primary"
-                android:gravity="center"
-                android:text="@string/cancel"
-                android:textColor="@color/textColor"
-                android:textSize="@dimen/btnTextSize" />
+                android:layout_height="@dimen/lay_0_5"
+                android:layout_below="@id/datePicker1"
+                android:background="@color/colorPrimary" />
 
-        </com.balysv.materialripple.MaterialRippleLayout>
+            <TimePicker
+                android:id="@id/timePicker1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/refer1"
+                android:layout_centerHorizontal="true"
+                android:calendarViewShown="false"
+                android:theme="@android:style/Theme.Holo.Light" />
+
+        </RelativeLayout>
 
         <View
-            android:layout_width="1px"
-            android:layout_height="match_parent"
-            android:background="@color/colorBackgroundDark" />
+            android:id="@id/refer2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/lay_0_5"
+            android:layout_below="@id/layout3"
+            android:background="@color/colorPrimary" />
 
-        <com.balysv.materialripple.MaterialRippleLayout
-            android:id="@id/layout2"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_weight="1"
-            android:background="@drawable/btn_shape_right_bottom_primary"
-            app:mrl_rippleAlpha="0.2"
-            app:mrl_rippleColor="@color/defaultPressed"
-            app:mrl_rippleDimension="0dp"
-            app:mrl_rippleDuration="0"
-            app:mrl_rippleHover="true"
-            app:mrl_rippleOverlay="true"
-            app:mrl_rippleRoundedCorners="0dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/refer2"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@id/btn2"
-                android:layout_width="match_parent"
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@id/layout1"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_shape_left_bottom_white"
+                app:mrl_rippleAlpha="0.2"
+                app:mrl_rippleColor="@color/colorPrimaryRippleDark"
+                app:mrl_rippleDimension="0dp"
+                app:mrl_rippleDuration="0"
+                app:mrl_rippleHover="true"
+                app:mrl_rippleOverlay="true"
+                app:mrl_rippleRoundedCorners="0dp">
+
+                <TextView
+                    android:id="@id/btn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/btn_ripple_primary"
+                    android:gravity="center"
+                    android:text="@string/cancel"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/btnTextSize" />
+
+            </com.balysv.materialripple.MaterialRippleLayout>
+
+            <View
+                android:layout_width="1px"
                 android:layout_height="match_parent"
-                android:background="@drawable/btn_ripple"
-                android:gravity="center"
-                android:text="@string/confirm"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/btnTextSize" />
+                android:background="@color/colorBackgroundDark" />
 
-        </com.balysv.materialripple.MaterialRippleLayout>
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@id/layout2"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_shape_right_bottom_primary"
+                app:mrl_rippleAlpha="0.2"
+                app:mrl_rippleColor="@color/defaultPressed"
+                app:mrl_rippleDimension="0dp"
+                app:mrl_rippleDuration="0"
+                app:mrl_rippleHover="true"
+                app:mrl_rippleOverlay="true"
+                app:mrl_rippleRoundedCorners="0dp">
 
-    </LinearLayout>
+                <TextView
+                    android:id="@id/btn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/btn_ripple"
+                    android:gravity="center"
+                    android:text="@string/confirm"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/btnTextSize" />
 
-</RelativeLayout>
+            </com.balysv.materialripple.MaterialRippleLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 </RelativeLayout>

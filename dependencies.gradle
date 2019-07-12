@@ -1,6 +1,6 @@
 ext {
     isModule = false
-    moduleJsSmartUi = false
+    moduleJsSmartUi = true
 
     android = [
             applicationId           : "com.js.smart",
@@ -19,6 +19,8 @@ ext {
             "cardview-v7"                              : "com.android.support:cardview-v7:${android["androidSupportSdkVersion"]}",
             "constraint-layout"                        : "com.android.support.constraint:constraint-layout:1.1.3",
 
+            // 下载动画
+            "freshdownloadview"                           : "com.pitt.fresh.library:freshdownloadview:1.0",
             // 固定头listView
             "pinnedListview"                           : "de.halfbit:pinned-section-listview:1.0.0",
             // 树形listView

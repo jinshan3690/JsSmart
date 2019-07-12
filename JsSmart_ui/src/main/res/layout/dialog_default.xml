@@ -8,29 +8,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/btn_shape_white"
         android:layout_marginLeft="@dimen/lay_25"
         android:layout_marginRight="@dimen/lay_25"
+        android:background="@drawable/btn_shape_white"
         android:clickable="true"
         android:padding="@dimen/lay_22">
 
-    <ImageView
-        android:id="@id/imageView1"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_centerHorizontal="true"
-        android:src="@mipmap/ico_succeed" />
+        <ImageView
+            android:id="@id/imageView1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/ico_succeed" />
 
-    <TextView
-        android:id="@id/textView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imageView1"
-        android:layout_marginTop="@dimen/lay_20"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/textColor"
-        android:textSize="@dimen/btnTextSize"
-        android:gravity="center"/>
+        <TextView
+            android:id="@id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/lay_60"
+            android:layout_below="@id/imageView1"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/btnTextSize" />
 
     </RelativeLayout>
 

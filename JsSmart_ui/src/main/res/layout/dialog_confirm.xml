@@ -20,20 +20,28 @@
             android:text="提示"
             android:textSize="@dimen/titleTextSize" />
 
-        <TextView
-            android:id="@id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
+        <RelativeLayout
+            android:id="@id/layout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/textView1"
-            android:layout_marginBottom="@dimen/lay_20"
-            android:gravity="center"
-            android:textSize="@dimen/font_16" />
+            android:padding="@dimen/lay_22">
+
+            <TextView
+                android:id="@id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/lay_40"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/font_16" />
+
+        </RelativeLayout>
 
         <View
             android:id="@id/refer1"
             android:layout_width="match_parent"
             android:layout_height="@dimen/lay_0_5"
-            android:layout_below="@id/textView2"
+            android:layout_below="@id/layout3"
             android:background="@color/colorPrimary" />
 
         <LinearLayout
