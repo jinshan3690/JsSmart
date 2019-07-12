@@ -33,15 +33,17 @@ public class MessageDialog extends DialogBuilder<MessageDialog> {
         contentTv.setText(content);
         TextView leftBt = view.findViewById(R.id.btn1);
 
-        if(listener != null)
+        if (listener != null)
             setLeftRightClick(listener, listener);
-        leftBt.setOnClickListener(leftClickListener);
-        leftBt.setOnClickListener(rightClickListener);
+
+        if (leftClickListener != null)
+            leftBt.setOnClickListener(leftClickListener);
+        else if (rightClickListener != null)
+            leftBt.setOnClickListener(rightClickListener);
 
         if (!TextUtils.isEmpty(leftStr)) {
             leftBt.setText(leftStr);
-        }
-        if (!TextUtils.isEmpty(rightStr)) {
+        } else if (!TextUtils.isEmpty(rightStr)) {
             leftBt.setText(rightStr);
         }
 

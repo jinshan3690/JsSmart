@@ -38,9 +38,9 @@ public class DefaultDialog extends DialogBuilder<DefaultDialog> {
             @Override
             protected void antiShakeOnClick(View v) {
                 if(leftClickListener != null)
-                    leftClickListener.onClick(v);
-                if(rightClickListener != null)
-                    rightClickListener.onClick(v);
+                    dismiss();
+                else if(rightClickListener != null)
+                    dismiss();
             }
         });
 
@@ -54,7 +54,7 @@ public class DefaultDialog extends DialogBuilder<DefaultDialog> {
         dialog.setOnDismissListener(dialog -> {
             if(leftClickListener != null)
                 leftClickListener.onClick(view);
-            if(rightClickListener != null)
+            else if(rightClickListener != null)
                 rightClickListener.onClick(view);
         });
         return this;

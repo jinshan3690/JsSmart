@@ -157,7 +157,7 @@ public class UIIndexActivity extends UILoadingActivity {
             dialog = new DefaultDialog(context).showDefaultDialog("内容", new AntiShakeOnClickListener() {
                 @Override
                 protected void antiShakeOnClick(View v) {
-                    dialog.dismiss();
+                    T.showSuccess("ok:");
                 }
             });
         } else if (R.id.btn9 == v.getId()) {
