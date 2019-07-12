@@ -23,6 +23,14 @@ public class PopupWindowUtil {
         setCancel(false);
     }
 
+    public PopupWindow getWindow() {
+        return window;
+    }
+
+    public View getParent() {
+        return parent;
+    }
+
     /**
      * popup自定义
      */

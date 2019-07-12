@@ -33,4 +33,11 @@ public class BasePopupWindow<T> {
         return windowUtil.setObscure().showAtLocation(gravity, x, y);
     }
 
+    public PopupWindowUtil getWindowUtil() {
+        return windowUtil;
+    }
+
+    public View getContent() {
+        return content;
+    }
 }

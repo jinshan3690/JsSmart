@@ -3,7 +3,6 @@ package com.js.smart.common.ui.dialog;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 
@@ -21,8 +20,8 @@ public class DialogBuilder<T extends DialogBuilder> implements BaseDialog {
     protected String content;
     protected String leftStr;
     protected String rightStr;
-    protected DialogInterface.OnClickListener onPositiveClickListener;
-    protected DialogInterface.OnClickListener onNegativeClickListener;
+    protected View.OnClickListener leftClickListener;
+    protected View.OnClickListener rightClickListener;
     protected View view;
     protected String result;
     protected String[] results;
@@ -79,16 +78,44 @@ public class DialogBuilder<T extends DialogBuilder> implements BaseDialog {
     }
 
     @Override
-    public T setLeft(String str, DialogInterface.OnClickListener listener) {
-        this.leftStr = str;
-        this.onPositiveClickListener = listener;
+    public DialogBuilder setLeftText(String leftStr) {
+        this.leftStr = leftStr;
         return (T) this;
     }
 
     @Override
-    public T setRight(String str, DialogInterface.OnClickListener listener) {
-        this.rightStr = str;
-        this.onNegativeClickListener = listener;
+    public DialogBuilder setRightText(String rightStr) {
+        this.rightStr = rightStr;
+        return (T) this;
+    }
+
+    @Override
+    public DialogBuilder setLeftOnClickListener(View.OnClickListener leftClickListener) {
+        this.leftClickListener = leftClickListener;
+        return (T) this;
+    }
+
+    @Override
+    public DialogBuilder setRightOnClickListener(View.OnClickListener rightListener) {
+        this.rightClickListener = rightListener;
+        return (T) this;
+    }
+
+    public T setLeft(String leftStr, View.OnClickListener leftClickListener) {
+        setLeftText(leftStr);
+        setLeftOnClickListener(leftClickListener);
+        return (T) this;
+    }
+
+    public T setRight(String rightStr, View.OnClickListener rightClickListener) {
+        setRightText(rightStr);
+        setLeftOnClickListener(rightClickListener);
+        return (T) this;
+    }
+
+    public DialogBuilder setLeftRightClick(View.OnClickListener leftClickListener, View.OnClickListener rightClickListener) {
+        setLeftOnClickListener(leftClickListener);
+        setRightOnClickListener(rightClickListener);
         return (T) this;
     }
 
@@ -117,9 +144,12 @@ public class DialogBuilder<T extends DialogBuilder> implements BaseDialog {
         builder.setMessage(content);
         if (view != null)
             builder.setView(view);
-        builder.setPositiveButton(leftStr, onPositiveClickListener);
-        if (onNegativeClickListener != null)
-            builder.setNegativeButton(rightStr, onNegativeClickListener);
+        builder.setPositiveButton(leftStr, (dialog, which) -> {
+            if(leftClickListener != null)
+                leftClickListener.onClick(null);
+        });
+        if (rightClickListener != null)
+            builder.setNegativeButton(rightStr, (dialog, which) -> rightClickListener.onClick(null));
         AlertDialog dialog = builder.show();
         return dialog;
     }
@@ -138,4 +168,9 @@ public class DialogBuilder<T extends DialogBuilder> implements BaseDialog {
             dialog.dismiss();
         return dialog;
     }
+
+    public View getView() {
+        return view;
+    }
+
 }

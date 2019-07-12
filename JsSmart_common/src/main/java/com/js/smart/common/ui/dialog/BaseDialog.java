@@ -2,7 +2,7 @@ package com.js.smart.common.ui.dialog;
 
 
 import android.app.Dialog;
-import android.content.DialogInterface;
+import android.view.View;
 
 /**
  * Created by Js on 2016/6/22.
@@ -39,11 +39,15 @@ public interface BaseDialog {
     /**
      * 添加点击确定监听
      */
-    DialogBuilder setLeft(String str, DialogInterface.OnClickListener listener);
+    DialogBuilder setLeftText(String str);
 
     /**
      * 添加点击取消监听
      */
-    DialogBuilder setRight(String str, DialogInterface.OnClickListener listener);
+    DialogBuilder setRightText(String str);
+
+    DialogBuilder setLeftOnClickListener(View.OnClickListener leftListener);
+
+    DialogBuilder setRightOnClickListener(View.OnClickListener rightListener);
 
 }

@@ -2,6 +2,8 @@ package com.js.smart.ui.dialog;
 
 
 import android.content.Context;
+import android.text.Spanned;
+import android.text.SpannedString;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.widget.TextView;
@@ -21,17 +23,26 @@ public class MessageDialog extends DialogBuilder<MessageDialog> {
     }
 
     public MessageDialog showMessageDialog(String content, AntiShakeOnClickListener listener) {
+        return showMessageDialog(new SpannedString(content), listener);
+    }
+
+    public MessageDialog showMessageDialog(Spanned content, AntiShakeOnClickListener listener) {
         view = LayoutInflater.from(context).inflate(R.layout.dialog_message, null);
         TextView contentTv = view.findViewById(R.id.textView1);
 
         contentTv.setText(content);
         TextView leftBt = view.findViewById(R.id.btn1);
-        leftBt.setOnClickListener(v -> {
-            listener.onClick(v);
-            dismiss();
-        });
+
+        if(listener != null)
+            setLeftRightClick(listener, listener);
+        leftBt.setOnClickListener(leftClickListener);
+        leftBt.setOnClickListener(rightClickListener);
+
         if (!TextUtils.isEmpty(leftStr)) {
             leftBt.setText(leftStr);
+        }
+        if (!TextUtils.isEmpty(rightStr)) {
+            leftBt.setText(rightStr);
         }
 
         setDialog(show());

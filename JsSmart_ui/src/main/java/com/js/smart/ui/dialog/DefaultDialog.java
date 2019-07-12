@@ -1,13 +1,14 @@
 package com.js.smart.ui.dialog;
 
 
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.text.Spanned;
+import android.text.SpannedString;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.js.smart.common.app.AntiShakeOnClickListener;
 import com.js.smart.common.ui.dialog.DialogBuilder;
 import com.js.smart.ui.R;
 
@@ -21,10 +22,14 @@ public class DefaultDialog extends DialogBuilder<DefaultDialog> {
         super(context);
     }
 
+    public DefaultDialog showDefaultDialog(String content, AntiShakeOnClickListener listener) {
+        return showDefaultDialog(new SpannedString(content), listener);
+    }
+
     /**
      * 默认样式
      */
-    public DefaultDialog showDefaultDialog(String content, DialogInterface.OnDismissListener listener) {
+    public DefaultDialog showDefaultDialog(Spanned content, AntiShakeOnClickListener listener) {
         view = LayoutInflater.from(context).inflate(R.layout.dialog_default, null);
         ImageView titleIco = view.findViewById(R.id.imageView1);
         TextView contentTv = view.findViewById(R.id.textView2);
@@ -34,7 +39,15 @@ public class DefaultDialog extends DialogBuilder<DefaultDialog> {
 
         contentTv.setText(content);
         setDialog(show());
-        dialog.setOnDismissListener(listener);
+        if(listener != null)
+            setLeftRightClick(listener, listener);
+
+        dialog.setOnDismissListener(dialog -> {
+            if(leftClickListener != null)
+                leftClickListener.onClick(null);
+            if(rightClickListener != null)
+                rightClickListener.onClick(null);
+        });
         return this;
     }
 

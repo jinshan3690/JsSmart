@@ -51,8 +51,11 @@ public class DatePickerDialog extends DialogBuilder<DatePickerDialog> {
 
         TextView rightBt = view.findViewById(R.id.btn2);
         TextView leftBt = view.findViewById(R.id.btn1);
-        leftBt.setOnClickListener(listener);
-        rightBt.setOnClickListener(listener);
+        if(listener != null)
+            setLeftRightClick(listener, listener);
+        leftBt.setOnClickListener(leftClickListener);
+        rightBt.setOnClickListener(rightClickListener);
+
         if (!TextUtils.isEmpty(leftStr)) {
             leftBt.setText(leftStr);
         }

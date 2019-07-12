@@ -1,12 +1,13 @@
 package com.js.smart.ui.dialog;
 
 
-import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.js.smart.common.app.AntiShakeOnClickListener;
 import com.js.smart.common.ui.dialog.DialogBuilder;
 import com.js.smart.ui.R;
 
@@ -30,9 +31,12 @@ public class GenderDialog extends DialogBuilder<GenderDialog> {
         else
             radioGroup.check(R.id.radioButton1);
 
-        view.findViewById(R.id.btn1).setOnClickListener(v -> {
-            String content = radioButton1.getId() == radioGroup.getCheckedRadioButtonId() ? radioButton1.getText().toString() : radioButton2.getText().toString();
-            listener.change(content);
+        view.findViewById(R.id.btn1).setOnClickListener(new AntiShakeOnClickListener() {
+            @Override
+            protected void antiShakeOnClick(View v) {
+                String content = radioButton1.getId() == radioGroup.getCheckedRadioButtonId() ? radioButton1.getText().toString() : radioButton2.getText().toString();
+                listener.change(content);
+            }
         });
 
         setDialog(show());
