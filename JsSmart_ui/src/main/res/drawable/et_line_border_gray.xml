@@ -3,5 +3,5 @@
     <item android:drawable="@color/editBorderColor"></item>
     <item
         android:bottom="@dimen/editBorder"
-        android:drawable="@color/white"></item>
+        android:drawable="@color/colorWhite"></item>
 </layer-list>

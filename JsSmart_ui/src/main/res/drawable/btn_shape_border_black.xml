@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <selector xmlns:android="http://schemas.android.com/apk/res/android" android:exitFadeDuration="200">
+    <item android:state_enabled="false">
+        <shape>
+            <solid android:color="@color/colorDivider" />
+            <corners android:radius="@dimen/btnRadius" />
+        </shape>
+    </item>
+    <item android:state_enabled="true" android:state_pressed="true">
+        <shape>
+            <stroke android:width="@dimen/btnBorder" android:color="@color/colorBlack" />
+            <corners android:radius="@dimen/btnRadius" />
+            <solid android:color="@color/btnPressed"/>
+        </shape>
+    </item>
     <item>
         <shape>
-            <stroke android:width="@dimen/btnBorder"
-                android:color="@color/colorBlack"/>
+            <stroke android:width="@dimen/btnBorder" android:color="@color/colorBlack" />
             <corners android:radius="@dimen/btnRadius" />
+            <solid android:color="@color/colorWhite"/>
         </shape>
     </item>
 </selector>

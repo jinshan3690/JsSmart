@@ -5,7 +5,7 @@
             <item android:drawable="@color/colorPrimary"></item>
             <item
                 android:bottom="@dimen/editBorder"
-                android:drawable="@color/white"></item>
+                android:drawable="@color/colorWhite"></item>
         </layer-list>
     </item>
 </selector>

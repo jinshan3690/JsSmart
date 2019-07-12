@@ -1,38 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#415382</color>
-    <color name="colorPrimaryTrans">#10415382</color>
     <color name="colorPrimaryDark">@color/colorRed</color>
     <color name="colorAccent">#51b2f8</color>
     <color name="statusBarColor">@color/colorPrimary</color>
 
+    <color name="colorPrimaryRipple">#10FF7814</color>
+    <color name="colorPrimaryRippleDark">#70FF7814</color>
+
     <color name="colorWhite">#ffffff</color>
     <color name="colorBackground">#fafafa</color>
     <color name="colorBackgroundDark">#f0f0f0</color>
-    <color name="colorForeground">#c8c8ca</color>
     <color name="colorTransparent">#00000000</color>
     <color name="defaultPressed">#585858</color>
-    <color name="defaultPressedAccent">@color/colorBackground</color>
-    <color name="colorWhiteAlpha_60">#60ffffff</color>
-    <color name="colorBlackAlpha_60">#60000000</color>
+    <color name="colorWhiteAlpha60">#60ffffff</color>
+    <color name="colorBlackAlpha60">#60000000</color>
+
     <color name="colorBlack">#000000</color>
-    <color name="colorGrayTint">#f3f3f3</color>
     <color name="colorGray">#e8e8e8</color>
-    <color name="colorGrayDark">#cccccc</color>
     <color name="colorYellow">#f7bc23</color>
     <color name="colorOrange">#EE6911</color>
-    <color name="colorOrangeTint">#ffb74d</color>
     <color name="colorBlue">#65cdf2</color>
-    <color name="colorBlueDark">#59b3d5</color>
-    <color name="colorBlueTint">#a4e7f9</color>
-    <color name="colorCyan">#dbf6ff</color>
-    <color name="colorBlue_40">#4065cdf2</color>
-    <color name="colorGreenTint">#97d8c8</color>
     <color name="colorGreen">#72d572</color>
-    <color name="colorGreenSpring">#9fe561</color>
     <color name="colorPeach">#ff9f7c</color>
     <color name="colorRed">#ff0000</color>
-    <color name="colorRedTint">#f26665</color>
+
+    <color name="colorBorderGray">#AEAEAE</color>
     <color name="colorDivider">#AEAEAE</color>
     <color name="colorDividerDark">#ff999999</color>
 
@@ -41,7 +34,7 @@
 
     <color name="btnPrimary">@color/colorPrimary</color>
     <color name="btnAccent">@color/colorAccent</color>
-    <color name="btnGray">#EEEEEE</color>
+    <color name="btnPressed">#f3f3f3</color>
     <color name="btnDanger">#CB423C</color>
     <color name="btnDisable">#CCCCCC</color>
 

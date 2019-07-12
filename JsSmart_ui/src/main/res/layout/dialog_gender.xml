@@ -88,7 +88,7 @@
                     android:id="@id/btn1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/btn_shape_ripple"
+                    android:background="@drawable/btn_ripple"
                     android:text="@string/confirm"
                     android:gravity="center"
                     android:textColor="@color/colorWhite"

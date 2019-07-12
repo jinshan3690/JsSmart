@@ -23,13 +23,13 @@
     <item android:state_enabled="true" android:state_focused="true" android:state_pressed="true">
         <shape>
             <corners android:radius="@dimen/btnRadiusLarge" />
-            <solid android:color="@color/colorPrimaryTrans" />
+            <solid android:color="@color/colorPrimaryRipple" />
         </shape>
     </item>
     <item android:state_focused="false" android:state_pressed="true">
         <shape>
             <corners android:radius="@dimen/btnRadiusLarge" />
-            <solid android:color="@color/colorPrimaryTrans" />
+            <solid android:color="@color/colorPrimaryRipple" />
         </shape>
     </item>
 

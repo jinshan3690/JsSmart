@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/lay_15"
     android:paddingRight="@dimen/lay_15"
     app:mrl_rippleAlpha="0.2"
-    app:mrl_rippleColor="@color/colorPrimary70"
+    app:mrl_rippleColor="@color/colorPrimaryRippleDark"
     app:mrl_rippleDimension="0dp"
     app:mrl_rippleDuration="0"
     app:mrl_rippleHover="true"

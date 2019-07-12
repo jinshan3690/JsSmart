@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android" >
-    
-    <item android:state_pressed="true">
-        <shape >
-            <corners android:bottomRightRadius="@dimen/btnRadius" android:bottomLeftRadius="@dimen/btnRadius"/>
-            <solid android:color="@color/colorPrimary70"/>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false">
+        <shape>
+            <corners android:bottomLeftRadius="@dimen/btnRadius" android:bottomRightRadius="@dimen/btnRadius" />
+            <solid android:color="@color/btnDisable" />
+        </shape>
+    </item>
+    <item android:state_enabled="true" android:state_pressed="true">
+        <shape>
+            <corners android:bottomLeftRadius="@dimen/btnRadius" android:bottomRightRadius="@dimen/btnRadius" />
+            <solid android:color="@color/btnPressed" />
         </shape>
     </item>
     <item>
-        <shape >
-            <corners android:bottomRightRadius="@dimen/btnRadius" android:bottomLeftRadius="@dimen/btnRadius"/>
-            <solid android:color="@color/colorPrimary"/>
+        <shape>
+            <corners android:bottomLeftRadius="@dimen/btnRadius" android:bottomRightRadius="@dimen/btnRadius" />
+            <solid android:color="@color/colorPrimary" />
         </shape>
     </item>
 

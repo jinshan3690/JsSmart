@@ -6,6 +6,12 @@
             <solid android:color="@color/btnDisable" />
         </shape>
     </item>
+    <item android:state_enabled="true" android:state_pressed="true">
+        <shape>
+            <corners android:radius="@dimen/btnRadiusLarge" />
+            <solid android:color="@color/btnPressed"/>
+        </shape>
+    </item>
     <item>
         <shape>
             <corners android:radius="@dimen/btnRadiusLarge" />

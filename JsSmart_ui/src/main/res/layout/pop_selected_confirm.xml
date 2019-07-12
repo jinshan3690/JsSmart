@@ -73,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textView1"
         app:mrl_rippleAlpha="0.2"
-        app:mrl_rippleColor="@color/colorPrimary70"
+        app:mrl_rippleColor="@color/colorPrimaryRippleDark"
         app:mrl_rippleDelayClick="false"
         app:mrl_rippleDimension="@dimen/btnRadius"
         app:mrl_rippleDuration="0"
