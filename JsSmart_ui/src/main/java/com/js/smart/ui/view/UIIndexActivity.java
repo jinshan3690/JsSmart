@@ -3,7 +3,6 @@ package com.js.smart.ui.view;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -22,11 +21,9 @@ import com.js.smart.common.util.ImageUtil;
 import com.js.smart.common.util.L;
 import com.js.smart.common.util.PopupWindowUtil;
 import com.js.smart.common.util.T;
-import com.js.smart.http.result.HttpResult;
 import com.js.smart.ui.R;
 import com.js.smart.ui.R2;
 import com.js.smart.ui.UIRoute;
-import com.js.smart.ui.app.UIBaseActivity;
 import com.js.smart.ui.app.UILoadingActivity;
 import com.js.smart.ui.dialog.ConfirmDialog;
 import com.js.smart.ui.dialog.DatePickerDialog;
@@ -157,7 +154,12 @@ public class UIIndexActivity extends UILoadingActivity {
                 }
             });
         } else if (R.id.btn8 == v.getId()) {
-            dialog = new DefaultDialog(context).showDefaultDialog("内容", DialogInterface::dismiss);
+            dialog = new DefaultDialog(context).showDefaultDialog("内容", new AntiShakeOnClickListener() {
+                @Override
+                protected void antiShakeOnClick(View v) {
+                    dialog.dismiss();
+                }
+            });
         } else if (R.id.btn9 == v.getId()) {
             dialog = new GenderDialog(context).showGenderDialog(getResources().getString(R.string.male), text -> {
                 T.showSuccess(text);

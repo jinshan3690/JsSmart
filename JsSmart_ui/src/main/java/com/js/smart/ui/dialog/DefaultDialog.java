@@ -44,9 +44,9 @@ public class DefaultDialog extends DialogBuilder<DefaultDialog> {
 
         dialog.setOnDismissListener(dialog -> {
             if(leftClickListener != null)
-                leftClickListener.onClick(null);
+                leftClickListener.onClick(view);
             if(rightClickListener != null)
-                rightClickListener.onClick(null);
+                rightClickListener.onClick(view);
         });
         return this;
     }
