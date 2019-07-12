@@ -20,7 +20,7 @@ ext {
             "constraint-layout"                        : "com.android.support.constraint:constraint-layout:1.1.3",
 
             // 下载动画
-            "freshdownloadview"                           : "com.pitt.fresh.library:freshdownloadview:1.0",
+            "freshdownloadview"                           : "com.github.jinshan3690:FreshDownloadView:1.0.0",
             // 固定头listView
             "pinnedListview"                           : "de.halfbit:pinned-section-listview:1.0.0",
             // 树形listView
