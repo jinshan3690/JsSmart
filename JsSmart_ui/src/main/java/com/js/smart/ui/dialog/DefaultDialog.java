@@ -5,6 +5,7 @@ import android.content.Context;
 import android.text.Spanned;
 import android.text.SpannedString;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,9 +33,15 @@ public class DefaultDialog extends DialogBuilder<DefaultDialog> {
     public DefaultDialog showDefaultDialog(Spanned content, AntiShakeOnClickListener listener) {
         view = LayoutInflater.from(context).inflate(R.layout.dialog_default, null);
         ImageView titleIco = view.findViewById(R.id.imageView1);
-        TextView contentTv = view.findViewById(R.id.textView2);
-        view.findViewById(R.id.layout1).setOnClickListener(v -> {
-            dismiss();
+        TextView contentTv = view.findViewById(R.id.textView1);
+        view.findViewById(R.id.layout1).setOnClickListener(new AntiShakeOnClickListener() {
+            @Override
+            protected void antiShakeOnClick(View v) {
+                if(leftClickListener != null)
+                    leftClickListener.onClick(view);
+                if(rightClickListener != null)
+                    rightClickListener.onClick(view);
+            }
         });
 
         contentTv.setText(content);

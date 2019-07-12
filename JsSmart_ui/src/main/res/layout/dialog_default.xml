@@ -22,7 +22,7 @@
         android:src="@mipmap/ico_succeed" />
 
     <TextView
-        android:id="@id/textView2"
+        android:id="@id/textView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView1"
