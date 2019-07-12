@@ -1,13 +1,11 @@
 package com.js.smart.common.ui.dialog;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 
 import com.js.smart.common.R;
-import com.js.smart.common.util.AntiShakeUtils;
 
 
 /**
@@ -124,8 +122,6 @@ public class DialogBuilder<T extends DialogBuilder> implements BaseDialog {
      */
     @Override
     public Dialog show() {
-        if(context instanceof Activity && AntiShakeUtils.isInvalidClick(((Activity)context).getWindow().getDecorView()))
-            return dialog;
         dialog = new Dialog(context, R.style.CustomDialogTransparent);
         dialog.setContentView(view);
         dialog.setCancelable(true);

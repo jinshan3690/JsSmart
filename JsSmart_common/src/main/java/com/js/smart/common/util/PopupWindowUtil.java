@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
-import android.widget.PopupWindow.OnDismissListener;
 
 
 public class PopupWindowUtil {
@@ -14,6 +13,7 @@ public class PopupWindowUtil {
     private Context context;
     private PopupWindow window;
     private View parent;
+    private View view;
 
     public PopupWindowUtil(Context context) {
         this.context = context;
@@ -31,11 +31,16 @@ public class PopupWindowUtil {
         return parent;
     }
 
+    public View getView() {
+        return view;
+    }
+
     /**
      * popup自定义
      */
     public PopupWindowUtil initPopupWindow(View view, View parent, int width, int height) {
         this.parent = parent;
+        this.view = view;
         window = new PopupWindow(view, width, height, true);
         init();
         return this;
@@ -58,15 +63,11 @@ public class PopupWindowUtil {
      * 显示的位置
      */
     public PopupWindow showAtLocation(int gravity, int x, int y) {
-        if (AntiShakeUtils.isInvalidClick(parent))
-            return null;
         window.showAtLocation(parent, gravity, x, y);
         return window;
     }
 
     public PopupWindow showAsDropDown(int x, int y) {
-        if (AntiShakeUtils.isInvalidClick(parent))
-            return null;
         window.showAsDropDown(parent, x, y);
         return window;
     }
@@ -79,12 +80,9 @@ public class PopupWindowUtil {
         final WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
         lp.alpha = 0.7f;
         activity.getWindow().setAttributes(lp);
-        window.setOnDismissListener(new OnDismissListener() {
-            @Override
-            public void onDismiss() {
-                lp.alpha = 1f;
-                activity.getWindow().setAttributes(lp);
-            }
+        window.setOnDismissListener(() -> {
+            lp.alpha = 1f;
+            activity.getWindow().setAttributes(lp);
         });
         return this;
     }
