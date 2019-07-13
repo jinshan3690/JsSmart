@@ -133,7 +133,8 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
             editText.setKeyListener(DigitsKeyListener.getInstance(digits));
         }
 
-        editText.setEnabled(typedArray.getBoolean(R.styleable.CancelEditText_cet_textEnabled, true));
+        setTextEnabled(typedArray.getBoolean(R.styleable.CancelEditText_cet_textEnabled, true));
+        setEnabled(typedArray.getBoolean(R.styleable.CancelEditText_cet_enabled, true));
 
         switch (typedArray.getInt(R.styleable.CancelEditText_cet_imeOptions, -1)) {
             case 1:
@@ -170,8 +171,6 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
      * 初始化view
      */
     private void initView(Context context) {
-        setFocusable(true);
-        setFocusableInTouchMode(true);
         setOrientation(LinearLayout.HORIZONTAL);
         setGravity(Gravity.CENTER_VERTICAL);
 
@@ -428,6 +427,7 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
 
     public void setText(String text) {
         editText.setText(text);
+        setSelection();
     }
 
     public String getText() {
@@ -448,16 +448,17 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
 
     @Override
     public void setEnabled(boolean enabled) {
-        editText.setEnabled(enabled);
+        setClickable(!enabled);
         super.setEnabled(enabled);
     }
 
     public void setTextEnabled(boolean enabled) {
         editText.setEnabled(enabled);
-        if(enabled) {
+        setClickable(!enabled);
+        if (enabled) {
             editText.requestFocus();
             setSelection();
-        }else{
+        } else {
             editText.clearFocus();
         }
     }

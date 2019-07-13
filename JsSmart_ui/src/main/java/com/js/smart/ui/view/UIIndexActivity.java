@@ -114,6 +114,7 @@ public class UIIndexActivity extends UILoadingActivity {
             popupWindow.dismiss();
         if (headWindow != null)
             headWindow.dismiss();
+
         if (R.id.btn1 == v.getId()) {
             toActivityForData(v, UIRoute.ui_start_page, postcard -> postcard.withString("nextRoute", UIRoute.ui_index).navigation(context));
         } else if (R.id.btn2 == v.getId()) {

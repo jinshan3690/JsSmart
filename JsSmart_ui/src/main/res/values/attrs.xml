@@ -26,6 +26,7 @@
             <enum name="textVisiblePassword" value="2" />
             <enum name="textEmailAddress" value="3" />
         </attr>
+        <attr name="cet_enabled" format="boolean" />
         <attr name="cet_textEnabled" format="boolean" />
         <attr name="cet_selectBackground" format="reference" />
         <attr name="cet_background" format="reference" />
