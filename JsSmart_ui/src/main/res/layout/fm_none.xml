@@ -9,11 +9,11 @@
         android:id="@id/layout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srlAccentColor="@color/colorPrimary"
-        app:srlDragRate="0.7"
-        app:srlEnableLoadmore="true"
-        app:srlHeaderMaxDragRate="1.5"
-        app:srlPrimaryColor="@color/colorPrimary">
+        android:background="@color/colorWhite"
+        app:srlPrimaryColor="@color/colorPrimary"
+        app:srlAccentColor="@color/colorWhite"
+        app:srlEnableHeaderTranslationContent="true"
+        app:srlEnableLoadmore="false">
 
         <com.scwang.smartrefresh.header.BezierCircleHeader
             android:layout_width="match_parent"

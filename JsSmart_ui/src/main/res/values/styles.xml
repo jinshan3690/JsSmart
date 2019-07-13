@@ -21,4 +21,12 @@
         <item name="android:windowDisablePreview">true</item>
     </style>
 
+    <style name="BottomNavigationActive">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="BottomNavigationInactive">
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>
