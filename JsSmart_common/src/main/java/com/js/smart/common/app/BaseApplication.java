@@ -1,7 +1,6 @@
 package com.js.smart.common.app;
 
 
-import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDexApplication;
 
@@ -15,11 +14,8 @@ public abstract class BaseApplication extends MultiDexApplication {
         return context;
     }
 
-    public BaseApplication() {
-    }
-
-    public BaseApplication(Application context) {
-        this.context = context;
+    public static void setContext(Context context) {
+        BaseApplication.context = context;
     }
 
     @Override
