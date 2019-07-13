@@ -1,18 +1,14 @@
 package com.js.smart.http.result;
 
 
-
-
 import android.content.Context;
 
-
 import com.google.gson.Gson;
+import com.js.smart.common.util.L;
+import com.js.smart.common.util.T;
 import com.js.smart.http.R;
 import com.js.smart.http.bean.BaseResp;
 import com.js.smart.http.exception.HttpException;
-import com.js.smart.common.util.L;
-import com.js.smart.common.util.ReceiverManager;
-import com.js.smart.common.util.T;
 
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
@@ -27,9 +23,15 @@ import io.reactivex.observers.DisposableObserver;
 public abstract class HttpResult<Y> extends DisposableObserver<Y> {
 
     protected Context context;
+    protected boolean showToast = true;
 
     protected HttpResult(Context context) {
         this.context = context;
+    }
+
+    protected HttpResult(Context context, boolean showToast) {
+        this.context = context;
+        this.showToast = showToast;
     }
 
     @Override
@@ -54,26 +56,28 @@ public abstract class HttpResult<Y> extends DisposableObserver<Y> {
             message = httpException.getMessage();
             code = httpException.getCode();
 
-            T.showError(message);
+            if (showToast)
+                T.showError(message);
         } else if (e instanceof ConnectException || e instanceof SocketTimeoutException) {
             message = context.getResources().getString(R.string.network_error);
 
             code = -9998;
             T.showError(message);
-        }else if(e instanceof retrofit2.HttpException){
+        } else if (e instanceof retrofit2.HttpException) {
             retrofit2.HttpException httpException1 = (retrofit2.HttpException) e;
             code = httpException1.code();
-            if(code == 500){
+            if (code == 500) {
                 message = context.getResources().getString(R.string.server_exception);
                 T.showError(message);
-            }else{
+            } else {
                 try {
                     message = httpException1.response().errorBody().string();
 
                     BaseResp<String> respMsg = new Gson().fromJson(message, BaseResp.class);
-                    T.showError(respMsg.getMessage());
+                    if (showToast)
+                        T.showError(respMsg.getMessage());
                 } catch (Exception e1) {
-                    L.e("appHttp", context.getResources().getString(R.string.request_failed)+ message);
+                    L.e("appHttp", context.getResources().getString(R.string.request_failed) + message);
                     e1.printStackTrace();
                 }
             }
@@ -84,8 +88,8 @@ public abstract class HttpResult<Y> extends DisposableObserver<Y> {
             e.printStackTrace();
             code = -9996;
         }
-        L.e("appHttp", context.getResources().getString(R.string.request_failed)+ message);
-        onError(code ,message);
+        L.e("appHttp", context.getResources().getString(R.string.request_failed) + message);
+        onError(code, message);
     }
 
     @Override
