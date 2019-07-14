@@ -24,6 +24,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.util.Log;
 
+import com.js.smart.common.R;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -44,8 +46,8 @@ public class ImageUtil {
     public static Uri imageUri;
 
     // 图片保存路径
-    public static String imagePath = Environment.getExternalStorageDirectory().getPath() + File.separator + android.R.class.getPackage().getName() + "/image";
-    public static String imageCache = Environment.getExternalStorageDirectory().getPath() + File.separator + android.R.class.getPackage().getName() + "/image/cache";
+    public static String imagePath = Environment.getExternalStorageDirectory().getPath() + File.separator + R.class.getPackage().getName() + "/image";
+    public static String imageCache = Environment.getExternalStorageDirectory().getPath() + File.separator + R.class.getPackage().getName() + "/image/cache";
 
     /**
      * 选择相册照片

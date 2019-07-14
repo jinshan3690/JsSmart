@@ -6,7 +6,9 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Environment;
 import android.util.Log;
+
 import com.google.gson.Gson;
+import com.js.smart.common.R;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,7 +26,7 @@ public class LocalManager {
 
     private Context context;
     private static LocalManager manager;
-    private static String appName = android.R.class.getPackage().getName();
+    private static String appName = R.class.getPackage().getName();
     //默认的共享参数名字
     private static String DEFAULT_PARAMETER_NAME = appName;
     private static String DEFAULT_PARAMETER_NAME_TEMP = appName + ".temp";

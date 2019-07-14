@@ -19,7 +19,7 @@ public class LanguageManage {
     private static Locale systemLocal = Locale.ENGLISH;
     private static final String currentLanguage = "current_language";
     private static final String systemLanguage = "system_language";
-    private static String shareName = android.R.class.getPackage().getName() + ".lang";
+    private static String shareName = R.class.getPackage().getName() + ".lang";
 
     public static final int AUTO = 0;
     public static final int CN = 1;
