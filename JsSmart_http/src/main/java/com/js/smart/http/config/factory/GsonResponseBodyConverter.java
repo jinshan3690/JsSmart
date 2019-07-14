@@ -40,7 +40,6 @@ public final class GsonResponseBodyConverter<T> implements Converter<ResponseBod
                     throw new HttpException(gsonResponse.getMessage(), gsonResponse.getCode());
                 }
 
-                gsonResponse = gsonResponseListener.response(response);
                 if (gsonResponse.getData() == null)
                     return (T) ReflectUtil.getRawType(type).newInstance();
                 return gson.fromJson(new Gson().toJson(gsonResponse.getData()), type);
