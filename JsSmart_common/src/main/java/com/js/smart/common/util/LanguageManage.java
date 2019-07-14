@@ -85,6 +85,8 @@ public class LanguageManage {
      * 设置语言类型
      */
     public static void setApplicationLanguage(Context context) {
+        shareName = SystemUtil.currentProcessName(context) + ".lang";
+
         Resources resources = context.getApplicationContext().getResources();
         DisplayMetrics dm = resources.getDisplayMetrics();
         Configuration config = resources.getConfiguration();

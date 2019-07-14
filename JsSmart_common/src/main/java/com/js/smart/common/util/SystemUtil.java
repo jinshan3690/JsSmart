@@ -1,6 +1,7 @@
 package com.js.smart.common.util;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -18,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.io.File;
 import java.io.Serializable;
+import java.util.List;
 
 
 /**
@@ -75,6 +77,28 @@ public class SystemUtil {
         // 如果需要将内容传过去增加如下代码
 //        intent .putExtra("sms_body", body);
         context.startActivity(intent);
+    }
+
+    /**
+     * 当前进程是否是主进程
+     */
+    public static boolean isMainProcess(Context context) {
+        return currentProcessName(context).equals(context.getPackageName());
+    }
+
+    /**
+     * 当前进程名称
+     */
+    public static String currentProcessName(Context context) {
+        ActivityManager am = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE));
+        List<ActivityManager.RunningAppProcessInfo> processInfo = am.getRunningAppProcesses();
+        int myPid = android.os.Process.myPid();
+        for (ActivityManager.RunningAppProcessInfo info : processInfo) {
+            if (info.pid == myPid) {
+                return info.processName;
+            }
+        }
+        return "";
     }
 
     /**

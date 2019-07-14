@@ -5,9 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 
-
-import com.js.smart.common.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +22,7 @@ public class ReceiverManager {
     public static void registerReceiver(Context context, String action,
                                         BroadcastReceiver receiver) {
         IntentFilter myIntentFilter = new IntentFilter();
-        myIntentFilter.addAction(R.class.getPackage().getName()
+        myIntentFilter.addAction(SystemUtil.currentProcessName(context)
                 + action);
         context.registerReceiver(receiver, myIntentFilter);
         receivers.add(receiver);
@@ -64,10 +61,10 @@ public class ReceiverManager {
     public static void sendBroadcast(Context context, String action,
                                      Intent intent) {
         if (intent == null) {
-            intent = new Intent(R.class.getPackage().getName()
+            intent = new Intent(SystemUtil.currentProcessName(context)
                     + action);
         } else {
-            intent.setAction(R.class.getPackage().getName() + action);
+            intent.setAction(SystemUtil.currentProcessName(context) + action);
         }
         context.sendBroadcast(intent);
     }
@@ -79,8 +76,8 @@ public class ReceiverManager {
         sendBroadcast(context, action, null);
     }
 
-    public static boolean hasAction(String action, Intent intent) {
-        return (R.class.getPackage().getName() + action).equals(intent.getAction());
+    public static boolean hasAction(Context context, String action, Intent intent) {
+        return (SystemUtil.currentProcessName(context) + action).equals(intent.getAction());
     }
 
 }

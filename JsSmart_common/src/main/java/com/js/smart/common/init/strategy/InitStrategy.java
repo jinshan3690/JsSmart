@@ -5,9 +5,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
-
 import com.js.smart.common.R;
-import com.js.smart.common.util.ProcessUtil;
+import com.js.smart.common.util.SystemUtil;
 import com.js.smart.common.util.ThreadPool;
 
 import org.jdom.Document;
@@ -55,7 +54,7 @@ public class InitStrategy {
         Document doc = sb.build(in);//读入指定文件
         Element root = doc.getRootElement();//获得根节点
         List<Element> list = root.getChildren();//将根节点下的所有子节点放入List中
-        currentProcessName = ProcessUtil.currentProcessName(context);
+        currentProcessName = SystemUtil.currentProcessName(context);
         for (int i = 0; i < list.size(); i++) {
             Element strategyItem = list.get(i);//取得节点实例
             readStrategy(strategyItem);

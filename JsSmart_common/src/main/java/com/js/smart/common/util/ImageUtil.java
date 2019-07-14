@@ -46,8 +46,13 @@ public class ImageUtil {
     public static Uri imageUri;
 
     // 图片保存路径
-    public static String imagePath = Environment.getExternalStorageDirectory().getPath() + File.separator + R.class.getPackage().getName() + "/image";
-    public static String imageCache = Environment.getExternalStorageDirectory().getPath() + File.separator + R.class.getPackage().getName() + "/image/cache";
+    public static String packageName = R.class.getPackage().getName();
+    public static String imagePath = Environment.getExternalStorageDirectory().getPath() + File.separator + packageName + "/image";
+    public static String imageCache = Environment.getExternalStorageDirectory().getPath() + File.separator + packageName + "/image/cache";
+
+    public static void init(Context context){
+        packageName = SystemUtil.currentProcessName(context);
+    }
 
     /**
      * 选择相册照片

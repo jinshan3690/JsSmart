@@ -7,6 +7,7 @@ import android.support.multidex.MultiDex;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.request.RequestOptions;
 import com.js.smart.common.R;
+import com.js.smart.common.util.ImageUtil;
 import com.js.smart.common.util.LanguageManage;
 import com.js.smart.common.util.LocalManager;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -58,6 +59,9 @@ public abstract class CommonApp extends BaseApplication {
         super.onCreate();
 
         LanguageManage.setApplicationLanguage(this);
+
+        ImageUtil.init(context);
+
         LocalManager.getInstance(this);
         init();
 

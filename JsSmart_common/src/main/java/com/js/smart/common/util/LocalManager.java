@@ -42,6 +42,7 @@ public class LocalManager {
 
     private LocalManager(Context context) {
         this.context = context;
+        appName = SystemUtil.currentProcessName(context);
     }
 
     public static LocalManager getInstance(Context context) {

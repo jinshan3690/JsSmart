@@ -4,7 +4,7 @@ package com.js.smart.common.app;
 import android.content.Context;
 import android.support.multidex.MultiDexApplication;
 
-import com.js.smart.common.util.ProcessUtil;
+import com.js.smart.common.util.SystemUtil;
 
 public abstract class BaseApplication extends MultiDexApplication {
 
@@ -24,10 +24,10 @@ public abstract class BaseApplication extends MultiDexApplication {
         if (context == null)
             context = this;
 
-        if (ProcessUtil.isMainProcess(context)) {
+        if (SystemUtil.isMainProcess(context)) {
             mainThread();
         } else {
-            workThread(ProcessUtil.currentProcessName(context));
+            workThread(SystemUtil.currentProcessName(context));
         }
 
     }
