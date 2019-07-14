@@ -240,6 +240,14 @@ public class TitleUtil extends AntiShakeOnClickListener {
         return rightTv;
     }
 
+    public ImageView getTitleIv() {
+        return titleIv;
+    }
+
+    public ImageView getRightIv() {
+        return rightIv;
+    }
+
     @Override
     protected void antiShakeOnClick(View v) {
         int i = v.getId();

@@ -65,6 +65,9 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
     private int cancelIco;
     private int downIco;
     private int switchIco;
+    private int cancelIcoSize;
+    private int downIcoSize;
+    private int switchIcoSize;
     private SwitchChangeListener switchChangeListener;
 
 
@@ -74,9 +77,14 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
 
     public CancelEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initView(context);
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CancelEditText);
+
+        cancelIcoSize = (int) typedArray.getDimension(R.styleable.CancelEditText_cet_cancelIcoSize, DensityUtil.dp2px(context, 15));
+        downIcoSize = (int) typedArray.getDimension(R.styleable.CancelEditText_cet_downIcoSize, DensityUtil.dp2px(context, 15));
+        switchIcoSize = (int) typedArray.getDimension(R.styleable.CancelEditText_cet_switchIcoSize, DensityUtil.dp2px(context, 22));
+
+        initView(context);
 
         length = typedArray.getInt(R.styleable.CancelEditText_cet_length, -1);
         background = typedArray.getResourceId(R.styleable.CancelEditText_cet_background, -1);
@@ -182,7 +190,7 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
 
         switchBtn = new CheckBox(context);
         switchBtn.setButtonDrawable(null);
-        switchBtn.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, DensityUtil.dp2px(context, 22)));
+        switchBtn.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, switchIcoSize));
         switchBtn.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (switchChangeListener != null) switchChangeListener.change(isChecked);
         });
@@ -580,11 +588,13 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
             image = new ImageView(context);
             btn = new Button(context);
 
-            int size = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 15,
+            int size = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, cancelIcoSize,
                     context.getResources().getDisplayMetrics());
-            LayoutParams params = new LayoutParams(size, size);
+            LayoutParams params = new LayoutParams(size, LayoutParams.WRAP_CONTENT);
             params.addRule(RelativeLayout.CENTER_IN_PARENT);
 
+            image.setScaleType(ImageView.ScaleType.FIT_XY);
+            image.setAdjustViewBounds(true);
             image.setLayoutParams(params);
             image.setTag(1);
 
@@ -622,8 +632,13 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
             image = new ImageView(context);
             btn = new Button(context);
 
-            LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+            int size = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, downIcoSize,
+                    context.getResources().getDisplayMetrics());
+            LayoutParams params = new LayoutParams(size, LayoutParams.WRAP_CONTENT);
             params.addRule(RelativeLayout.CENTER_IN_PARENT);
+
+            image.setScaleType(ImageView.ScaleType.FIT_XY);
+            image.setAdjustViewBounds(true);
 
             image.setLayoutParams(params);
             image.setTag(2);
