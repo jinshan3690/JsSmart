@@ -43,10 +43,11 @@ public class LocalManager {
     private LocalManager(Context context) {
         this.context = context;
 
-        String appName = String.format("%s/%s",android.R.class.getPackage().getName(), SystemUtil.currentProcessName(context));
-        DEFAULT_PARAMETER_NAME = appName;
-        DEFAULT_PARAMETER_NAME_TEMP = appName + ".temp";
-        DEFAULT_PARAMETER_NAME_COMMON = appName + ".common";
+        String packageName = SystemUtil.currentProcessName(context);
+        String appName = String.format("%s/%s",android.R.class.getPackage().getName(), packageName);
+        DEFAULT_PARAMETER_NAME = packageName;
+        DEFAULT_PARAMETER_NAME_TEMP = packageName + ".temp";
+        DEFAULT_PARAMETER_NAME_COMMON = packageName + ".common";
         filePath = appName + "/file";
         recorderPath = appName + "/cache/recorder";
         cachePath = appName + "/cache";

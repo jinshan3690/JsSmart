@@ -35,6 +35,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.js.smart.common.util.DensityUtil;
+import com.js.smart.common.util.LocalManager;
 import com.js.smart.common.util.T;
 import com.js.smart.ui.R;
 
