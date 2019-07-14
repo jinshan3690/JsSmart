@@ -43,7 +43,7 @@ public class LocalManager {
     private LocalManager(Context context) {
         this.context = context;
 
-        String appName = SystemUtil.currentProcessName(context);
+        String appName = String.format("%s/%s",android.R.class.getPackage().getName(), SystemUtil.currentProcessName(context));
         DEFAULT_PARAMETER_NAME = appName;
         DEFAULT_PARAMETER_NAME_TEMP = appName + ".temp";
         DEFAULT_PARAMETER_NAME_COMMON = appName + ".common";

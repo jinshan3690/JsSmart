@@ -105,7 +105,7 @@ public class UIIndexActivity extends UILoadingActivity {
     /**
      * Bind
      */
-    @OnClick({R2.id.btn1, R2.id.btn2, R2.id.btn3, R2.id.btn4, R2.id.btn5, R2.id.btn6, R2.id.btn7, R2.id.btn8, R2.id.btn9,
+    @OnClick({R2.id.editText1, R2.id.btn1, R2.id.btn2, R2.id.btn3, R2.id.btn4, R2.id.btn5, R2.id.btn6, R2.id.btn7, R2.id.btn8, R2.id.btn9,
             R2.id.btn10, R2.id.btn11, R2.id.btn12, R2.id.btn13, R2.id.btn14, R2.id.btn15, R2.id.btn16})
     public void click(View v) {
         if (dialog != null)
@@ -115,7 +115,9 @@ public class UIIndexActivity extends UILoadingActivity {
         if (headWindow != null)
             headWindow.dismiss();
 
-        if (R.id.btn1 == v.getId()) {
+        if (R.id.editText1 == v.getId()) {
+            T.showSuccess("ok");
+        }else if (R.id.btn1 == v.getId()) {
             toActivityForData(v, UIRoute.ui_start_page, postcard -> postcard.withString("nextRoute", UIRoute.ui_index).navigation(context));
         } else if (R.id.btn2 == v.getId()) {
             toActivityForData(v, UIRoute.ui_guide_page, postcard -> postcard.withString("nextRoute", UIRoute.ui_index).navigation(context));

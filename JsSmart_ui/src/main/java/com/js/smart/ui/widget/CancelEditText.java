@@ -17,7 +17,6 @@ import android.text.method.DigitsKeyListener;
 import android.text.method.TextKeyListener;
 import android.text.util.Linkify;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -34,7 +33,6 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 
 import com.js.smart.common.util.DensityUtil;
 import com.js.smart.common.util.T;

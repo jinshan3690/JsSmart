@@ -51,7 +51,7 @@ public class ImageUtil {
     public static String imageCache = Environment.getExternalStorageDirectory().getPath() + File.separator + packageName + "/image/cache";
 
     public static void init(Context context){
-        packageName = SystemUtil.currentProcessName(context);
+        packageName = String.format("%s/%s",android.R.class.getPackage().getName(), SystemUtil.currentProcessName(context));
         imagePath = Environment.getExternalStorageDirectory().getPath() + File.separator + packageName + "/image";
         imageCache = Environment.getExternalStorageDirectory().getPath() + File.separator + packageName + "/image/cache";
 
