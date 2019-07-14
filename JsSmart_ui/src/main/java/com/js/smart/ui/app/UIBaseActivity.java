@@ -1,16 +1,13 @@
 package com.js.smart.ui.app;
 
 import com.js.smart.common.app.BaseCompatActivity;
-import com.js.smart.common.util.LocalManager;
 import com.js.smart.ui.R;
-
-import org.apache.commons.lang.StringUtils;
 
 import me.jessyan.autosize.internal.CustomAdapt;
 
 public abstract class UIBaseActivity extends BaseCompatActivity implements CustomAdapt {
 
-    protected TitleUtil titleUtil;
+    public TitleUtil titleUtil;
 
     @Override
     public boolean isBaseOnWidth() {
