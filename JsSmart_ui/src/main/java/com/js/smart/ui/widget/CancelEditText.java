@@ -83,11 +83,11 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CancelEditText);
 
-        cancelIcoWidth = (int) typedArray.getDimension(R.styleable.CancelEditText_cet_cancelIcoWidth, DensityUtil.dp2px(context, 15));
+        cancelIcoWidth = (int) typedArray.getDimension(R.styleable.CancelEditText_cet_cancelIcoWidth, LayoutParams.WRAP_CONTENT);
         cancelIcoHeight = (int) typedArray.getDimension(R.styleable.CancelEditText_cet_cancelIcoHeight, DensityUtil.dp2px(context, 15));
-        downIcoWidth = (int) typedArray.getDimension(R.styleable.CancelEditText_cet_downIcoWidth, DensityUtil.dp2px(context, 15));
+        downIcoWidth = (int) typedArray.getDimension(R.styleable.CancelEditText_cet_downIcoWidth, LayoutParams.WRAP_CONTENT);
         downIcoHeight = (int) typedArray.getDimension(R.styleable.CancelEditText_cet_downIcoHeight, DensityUtil.dp2px(context, 15));
-        switchIcoWidth = (int) typedArray.getDimension(R.styleable.CancelEditText_cet_switchIcoWidth, DensityUtil.dp2px(context, 22));
+        switchIcoWidth = (int) typedArray.getDimension(R.styleable.CancelEditText_cet_switchIcoWidth, LayoutParams.WRAP_CONTENT);
         switchIcoHeight = (int) typedArray.getDimension(R.styleable.CancelEditText_cet_switchIcoHeight, DensityUtil.dp2px(context, 22));
 
         initView(context);
