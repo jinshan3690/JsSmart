@@ -52,6 +52,9 @@ public class ImageUtil {
 
     public static void init(Context context){
         packageName = SystemUtil.currentProcessName(context);
+        imagePath = Environment.getExternalStorageDirectory().getPath() + File.separator + packageName + "/image";
+        imageCache = Environment.getExternalStorageDirectory().getPath() + File.separator + packageName + "/image/cache";
+
     }
 
     /**

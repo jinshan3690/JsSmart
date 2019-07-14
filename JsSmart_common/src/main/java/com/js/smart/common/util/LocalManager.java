@@ -26,7 +26,7 @@ public class LocalManager {
 
     private Context context;
     private static LocalManager manager;
-    private static String appName = R.class.getPackage().getName();
+    private static final String appName = R.class.getPackage().getName();
     //默认的共享参数名字
     private static String DEFAULT_PARAMETER_NAME = appName;
     private static String DEFAULT_PARAMETER_NAME_TEMP = appName + ".temp";
@@ -42,7 +42,14 @@ public class LocalManager {
 
     private LocalManager(Context context) {
         this.context = context;
-        appName = SystemUtil.currentProcessName(context);
+
+        String appName = SystemUtil.currentProcessName(context);
+        DEFAULT_PARAMETER_NAME = appName;
+        DEFAULT_PARAMETER_NAME_TEMP = appName + ".temp";
+        DEFAULT_PARAMETER_NAME_COMMON = appName + ".common";
+        filePath = appName + "/file";
+        recorderPath = appName + "/cache/recorder";
+        cachePath = appName + "/cache";
     }
 
     public static LocalManager getInstance(Context context) {
