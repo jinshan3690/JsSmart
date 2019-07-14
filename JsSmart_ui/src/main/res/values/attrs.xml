@@ -12,9 +12,12 @@
         <attr name="cet_cancelIco" format="reference" />
         <attr name="cet_downIco" format="reference" />
         <attr name="cet_switchIco" format="reference" />
-        <attr name="cet_cancelIcoSize" format="reference|dimension" />
-        <attr name="cet_downIcoSize" format="reference|dimension" />
-        <attr name="cet_switchIcoSize" format="reference|dimension" />
+        <attr name="cet_cancelIcoHeight" format="reference|dimension" />
+        <attr name="cet_cancelIcoWidth" format="reference|dimension" />
+        <attr name="cet_downIcoHeight" format="reference|dimension" />
+        <attr name="cet_downIcoWidth" format="reference|dimension" />
+        <attr name="cet_switchIcoHeight" format="reference|dimension" />
+        <attr name="cet_switchIcoWidth" format="reference|dimension" />
         <attr name="cet_digits" format="string" />
         <attr name="cet_imeOptions" format="enum">
             <enum name="actionDone" value="1" />
