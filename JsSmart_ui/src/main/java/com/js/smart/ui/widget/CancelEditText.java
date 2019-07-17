@@ -471,6 +471,7 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
         setClickable(!enabled);
         if (enabled) {
             editText.requestFocus();
+            if (StringUtils.isNotEmpty(getText()))
             setSelection();
         } else {
             editText.clearFocus();

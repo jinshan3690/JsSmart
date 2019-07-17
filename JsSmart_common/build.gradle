@@ -25,6 +25,7 @@ dependencies {
         exclude module: "support-v13"
     }
 
+
     api rootProject.ext.dependencies["freshdownloadview"]
     api rootProject.ext.dependencies["pinnedListview"]
     api rootProject.ext.dependencies["MultilevelTreeList"]

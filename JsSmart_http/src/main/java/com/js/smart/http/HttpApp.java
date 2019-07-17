@@ -1,9 +1,9 @@
 package com.js.smart.http;
 
 
+import com.google.gson.Gson;
 import com.js.smart.common.app.CommonApp;
 import com.js.smart.common.init.strategy.InitStrategy;
-import com.google.gson.Gson;
 import com.js.smart.http.config.factory.GsonResponseBodyConverter;
 
 import okhttp3.OkHttpClient;

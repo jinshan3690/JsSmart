@@ -62,6 +62,7 @@ public abstract class CommonApp extends BaseApplication {
 
         ImageUtil.init(context);
 
+
         LocalManager.getInstance(this);
         init();
 

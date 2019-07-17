@@ -3,7 +3,7 @@ project.ext {
     //统一设置APP配置
     setDefaultConfig = { extension ->
         //相对于APP中的build.gradle android {}的内容
-        extension.android{
+        extension.android {
             compileSdkVersion rootProject.ext.android["compileSdkVersion"]
             buildToolsVersion rootProject.ext.android["buildToolsVersion"]
             defaultConfig {
@@ -17,7 +17,8 @@ project.ext {
                 //ARouter路由配置
                 javaCompileOptions {
                     annotationProcessorOptions {
-                        arguments = [AROUTER_MODULE_NAME: project.getName()]
+                        arguments = ['objectbox.daoCompat': 'true']
+                        arguments = [AROUTER_MODULE_NAME  : project.getName()]
                     }
                 }
             }
