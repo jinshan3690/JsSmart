@@ -136,7 +136,7 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
                 editText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS | InputType.TYPE_CLASS_TEXT);
                 break;
             default:
-                editText.setInputType(InputType.TYPE_CLASS_TEXT);
+                editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
                 break;
         }
 
@@ -144,6 +144,8 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
         if (!StringUtils.isEmpty(digits)) {
             editText.setKeyListener(DigitsKeyListener.getInstance(digits));
         }
+
+        editText.setSingleLine(typedArray.getBoolean(R.styleable.CancelEditText_cet_singleLine,true));
 
         setTextEnabled(typedArray.getBoolean(R.styleable.CancelEditText_cet_textEnabled, true));
         setEnabled(typedArray.getBoolean(R.styleable.CancelEditText_cet_enabled, true));
@@ -568,7 +570,8 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
 
 //            setAutoLinkMask(Linkify.ALL);
             setBackgroundColor(Color.parseColor("#00000000"));
-            setSingleLine();
+            setGravity(Gravity.TOP);
+            setHorizontallyScrolling(false);
             setPadding(0, 0, 0, 0);
             setThreshold(1);//第一个字提示
             setDropDownVerticalOffset(25);

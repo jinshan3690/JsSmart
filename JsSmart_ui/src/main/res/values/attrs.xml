@@ -34,6 +34,7 @@
         </attr>
         <attr name="cet_enabled" format="boolean" />
         <attr name="cet_textEnabled" format="boolean" />
+        <attr name="cet_singleLine" format="boolean" />
         <attr name="cet_selectBackground" format="reference" />
         <attr name="cet_background" format="reference" />
         <attr name="cet_textPaddingLeft" format="reference|dimension" />
