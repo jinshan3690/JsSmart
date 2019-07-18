@@ -35,6 +35,7 @@ import com.js.smart.ui.app.UIBaseActivity;
 import com.js.smart.ui.widget.Indicator;
 
 import java.io.File;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -47,7 +48,7 @@ public class PhotoPagerActivity extends UIBaseActivity {
     ViewPager mViewPager;
 
     @Autowired
-    String[] images;
+    List<String> images;
     @Autowired
     int current;
 
@@ -70,9 +71,9 @@ public class PhotoPagerActivity extends UIBaseActivity {
             }
         });
 
-        titleUtil.setTitle(1 +"/"+images.length);
+        titleUtil.setTitle(1 +"/"+images.size());
         final Indicator indicator = new Indicator(context);
-        indicator.setPager(images.length);
+        indicator.setPager(images.size());
         mViewPager.setAdapter(new SamplePagerAdapter(images));
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -80,7 +81,7 @@ public class PhotoPagerActivity extends UIBaseActivity {
             }
             @Override
             public void onPageSelected(int position) {
-                titleUtil.setTitle(position+1 +"/"+images.length);
+                titleUtil.setTitle(position+1 +"/"+images.size());
                 indicator.setPosition(position);
                 current = position;
             }
@@ -98,21 +99,21 @@ public class PhotoPagerActivity extends UIBaseActivity {
 
     class SamplePagerAdapter extends PagerAdapter {
 
-        private String[] images;
+        private List<String> images;
 
-        public SamplePagerAdapter(String[] images) {
+        public SamplePagerAdapter(List<String> images) {
             this.images = images;
         }
 
         @Override
         public int getCount() {
-            return images.length;
+            return images.size();
         }
 
         @Override
         public View instantiateItem(ViewGroup container, int position) {
             PhotoView photoView = new PhotoView(container.getContext());
-            String path = images[position];
+            String path = images.get(position);
             if (path.contains(".jpg")){
                 Glide.with(context).load(new File(path)).into(photoView);
             }else{
