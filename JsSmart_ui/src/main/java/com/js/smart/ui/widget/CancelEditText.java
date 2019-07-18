@@ -469,6 +469,9 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
 
     @Override
     public void setEnabled(boolean enabled) {
+        cancelBtn.setEnabled(enabled);
+        downBtn.setEnabled(enabled);
+        switchBtn.setEnabled(enabled);
         setClickable(enabled && !editText.isEnabled());
 
         super.setEnabled(enabled);
