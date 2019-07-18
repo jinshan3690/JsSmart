@@ -35,6 +35,7 @@ import com.js.smart.ui.app.UIBaseActivity;
 import com.js.smart.ui.widget.Indicator;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -48,7 +49,7 @@ public class PhotoPagerActivity extends UIBaseActivity {
     ViewPager mViewPager;
 
     @Autowired
-    List<String> images;
+    ArrayList<String> images;
     @Autowired
     int current;
 
