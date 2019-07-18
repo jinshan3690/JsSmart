@@ -255,6 +255,26 @@ public class MultiImageView extends ViewGroup {
         this.onMultiItemImageView = onMultiItemImageView;
     }
 
+    public void setLineCount(int lineCount) {
+        this.lineCount = lineCount;
+    }
+
+    public void setImagePadding(int imagePadding) {
+        this.imagePadding = imagePadding;
+    }
+
+    public void setIco(int ico) {
+        this.ico = ico;
+    }
+
+    public void setMaxCount(int maxCount) {
+        this.maxCount = maxCount;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
     public void setCount(int count) {
         removeAllViews();
         this.count = count;

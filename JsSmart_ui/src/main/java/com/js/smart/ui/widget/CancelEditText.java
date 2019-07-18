@@ -624,6 +624,13 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
         }
 
         @Override
+        public void setEnabled(boolean enabled) {
+            super.setEnabled(enabled);
+            image.setEnabled(enabled);
+            btn.setEnabled(enabled);
+        }
+
+        @Override
         public void setOnClickListener(@Nullable OnClickListener l) {
             image.setOnClickListener(l);
             btn.setOnClickListener(l);
@@ -664,6 +671,13 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
             addView(btn);
             setVisibility(View.GONE);
             setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT));
+        }
+
+        @Override
+        public void setEnabled(boolean enabled) {
+            super.setEnabled(enabled);
+            image.setEnabled(enabled);
+            btn.setEnabled(enabled);
         }
 
         @Override
