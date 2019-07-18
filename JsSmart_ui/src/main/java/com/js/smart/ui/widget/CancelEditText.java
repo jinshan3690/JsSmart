@@ -145,7 +145,13 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
             editText.setKeyListener(DigitsKeyListener.getInstance(digits));
         }
 
-        editText.setSingleLine(typedArray.getBoolean(R.styleable.CancelEditText_cet_singleLine,true));
+        boolean singleLine = typedArray.getBoolean(R.styleable.CancelEditText_cet_singleLine,true);
+        if(singleLine) {
+            editText.setSingleLine(true);
+            editText.setHorizontallyScrolling(false);
+            setGravity(Gravity.TOP);
+        }
+
 
         setTextEnabled(typedArray.getBoolean(R.styleable.CancelEditText_cet_textEnabled, true));
         setEnabled(typedArray.getBoolean(R.styleable.CancelEditText_cet_enabled, true));
@@ -570,8 +576,7 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
 
 //            setAutoLinkMask(Linkify.ALL);
             setBackgroundColor(Color.parseColor("#00000000"));
-            setGravity(Gravity.TOP);
-            setHorizontallyScrolling(false);
+
             setPadding(0, 0, 0, 0);
             setThreshold(1);//第一个字提示
             setDropDownVerticalOffset(25);
