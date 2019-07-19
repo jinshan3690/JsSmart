@@ -1,6 +1,6 @@
 ext {
     isModule = false
-    moduleJsSmartUi = false
+    moduleJsSmartUi = true
 
     android = [
             applicationId           : "com.js.smart",

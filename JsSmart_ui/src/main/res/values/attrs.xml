@@ -31,6 +31,7 @@
             <enum name="textPassword" value="1" />
             <enum name="textVisiblePassword" value="2" />
             <enum name="textEmailAddress" value="3" />
+            <enum name="textMultiLine" value="4" />
         </attr>
         <attr name="cet_enabled" format="boolean" />
         <attr name="cet_textEnabled" format="boolean" />

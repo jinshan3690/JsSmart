@@ -125,6 +125,11 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
         editText.setHintTextColor(
                 typedArray.getColor(R.styleable.CancelEditText_cet_hintColor, Color.parseColor("#a1a1a1")));
 
+        boolean singleLine = typedArray.getBoolean(R.styleable.CancelEditText_cet_singleLine,true);
+        if(singleLine) {
+            editText.setSingleLine(true);
+        }
+
         switch (typedArray.getInt(R.styleable.CancelEditText_cet_inputType, -1)) {
             case 1:
                 editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
@@ -135,8 +140,11 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
             case 3:
                 editText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS | InputType.TYPE_CLASS_TEXT);
                 break;
+            case 4:
+                editText.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE | InputType.TYPE_CLASS_TEXT);
+                break;
             default:
-                editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+                editText.setInputType(InputType.TYPE_CLASS_TEXT);
                 break;
         }
 
@@ -144,14 +152,6 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
         if (!StringUtils.isEmpty(digits)) {
             editText.setKeyListener(DigitsKeyListener.getInstance(digits));
         }
-
-        boolean singleLine = typedArray.getBoolean(R.styleable.CancelEditText_cet_singleLine,true);
-        if(singleLine) {
-            editText.setSingleLine(true);
-            editText.setHorizontallyScrolling(false);
-            setGravity(Gravity.TOP);
-        }
-
 
         setTextEnabled(typedArray.getBoolean(R.styleable.CancelEditText_cet_textEnabled, true));
         setEnabled(typedArray.getBoolean(R.styleable.CancelEditText_cet_enabled, true));
@@ -472,6 +472,8 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
         cancelBtn.setEnabled(enabled);
         downBtn.setEnabled(enabled);
         switchBtn.setEnabled(enabled);
+        cancelBtn.setVisibility(View.GONE);
+        editText.setEnabled(enabled);
         setClickable(enabled && !editText.isEnabled());
 
         super.setEnabled(enabled);
