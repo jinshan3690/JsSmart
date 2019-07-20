@@ -47,7 +47,11 @@ public class StringTypeAdapter extends TypeAdapter<Object> {
                 return new Gson().toJson(map);
 
             case STRING:
-                return in.nextString();
+                String str = in.nextString();
+                if(str != null && str.contains("null"))
+                    return null;
+
+                return str;
 
             case NUMBER:
 
