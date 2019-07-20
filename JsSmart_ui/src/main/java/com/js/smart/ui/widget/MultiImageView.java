@@ -280,4 +280,28 @@ public class MultiImageView extends ViewGroup {
         this.count = count;
         initItem();
     }
+
+    public int getLineCount() {
+        return lineCount;
+    }
+
+    public int getImagePadding() {
+        return imagePadding;
+    }
+
+    public int getIco() {
+        return ico;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public int getMaxCount() {
+        return maxCount;
+    }
+
+    public int getImageWidth() {
+        return width;
+    }
 }
