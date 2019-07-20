@@ -153,8 +153,8 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
             editText.setKeyListener(DigitsKeyListener.getInstance(digits));
         }
 
-        setTextEnabled(typedArray.getBoolean(R.styleable.CancelEditText_cet_textEnabled, true));
         setEnabled(typedArray.getBoolean(R.styleable.CancelEditText_cet_enabled, true));
+        setTextEnabled(typedArray.getBoolean(R.styleable.CancelEditText_cet_textEnabled, true));
 
         switch (typedArray.getInt(R.styleable.CancelEditText_cet_imeOptions, -1)) {
             case 1:
