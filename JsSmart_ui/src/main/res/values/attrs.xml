@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <declare-styleable name="JSProgressBar">
+        <attr name="js_progress_stroke_width" format="dimension|reference" />
+        <attr name="js_progress_degree" format="integer|reference" />
+        <attr name="js_progress_max" format="integer|reference" />
+        <attr name="js_progress_progress" format="integer|reference" />
+        <attr name="js_progress_dragging" format="boolean" />
+    </declare-styleable>
+
     <declare-styleable name="CircleImageView">
         <attr name="civ_border_width" format="dimension" />
         <attr name="civ_border_color" format="color" />
