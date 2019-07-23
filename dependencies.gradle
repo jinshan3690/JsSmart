@@ -1,6 +1,6 @@
 ext {
     isModule = false
-    moduleJsSmartUi = false
+    moduleJsSmartUi = true
 
     android = [
             applicationId           : "com.js.smart",
@@ -83,9 +83,8 @@ ext {
             "glide:okhttp3-integration"                : 'com.github.bumptech.glide:okhttp3-integration:4.0.0',
             "glide:annotations"                        : 'com.github.bumptech.glide:annotations:4.0.0',
             // 检测内存泄漏
-            "debug-leakcanary"                         : 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4',
-            "release-leakcanary"                       : 'com.squareup.leakcanary:leakcanary-android:1.5.4',
-            "testImplementation-leakcanary"            : 'com.squareup.leakcanary:leakcanary-android:1.5.4',
+            "debug-leakcanary"                         : 'com.squareup.leakcanary:leakcanary-android:1.5.4',
+            "release-leakcanary"                       : 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4',
             //test
             "junit"                                    : "junit:junit:4.12",
             "test:runner"                              : 'com.android.support.test:runner:1.0.2',//测试依赖，新建项目时会默认添加，一般不建议添加

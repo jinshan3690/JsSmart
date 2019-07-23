@@ -400,4 +400,8 @@ public class AcManager {
         }
         return false;
     }
+
+    public boolean isStatusTrans() {
+        return statusTrans;
+    }
 }

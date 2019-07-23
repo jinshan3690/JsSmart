@@ -25,7 +25,6 @@ dependencies {
         exclude module: "support-v13"
     }
 
-
     api rootProject.ext.dependencies["freshdownloadview"]
     api rootProject.ext.dependencies["pinnedListview"]
     api rootProject.ext.dependencies["MultilevelTreeList"]
@@ -57,8 +56,8 @@ dependencies {
     api rootProject.ext.dependencies["glide"]
     api rootProject.ext.dependencies["glide:okhttp3-integration"]
     api rootProject.ext.dependencies["glide:annotations"]
+
     debugApi rootProject.ext.dependencies["debug-leakcanary"]
     releaseApi rootProject.ext.dependencies["release-leakcanary"]
-    testImplementation rootProject.ext.dependencies["testImplementation-leakcanary"]
 
 }

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.js.smart.common.app.AntiShakeOnClickListener;
 import com.js.smart.common.app.BaseCompatActivity;
+import com.js.smart.common.util.SystemUtil;
 import com.js.smart.ui.R;
 import com.js.smart.ui.widget.CircleImageView;
 
@@ -53,6 +54,11 @@ public class TitleUtil extends AntiShakeOnClickListener {
             layout = context.findViewById(R.id.title);
         try {
             if (layout != null) {
+                if(context.acManager.isStatusTrans()) {
+                    int stateHeight = SystemUtil.getStatusHeight(context);
+                    layout.getLayoutParams().height = layout.getLayoutParams().height + stateHeight;
+                }
+
                 right = layout.findViewById(R.id.titleRight);
                 left = layout.findViewById(R.id.titleLeft);
                 titleTv = layout.findViewById(R.id.titleText);

@@ -3,7 +3,6 @@ package com.js.smart.common.app;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityOptionsCompat;
@@ -40,7 +39,7 @@ public abstract class BaseCompatActivity extends RxAppCompatActivity implements
         if (getSupportActionBar() != null)
             getSupportActionBar().hide();
         AcStack.create().addActivity(context);
-        getResources();
+//        getResources();
         setContentView(createView(savedInstanceState));
     }
 
@@ -64,17 +63,17 @@ public abstract class BaseCompatActivity extends RxAppCompatActivity implements
 
     }
 
-    @Override
-    public Resources getResources() {
-        Resources resources = super.getResources();
-        Configuration newConfig = new Configuration();
-        newConfig.setToDefaults();//设置成默认值，即fontScale为1
-        resources.updateConfiguration(newConfig, resources.getDisplayMetrics());
-
-        createConfigurationContext(newConfig);
-
-        return resources;
-    }
+//    @Override
+//    public Resources getResources() {
+//        Resources resources = super.getResources();
+//        Configuration newConfig = new Configuration();
+//        newConfig.setToDefaults();//设置成默认值，即fontScale为1
+//        resources.updateConfiguration(newConfig, resources.getDisplayMetrics());
+//
+//        createConfigurationContext(newConfig);
+//
+//        return resources;
+//    }
 
     @Override
     protected void onDestroy() {

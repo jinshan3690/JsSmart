@@ -125,11 +125,6 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
         editText.setHintTextColor(
                 typedArray.getColor(R.styleable.CancelEditText_cet_hintColor, Color.parseColor("#a1a1a1")));
 
-        boolean singleLine = typedArray.getBoolean(R.styleable.CancelEditText_cet_singleLine,true);
-        if(singleLine) {
-            editText.setSingleLine(true);
-        }
-
         switch (typedArray.getInt(R.styleable.CancelEditText_cet_inputType, -1)) {
             case 1:
                 editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
@@ -140,12 +135,15 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
             case 3:
                 editText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS | InputType.TYPE_CLASS_TEXT);
                 break;
-            case 4:
-                editText.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE | InputType.TYPE_CLASS_TEXT);
-                break;
             default:
                 editText.setInputType(InputType.TYPE_CLASS_TEXT);
                 break;
+        }
+
+
+        boolean singleLine = typedArray.getBoolean(R.styleable.CancelEditText_cet_singleLine,true);
+        if(!singleLine) {
+            editText.setInputType(editText.getInputType() | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
         }
 
         String digits = typedArray.getString(R.styleable.CancelEditText_cet_digits);
