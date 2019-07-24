@@ -25,6 +25,7 @@ public class ReceiverManager {
         myIntentFilter.addAction(SystemUtil.currentProcessName(context)
                 + action);
         context.registerReceiver(receiver, myIntentFilter);
+
         if (!receivers.contains(receiver))
             receivers.add(receiver);
     }
