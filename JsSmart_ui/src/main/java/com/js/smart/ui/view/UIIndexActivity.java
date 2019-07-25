@@ -36,6 +36,7 @@ import com.js.smart.ui.popup.MonthPopupWindow;
 import com.js.smart.ui.popup.MultiplePopupWindow;
 import com.js.smart.ui.popup.ThreeWheelPopupWindow;
 import com.js.smart.ui.popup.TwoWheelPopupWindow;
+import com.js.smart.ui.popup.WheelPopupWindow;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -106,7 +107,7 @@ public class UIIndexActivity extends UILoadingActivity {
      * Bind
      */
     @OnClick({R2.id.editText1, R2.id.btn1, R2.id.btn2, R2.id.btn3, R2.id.btn4, R2.id.btn5, R2.id.btn6, R2.id.btn7, R2.id.btn8, R2.id.btn9,
-            R2.id.btn10, R2.id.btn11, R2.id.btn12, R2.id.btn13, R2.id.btn14, R2.id.btn15, R2.id.btn16})
+            R2.id.btn10, R2.id.btn11, R2.id.btn12, R2.id.btn13, R2.id.btn14, R2.id.btn15, R2.id.btn16, R2.id.btn17})
     public void click(View v) {
         if (dialog != null)
             dialog.dismiss();
@@ -219,6 +220,13 @@ public class UIIndexActivity extends UILoadingActivity {
                     });
         } else if (R.id.btn16 == v.getId()) {
             UIIndexActivityPermissionsDispatcher.showCameraWithPermissionCheck(UIIndexActivity.this);
+        } else if (R.id.btn17 == v.getId()) {
+            popupWindow = new WheelPopupWindow(context, view)
+                    .setItemsOne(Arrays.asList("111", "222", "333", "444"))
+                    .show(one -> {
+                        T.showSuccess("ok:" + one );
+                        popupWindow.dismiss();
+                    });
         }
     }
 
