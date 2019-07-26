@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:exitFadeDuration="200">
     <item android:state_enabled="false">
         <shape>
             <corners android:radius="@dimen/btnRadius" />
@@ -10,7 +10,7 @@
         <shape>
             <corners android:radius="@dimen/btnRadius" />
             <stroke android:color="@color/btnPrimary" android:width="@dimen/btnBorder"/>
-            <solid android:color="@color/btnPressed"/>
+            <solid android:color="@color/btnPressedRipple"/>
         </shape>
     </item>
     <item>

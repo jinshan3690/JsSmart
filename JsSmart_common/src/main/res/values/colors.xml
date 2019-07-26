@@ -34,7 +34,8 @@
 
     <color name="btnPrimary">@color/colorPrimary</color>
     <color name="btnAccent">@color/colorAccent</color>
-    <color name="btnPressed">#f3f3f3</color>
+    <color name="btnPressed">@color/defaultPressed</color>
+    <color name="btnPressedRipple">#f3f3f3</color>
     <color name="btnDanger">#CB423C</color>
     <color name="btnDisable">#CCCCCC</color>
 

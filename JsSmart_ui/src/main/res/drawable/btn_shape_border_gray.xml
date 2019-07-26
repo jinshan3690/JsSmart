@@ -2,7 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" android:exitFadeDuration="200">
     <item android:state_enabled="false">
         <shape>
-            <solid android:color="@color/colorDivider" />
+            <solid android:color="@color/btnDisable" />
             <corners android:radius="@dimen/btnRadius" />
         </shape>
     </item>
@@ -10,7 +10,7 @@
         <shape>
             <stroke android:width="@dimen/btnBorder" android:color="@color/colorBorderGray" />
             <corners android:radius="@dimen/btnRadius" />
-            <solid android:color="@color/btnPressed"/>
+            <solid android:color="@color/btnPressedRipple"/>
         </shape>
     </item>
     <item>

@@ -23,48 +23,466 @@
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/lay_15">
 
-            <com.js.smart.ui.widget.CancelEditText
-                android:id="@id/editText1"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginTop="@dimen/lay_15"
-                app:cet_text="禁用点击"
-                app:cet_textEnabled="false"
+            <com.js.smart.ui.widget.FlowLayout
+                android:id="@id/layout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/colorPrimaryRippleDark"
+                android:paddingLeft="@dimen/lay_15"
+                android:paddingRight="@dimen/lay_15"
+                android:paddingTop="@dimen/lay_15">
 
-            <com.js.smart.ui.widget.CancelEditText
-                android:id="@id/editText2"
-                android:layout_width="105dp"
-                android:layout_height="46dp"
-                android:layout_marginTop="@dimen/lay_15"
-                app:cet_inputType="textPassword"
-                app:cet_singleLine="true"
-                app:cet_text="多行测试"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/editText1" />
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/btnPressed"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadius">
 
-            <com.js.smart.ui.widget.CancelEditText
-                android:id="@id/editText3"
-                android:layout_width="105dp"
-                android:layout_height="46dp"
-                android:layout_marginTop="@dimen/lay_15"
-                app:cet_inputType="textVisiblePassword"
-                app:cet_singleLine="true"
-                app:cet_text="多行测试"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/editText2" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_shape_accent"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/font_10" />
 
-            <com.js.smart.ui.widget.CancelEditText
-                android:id="@id/editText4"
-                android:layout_width="105dp"
-                android:layout_height="46dp"
-                android:layout_marginTop="@dimen/lay_15"
-                app:cet_inputType="textEmailAddress"
-                app:cet_singleLine="true"
-                app:cet_text="多行测试"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/editText3" />
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/btnPressed"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadiusLarge">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_shape_arch_accent"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/font_10" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/colorPrimary"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadiusLarge">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_shape_arch_border_gray"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@drawable/text_gray"
+                        android:textSize="@dimen/font_10" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/colorPrimary"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadiusLarge">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_shape_arch_border_primary"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@drawable/text_primary"
+                        android:textSize="@dimen/font_10" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/btnPressed"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadiusLarge">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_shape_arch_primary"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/font_10" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/colorPrimary"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadiusLarge">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_shape_arch_trans"
+                        android:stateListAnimator="@null"
+                        android:gravity="center"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/font_10" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/colorPrimary"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadius">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_shape_border_black"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@drawable/text_black"
+                        android:textSize="@dimen/font_10" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/colorPrimary"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadius">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_shape_border_gray"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@drawable/text_gray"
+                        android:textSize="@dimen/font_10" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/colorPrimary"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadius">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_shape_border_primary"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@drawable/text_primary"
+                        android:textSize="@dimen/font_10" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/btnPressed"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadius">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_shape_bottom_primary"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/font_10" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/colorPrimary"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadius">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_shape_bottom_white"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@drawable/text_gray"
+                        android:textSize="@dimen/font_10" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/btnPressed"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadius">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_shape_primary"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/font_10" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/colorPrimary"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadius">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_shape_left_bottom_white"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@drawable/text_gray"
+                        android:textSize="@dimen/font_10" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/btnPressed"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadius">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_shape_right_bottom_primary"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/font_10" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/colorPrimary"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadius">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_shape_top_white"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@drawable/text_gray"
+                        android:textSize="@dimen/font_10" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/colorPrimary"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadius">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_shape_white"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@drawable/text_gray"
+                        android:textSize="@dimen/font_10" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="78dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:mrl_rippleAlpha="0.2"
+                    app:mrl_rippleColor="@color/colorPrimary"
+                    app:mrl_rippleDimension="@dimen/lay_20"
+                    app:mrl_rippleDuration="0"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    app:mrl_rippleRoundedCorners="@dimen/btnRadius">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_white"
+                        android:stateListAnimator="@null"
+                        android:textAllCaps="false"
+                        android:text="@string/app_name"
+                        android:textColor="@drawable/text_gray"
+                        android:textSize="@dimen/font_10" />
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <com.js.smart.ui.widget.CancelEditText
+                    android:layout_width="78dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:cet_hint="@string/app_name"
+                    app:cet_imeOptions="actionNext"
+                    app:cet_background="@drawable/et_line_border_gray"
+                    app:cet_selectBackground="@drawable/et_line_border_primary"
+                    app:cet_cancelIco="@mipmap/ico_del"/>
+
+                <com.js.smart.ui.widget.CancelEditText
+                    android:layout_width="78dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/lay_15"
+                    android:layout_marginBottom="@dimen/lay_15"
+                    app:cet_hint="@string/app_name"
+                    app:cet_imeOptions="actionNext"
+                    app:cet_background="@drawable/et_line_border_gray"
+                    app:cet_selectBackground="@drawable/et_line_border_primary"
+                    app:cet_cancelIco="@mipmap/ico_del"/>
+
+            </com.js.smart.ui.widget.FlowLayout>
 
             <Button
                 android:id="@id/btn1"
@@ -75,7 +493,7 @@
                 android:textAllCaps="false"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/layout1"/>
 
             <Button
                 android:id="@id/btn2"

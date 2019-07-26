@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android" android:exitFadeDuration="200">
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:exitFadeDuration="200" >
     <item android:state_enabled="false">
         <shape>
-            <corners android:radius="@dimen/btnRadiusLarge" />
             <solid android:color="@color/btnDisable" />
+            <corners android:radius="@dimen/btnRadiusLarge" />
         </shape>
     </item>
     <item android:state_enabled="true" android:state_pressed="true">
         <shape>
-            <stroke android:width="@dimen/btnBorder" android:color="@color/colorPrimary" />
+            <stroke android:width="@dimen/btnBorder" android:color="@color/colorBlack" />
             <corners android:radius="@dimen/btnRadiusLarge" />
             <solid android:color="@color/btnPressedRipple"/>
         </shape>
     </item>
     <item>
         <shape>
-            <stroke android:width="@dimen/btnBorder" android:color="@color/colorPrimary" />
+            <stroke android:width="@dimen/btnBorder" android:color="@color/colorBlack" />
             <corners android:radius="@dimen/btnRadiusLarge" />
             <solid android:color="@color/colorWhite"/>
         </shape>

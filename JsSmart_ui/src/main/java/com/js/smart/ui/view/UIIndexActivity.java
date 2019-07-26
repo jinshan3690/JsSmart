@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
@@ -41,6 +42,7 @@ import com.js.smart.ui.popup.WheelPopupWindow;
 import java.io.IOException;
 import java.util.Arrays;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.OnPermissionDenied;
@@ -53,6 +55,9 @@ public class UIIndexActivity extends UILoadingActivity {
     private DialogBuilder dialog;
     private PopupWindow popupWindow;
     private PopupWindowUtil headWindow;
+
+    @BindView(R2.id.layout1)
+    ViewGroup group;
 
     @Override
     public int createView(Bundle savedInstanceState) {
@@ -69,8 +74,23 @@ public class UIIndexActivity extends UILoadingActivity {
                     @Override
                     protected void antiShakeOnClick(View v) {
                         hideLoading();
+                        view.post(() -> {
+                            for (int i = 0; i < group.getChildCount(); i++) {
+                                group.getChildAt(i).setEnabled(true);
+                                group.invalidate();
+                            }
+                        });
                     }
                 });
+
+        for (int i = 0; i < group.getChildCount(); i++) {
+            group.getChildAt(i).setOnClickListener(new AntiShakeOnClickListener() {
+                @Override
+                protected void antiShakeOnClick(View v) {
+                    v.setEnabled(false);
+                }
+            });
+        }
 
         initPopupWindow();
     }
@@ -106,7 +126,7 @@ public class UIIndexActivity extends UILoadingActivity {
     /**
      * Bind
      */
-    @OnClick({R2.id.editText1, R2.id.btn1, R2.id.btn2, R2.id.btn3, R2.id.btn4, R2.id.btn5, R2.id.btn6, R2.id.btn7, R2.id.btn8, R2.id.btn9,
+    @OnClick({R2.id.btn1, R2.id.btn2, R2.id.btn3, R2.id.btn4, R2.id.btn5, R2.id.btn6, R2.id.btn7, R2.id.btn8, R2.id.btn9,
             R2.id.btn10, R2.id.btn11, R2.id.btn12, R2.id.btn13, R2.id.btn14, R2.id.btn15, R2.id.btn16, R2.id.btn17})
     public void click(View v) {
         if (dialog != null)
@@ -116,9 +136,7 @@ public class UIIndexActivity extends UILoadingActivity {
         if (headWindow != null)
             headWindow.dismiss();
 
-        if (R.id.editText1 == v.getId()) {
-            T.showSuccess("ok");
-        }else if (R.id.btn1 == v.getId()) {
+        if (R.id.btn1 == v.getId()) {
             toActivityForData(v, UIRoute.ui_start_page, postcard -> postcard.withString("nextRoute", UIRoute.ui_index).navigation(context));
         } else if (R.id.btn2 == v.getId()) {
             toActivityForData(v, UIRoute.ui_guide_page, postcard -> postcard.withString("nextRoute", UIRoute.ui_index).navigation(context));
