@@ -36,6 +36,7 @@ public class UIInitTask implements InitTask {
         LeakCanary.install((Application) context.getApplicationContext());
 
         AutoSizeConfig.getInstance().setCustomFragment(true);
+        AutoSizeConfig.getInstance().setExcludeFontScale(true);
 
         initX5WebView(context);
 
