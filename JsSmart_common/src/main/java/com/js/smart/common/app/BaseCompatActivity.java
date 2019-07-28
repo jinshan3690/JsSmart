@@ -21,7 +21,6 @@ import butterknife.ButterKnife;
 import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import me.jessyan.autosize.AutoSizeCompat;
 
 public abstract class BaseCompatActivity extends RxAppCompatActivity implements
          BaseActivityI {
@@ -80,7 +79,7 @@ public abstract class BaseCompatActivity extends RxAppCompatActivity implements
     @Override
     public Resources getResources() {
         //需要升级到 v1.1.2 及以上版本才能使用 AutoSizeCompat
-        AutoSizeCompat.autoConvertDensityOfGlobal(super.getResources());//如果没有自定义需求用这个方法
+//        AutoSizeCompat.autoConvertDensityOfGlobal(super.getResources());//如果没有自定义需求用这个方法
 //        AutoSizeCompat.autoConvertDensity(super.getResources(), 667, false);//如果有自定义需求就用这个方法
         return super.getResources();
     }
