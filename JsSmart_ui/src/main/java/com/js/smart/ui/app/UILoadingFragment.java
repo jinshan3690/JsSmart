@@ -61,4 +61,9 @@ public class UILoadingFragment extends UIBaseFragment implements BaseView, Custo
         loading.setVisibility(View.GONE);
     }
 
+    @Override
+    public void httpError(String message, int type, Object data) {
+
+    }
+
 }

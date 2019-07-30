@@ -53,4 +53,9 @@ public class UILoadingActivity extends UIBaseActivity implements BaseView {
         context.acManager.changeStatusColor(view, loadingStateColor);
         loading.setVisibility(View.GONE);
     }
+
+    @Override
+    public void httpError(String message, int type, Object data) {
+
+    }
 }
