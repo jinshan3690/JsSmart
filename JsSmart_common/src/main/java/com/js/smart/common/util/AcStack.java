@@ -128,6 +128,14 @@ public class AcStack {
         }
     }
 
+    public void finishOthersActivity(String className) {
+        for (BaseActivityI activity : activityStack) {
+            if (!(activity.getClass().getSimpleName().equals(className))) {
+                finishActivity((AppCompatActivity) activity);
+            }
+        }
+    }
+
     /**
      * 结束所有Activity
      */
