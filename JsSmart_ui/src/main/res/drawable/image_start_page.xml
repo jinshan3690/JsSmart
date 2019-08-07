@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 背景颜色 -->
+    <item android:drawable="@color/colorPrimary" />
+
+    <item>
+        <!-- 图片 -->
+        <bitmap
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:src="@mipmap/img_start_page"/>
+    </item>
+</layer-list>

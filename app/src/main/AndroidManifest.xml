@@ -7,9 +7,9 @@
     <application
         android:name=".MainApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ico_logo"
+        android:icon="@mipmap/img_start_page"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ico_logo"
+        android:roundIcon="@mipmap/img_start_page"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:name"

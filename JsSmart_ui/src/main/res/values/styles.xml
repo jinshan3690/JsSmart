@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -13,12 +13,14 @@
     </style>
 
     <!-- 应用启动页(StartingWindow)的theme -->
-    <style name="AppTheme.StartingWindowTheme" parent="AppTheme">
-        <!-- 可以设置成纯颜色（设置一个和Activity UI相似的背景） -->
-        <!--<item name="android:windowBackground">@color/startingwindow_bgcolor</item>-->
+    <style name="AppTheme.Launcher" parent="AppTheme">
         <!--也可以设置成一张图片 -->
-        <!--<item name="android:windowBackground">@drawable/img_start_page</item>-->
-        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowBackground">@drawable/image_start_page</item>
+        <!--适配Android P刘海屏-->
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        <!-- 取消预览 -->
+        <!--<item name="android:windowDisablePreview">true</item>-->
+        <item name="android:windowFullscreen">true</item>
     </style>
 
     <style name="BottomNavigationActive">

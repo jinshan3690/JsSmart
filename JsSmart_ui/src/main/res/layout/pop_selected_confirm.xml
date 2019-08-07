@@ -13,7 +13,7 @@
     <ImageView
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@mipmap/ico_logo"
+        android:src="@mipmap/img_start_page"
         android:layout_centerVertical="true"
         android:layout_marginRight="@dimen/lay_10"
         android:layout_toLeftOf="@id/refer1"/>

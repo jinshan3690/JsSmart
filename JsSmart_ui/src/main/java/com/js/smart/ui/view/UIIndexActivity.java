@@ -60,6 +60,12 @@ public class UIIndexActivity extends UILoadingActivity {
     ViewGroup group;
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);//恢复原有的样式
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public int createView(Bundle savedInstanceState) {
         acManager.setStatusTrans(true);
         return R.layout.ac_ui_index;

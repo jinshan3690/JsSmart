@@ -72,7 +72,7 @@
             android:layout_margin="@dimen/lay_10"
             android:scaleType="fitXY"
             android:adjustViewBounds="true"
-            android:src="@mipmap/ico_logo"/>
+            android:src="@mipmap/img_start_page"/>
 
     </LinearLayout>
 
@@ -93,7 +93,7 @@
             android:layout_margin="@dimen/lay_10"
             android:scaleType="fitXY"
             android:adjustViewBounds="true"
-            android:src="@mipmap/ico_logo"/>
+            android:src="@mipmap/img_start_page"/>
 
         <TextView
             android:id="@+id/titleRightText"

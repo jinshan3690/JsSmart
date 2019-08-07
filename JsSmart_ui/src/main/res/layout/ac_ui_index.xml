@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorTransparent"
     android:paddingBottom="@dimen/lay_15">
 
     <include
@@ -468,6 +469,7 @@
                     app:cet_hint="@string/app_name"
                     app:cet_imeOptions="actionNext"
                     app:cet_background="@drawable/et_line_border_gray"
+                    app:cet_textSize="@dimen/font_10"
                     app:cet_selectBackground="@drawable/et_line_border_primary"
                     app:cet_cancelIco="@mipmap/ico_del"/>
 
@@ -478,6 +480,7 @@
                     android:layout_marginBottom="@dimen/lay_15"
                     app:cet_hint="@string/app_name"
                     app:cet_imeOptions="actionNext"
+                    app:cet_textSize="@dimen/font_10"
                     app:cet_background="@drawable/et_line_border_gray"
                     app:cet_selectBackground="@drawable/et_line_border_primary"
                     app:cet_cancelIco="@mipmap/ico_del"/>

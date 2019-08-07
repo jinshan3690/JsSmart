@@ -1,15 +1,17 @@
 package com.js.smart.ui.view;
 
 import android.os.Bundle;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.js.smart.common.app.ac_anim.mode.AcAnimFast;
+import com.js.smart.common.util.SystemUtil;
 import com.js.smart.ui.R;
 import com.js.smart.ui.R2;
 import com.js.smart.ui.UIRoute;
 import com.js.smart.ui.app.UIBaseActivity;
-import com.js.smart.common.app.ac_anim.mode.AcAnimFast;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -18,9 +20,10 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
+import me.jessyan.autosize.internal.CancelAdapt;
 
 @Route(path = UIRoute.ui_start_page)
-public class StartPageActivity extends UIBaseActivity {
+public class StartPageActivity extends UIBaseActivity implements CancelAdapt {
 
     @BindView(R2.id.textView1)
     TextView countTv;
@@ -32,14 +35,21 @@ public class StartPageActivity extends UIBaseActivity {
     String nextRoute;
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public int createView(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme);//恢复原有的样式
         acManager.setStatusTrans(true);
         return R.layout.ac_start_page;
     }
 
     @Override
     public void initView() {
+
+        RelativeLayout.LayoutParams params = ((RelativeLayout.LayoutParams)countTv.getLayoutParams());
+        params.topMargin = params.topMargin + SystemUtil.getStatusHeight(context);
         countTv.setText(String.valueOf(count));
 
         disposable = Observable.interval(1, TimeUnit.SECONDS)
@@ -52,6 +62,8 @@ public class StartPageActivity extends UIBaseActivity {
                         if (StringUtils.isBlank(nextRoute)) {
                             nextRoute = UIRoute.ui_index;
                         }
+
+                        setTheme(R.style.AppTheme);//恢复原有的样式
                         toActivity(nextRoute, AcAnimFast.get());
                         finish();
                     }

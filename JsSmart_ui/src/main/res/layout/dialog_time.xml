@@ -24,7 +24,8 @@
             android:id="@id/layout3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textView1">
+            android:layout_below="@id/textView1"
+            android:layout_centerHorizontal="true">
 
             <TimePicker
                 android:id="@id/timePicker1"
