@@ -144,6 +144,8 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
         boolean singleLine = typedArray.getBoolean(R.styleable.CancelEditText_cet_singleLine,true);
         if(!singleLine) {
             editText.setInputType(editText.getInputType() | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+            editText.setGravity(Gravity.START);
+            labelText.setGravity(Gravity.START);
         }
 
         String digits = typedArray.getString(R.styleable.CancelEditText_cet_digits);

@@ -45,7 +45,7 @@
         <attr name="cet_textColor" format="reference|color" />
         <attr name="cet_textSize" format="reference|dimension" />
         <attr name="cet_label" format="reference|string" />
-        <attr name="cet_labelColor" format="reference|string" />
+        <attr name="cet_labelColor" format="reference|color" />
         <attr name="cet_hint" format="reference|string" />
         <attr name="cet_hintColor" format="reference|color" />
     </declare-styleable>
