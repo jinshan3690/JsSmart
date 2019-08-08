@@ -215,6 +215,7 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
 
         labelText = new TextView(context);
         labelText.setAutoLinkMask(Linkify.ALL);
+        labelText.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT));
 
         addView(labelText);
         addView(editText);

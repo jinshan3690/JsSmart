@@ -474,13 +474,16 @@
                     app:cet_cancelIco="@mipmap/ico_del"/>
 
                 <com.js.smart.ui.widget.CancelEditText
-                    android:layout_width="78dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="300dp"
+                    android:layout_height="80dp"
                     android:layout_marginLeft="@dimen/lay_15"
                     android:layout_marginBottom="@dimen/lay_15"
+                    android:padding="@dimen/lay_10"
+                    app:cet_label="备注"
                     app:cet_hint="@string/app_name"
                     app:cet_imeOptions="actionNext"
                     app:cet_textSize="@dimen/font_10"
+                    app:cet_singleLine="false"
                     app:cet_background="@drawable/et_line_border_gray"
                     app:cet_selectBackground="@drawable/et_line_border_primary"
                     app:cet_cancelIco="@mipmap/ico_del"/>
