@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取消"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/textSize"
+                android:padding="@dimen/lay_10"/>
+
+            <TextView
+                android:id="@id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textSize="@dimen/titleTextSize" />
+
+            <TextView
+                android:id="@id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="确定"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/textSize"
+                android:padding="@dimen/lay_10" />
+
+        </LinearLayout>
+
+        <include layout="@layout/v_divider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.js.smart.ui.widget.WheelView
+                android:id="@id/wheelView1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                app:wheel_min_divider_width="@dimen/lay_40"
+                app:wheel_text_padding="10dp"
+                app:wheel_text_size="@dimen/font_14" />
+
+            <com.js.smart.ui.widget.WheelView
+                android:id="@id/wheelView2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                app:wheel_min_divider_width="@dimen/lay_40"
+                app:wheel_text_padding="10dp"
+                app:wheel_text_size="@dimen/font_14" />
+
+            <com.js.smart.ui.widget.WheelView
+                android:id="@id/wheelView3"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                app:wheel_min_divider_width="@dimen/lay_40"
+                app:wheel_text_padding="10dp"
+                app:wheel_text_size="@dimen/font_14" />
+
+            <com.js.smart.ui.widget.WheelView
+                android:id="@id/wheelView4"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                app:wheel_min_divider_width="@dimen/lay_40"
+                app:wheel_text_padding="10dp"
+                app:wheel_text_size="@dimen/font_14" />
+
+            <com.js.smart.ui.widget.WheelView
+                android:id="@id/wheelView5"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                app:wheel_min_divider_width="@dimen/lay_40"
+                app:wheel_text_padding="10dp"
+                app:wheel_text_size="@dimen/font_14" />
+
+            <com.js.smart.ui.widget.WheelView
+                android:id="@id/wheelView6"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                app:wheel_min_divider_width="@dimen/lay_40"
+                app:wheel_text_padding="10dp"
+                app:wheel_text_size="@dimen/font_14" />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

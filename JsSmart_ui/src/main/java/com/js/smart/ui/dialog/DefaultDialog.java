@@ -2,6 +2,7 @@ package com.js.smart.ui.dialog;
 
 
 import android.content.Context;
+import android.os.Handler;
 import android.text.Spanned;
 import android.text.SpannedString;
 import android.view.LayoutInflater;
@@ -24,13 +25,17 @@ public class DefaultDialog extends DialogBuilder<DefaultDialog> {
     }
 
     public DefaultDialog showDefaultDialog(String content, AntiShakeOnClickListener listener) {
-        return showDefaultDialog(new SpannedString(content), listener);
+        return showDefaultDialog(new SpannedString(content),0, listener);
+    }
+
+    public DefaultDialog showDefaultDialog(String content, int delayed, AntiShakeOnClickListener listener) {
+        return showDefaultDialog(new SpannedString(content), delayed, listener);
     }
 
     /**
      * 默认样式
      */
-    public DefaultDialog showDefaultDialog(Spanned content, AntiShakeOnClickListener listener) {
+    public DefaultDialog showDefaultDialog(Spanned content,int delayed,  AntiShakeOnClickListener listener) {
         view = LayoutInflater.from(context).inflate(R.layout.dialog_default, null);
         ImageView titleIco = view.findViewById(R.id.imageView1);
         TextView contentTv = view.findViewById(R.id.textView1);
@@ -57,6 +62,10 @@ public class DefaultDialog extends DialogBuilder<DefaultDialog> {
             else if(rightClickListener != null)
                 rightClickListener.onClick(view);
         });
+
+        if (delayed != 0)
+            new Handler().postDelayed(() -> dismiss(),delayed);
+
         return this;
     }
 

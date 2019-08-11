@@ -74,4 +74,10 @@
         <attr name="cd_second" format="reference|boolean" />
     </declare-styleable>
 
+    <declare-styleable name="WheelView">
+        <attr name="wheel_text_size" format="dimension|reference" />
+        <attr name="wheel_text_padding" format="dimension|reference" />
+        <attr name="wheel_min_divider_width" format="dimension|reference" />
+    </declare-styleable>
+
 </resources>

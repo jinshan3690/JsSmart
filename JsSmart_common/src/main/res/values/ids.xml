@@ -255,5 +255,8 @@
     <item name="wheelView1" type="id"/>
     <item name="wheelView2" type="id"/>
     <item name="wheelView3" type="id"/>
+    <item name="wheelView4" type="id"/>
+    <item name="wheelView5" type="id"/>
+    <item name="wheelView6" type="id"/>
 
 </resources>

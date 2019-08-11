@@ -3,6 +3,7 @@ package com.js.smart.ui.widget;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
@@ -10,7 +11,6 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,7 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-
+import com.js.smart.common.util.DensityUtil;
 import com.js.smart.ui.R;
 
 import java.util.ArrayList;
@@ -33,11 +33,14 @@ import java.util.List;
 public class WheelView extends ScrollView {
     public static final String TAG = WheelView.class.getSimpleName();
 
+    private float textSize;
+    private int textPadding;
+    private int minDivider;
+
     public static class OnWheelViewListener {
         public void onSelected(int selectedIndex, String item) {
         }
     }
-
 
     private Context context;
 //    private ScrollView scrollView;
@@ -45,24 +48,30 @@ public class WheelView extends ScrollView {
     private LinearLayout views;
 
     public WheelView(Context context) {
-        super(context);
-        init(context);
+        this(context, null);
     }
 
     public WheelView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(context);
+        this(context, attrs, 0);
     }
 
     public WheelView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.WheelView);
+
+        textSize = DensityUtil.px2sp(context,
+                typedArray.getDimension(R.styleable.WheelView_wheel_text_size, DensityUtil.sp2px(context, 20)));
+        textPadding = (int) typedArray.getDimension(R.styleable.WheelView_wheel_text_padding, DensityUtil.dp2px(context, 15));
+        minDivider = (int) typedArray.getDimension(R.styleable.WheelView_wheel_min_divider_width, DensityUtil.dp2px(context, 50));
+
         init(context);
     }
 
     //    String[] items;
-    List<String> items;
+    private List<String> items;
 
-    private List<String> getItems() {
+    public List<String> getItems() {
         return items;
     }
 
@@ -70,6 +79,7 @@ public class WheelView extends ScrollView {
         if (null == items) {
             items = new ArrayList<String>();
         }
+        views.removeAllViews();
         items.clear();
         items.addAll(list);
 
@@ -180,26 +190,26 @@ public class WheelView extends ScrollView {
             views.addView(createView(item));
         }
 
-        refreshItemView(0);
+        refreshItemView((selectedIndex-offset) * itemHeight);
     }
 
     int itemHeight = 0;
 
     private TextView createView(String item) {
         TextView tv = new TextView(context);
-        tv.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         tv.setSingleLine(true);
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        tv.setTextSize(textSize);
         tv.setText(item);
         tv.setGravity(Gravity.CENTER);
-        int padding = dip2px(15);
-        tv.setPadding(padding, padding, padding, padding);
+        tv.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        int padding = textPadding;
+        tv.setPadding(0, padding, 0, padding);
         if (0 == itemHeight) {
             itemHeight = getViewMeasuredHeight(tv);
             Log.d(TAG, "itemHeight: " + itemHeight);
             views.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, itemHeight * displayItemCount));
             LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) this.getLayoutParams();
-            this.setLayoutParams(new LinearLayout.LayoutParams(lp.width, itemHeight * displayItemCount));
+            lp.height = itemHeight * displayItemCount;
         }
         return tv;
     }
@@ -313,6 +323,7 @@ public class WheelView extends ScrollView {
 
     Paint paint;
     int viewWidth;
+    int dividerWidth = 0;
 
     @Override
     public void setBackgroundDrawable(Drawable background) {
@@ -320,6 +331,11 @@ public class WheelView extends ScrollView {
         if (viewWidth == 0) {
             viewWidth = ((Activity) context).getWindowManager().getDefaultDisplay().getWidth();
             Log.d(TAG, "viewWidth: " + viewWidth);
+        }
+        if (minDivider != 0) {
+            dividerWidth = minDivider;
+        } else {
+            dividerWidth = viewWidth * 4 / 6;
         }
 
         if (null == paint) {
@@ -331,8 +347,11 @@ public class WheelView extends ScrollView {
         background = new Drawable() {
             @Override
             public void draw(Canvas canvas) {
-                canvas.drawLine(viewWidth * 1 / 6, obtainSelectedAreaBorder()[0], viewWidth * 5 / 6, obtainSelectedAreaBorder()[0], paint);
-                canvas.drawLine(viewWidth * 1 / 6, obtainSelectedAreaBorder()[1], viewWidth * 5 / 6, obtainSelectedAreaBorder()[1], paint);
+                float offset = 0;
+                if (viewWidth > dividerWidth)
+                    offset = (viewWidth - dividerWidth) / 2;
+                canvas.drawLine(offset, obtainSelectedAreaBorder()[0], viewWidth - offset, obtainSelectedAreaBorder()[0], paint);
+                canvas.drawLine(offset, obtainSelectedAreaBorder()[1], viewWidth - offset, obtainSelectedAreaBorder()[1], paint);
             }
 
             @Override
@@ -358,6 +377,11 @@ public class WheelView extends ScrollView {
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) this.getLayoutParams();
+        if (w < minDivider) {
+            w = minDivider;
+            lp.width = minDivider;
+        }
         super.onSizeChanged(w, h, oldw, oldh);
         Log.d(TAG, "w: " + w + ", h: " + h + ", oldw: " + oldw + ", oldh: " + oldh);
         viewWidth = w;

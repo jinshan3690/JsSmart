@@ -33,7 +33,9 @@
             <com.js.smart.ui.widget.WheelView
                 android:id="@id/wheelView2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/lay_20"
+                android:layout_marginRight="@dimen/lay_20"/>
 
             <com.js.smart.ui.widget.WheelView
                 android:id="@id/wheelView3"

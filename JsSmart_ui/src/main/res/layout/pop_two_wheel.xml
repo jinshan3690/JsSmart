@@ -30,14 +30,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <View
-                android:layout_width="30dp"
-                android:layout_height="match_parent"/>
-
             <com.js.smart.ui.widget.WheelView
                 android:id="@id/wheelView2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/lay_20"/>
 
         </LinearLayout>
 

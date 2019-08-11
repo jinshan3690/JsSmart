@@ -33,7 +33,7 @@ import com.js.smart.ui.dialog.DefaultDialog;
 import com.js.smart.ui.dialog.GenderDialog;
 import com.js.smart.ui.dialog.MessageDialog;
 import com.js.smart.ui.dialog.TimePickerDialog;
-import com.js.smart.ui.popup.MonthPopupWindow;
+import com.js.smart.ui.popup.DatePopupWindow;
 import com.js.smart.ui.popup.MultiplePopupWindow;
 import com.js.smart.ui.popup.ThreeWheelPopupWindow;
 import com.js.smart.ui.popup.TwoWheelPopupWindow;
@@ -182,7 +182,7 @@ public class UIIndexActivity extends UILoadingActivity {
                 }
             });
         } else if (R.id.btn8 == v.getId()) {
-            dialog = new DefaultDialog(context).showDefaultDialog("内容", new AntiShakeOnClickListener() {
+            dialog = new DefaultDialog(context).showDefaultDialog("内容", 1000, new AntiShakeOnClickListener() {
                 @Override
                 protected void antiShakeOnClick(View v) {
                     T.showSuccess("ok:");
@@ -214,8 +214,8 @@ public class UIIndexActivity extends UILoadingActivity {
                 }
             });
         } else if (R.id.btn12 == v.getId()) {
-            popupWindow = new MonthPopupWindow(context, view, "", "").show((MonthPopupWindow.MonthPopupListener) (month, year) -> {
-                T.showSuccess("ok:" + month + ":" + year);
+            popupWindow = new DatePopupWindow(context, view, "2020-09-08 18:25:53",false).show((year, month, day, hour, minute, second) -> {
+                T.showSuccess("ok:" + year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second);
                 popupWindow.dismiss();
             });
         } else if (R.id.btn13 == v.getId()) {
@@ -248,7 +248,7 @@ public class UIIndexActivity extends UILoadingActivity {
             popupWindow = new WheelPopupWindow(context, view)
                     .setItemsOne(Arrays.asList("111", "222", "333", "444"))
                     .show(one -> {
-                        T.showSuccess("ok:" + one );
+                        T.showSuccess("ok:" + one);
                         popupWindow.dismiss();
                     });
         }
@@ -289,6 +289,12 @@ public class UIIndexActivity extends UILoadingActivity {
             L.e(bitmap.toString());
             titleUtil.setTitleSrc(new BitmapDrawable(getResources(), bitmap));
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ImageUtil.cleanImageCache(ImageUtil.imageCache);
     }
 
     /**
