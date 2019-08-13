@@ -6,21 +6,9 @@ import android.os.Bundle;
 import com.js.smart.common.app.BaseFragment;
 import com.js.smart.ui.R;
 
-import me.jessyan.autosize.internal.CustomAdapt;
-
-public abstract class UIBaseFragment extends BaseFragment implements CustomAdapt {
+public abstract class UIBaseFragment extends BaseFragment   {
 
     protected TitleUtil titleUtil;
-
-    @Override
-    public boolean isBaseOnWidth() {
-        return false;
-    }
-
-    @Override
-    public float getSizeInDp() {
-        return 667;
-    }
 
     @Override
     protected void initViewBefore(Bundle savedInstanceState) {

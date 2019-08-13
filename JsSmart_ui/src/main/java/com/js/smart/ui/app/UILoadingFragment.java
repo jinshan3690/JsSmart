@@ -7,23 +7,11 @@ import android.view.ViewGroup;
 import com.js.smart.common.app.BaseView;
 import com.js.smart.ui.R;
 
-import me.jessyan.autosize.internal.CustomAdapt;
-
-public class UILoadingFragment extends UIBaseFragment implements BaseView, CustomAdapt {
+public class UILoadingFragment extends UIBaseFragment implements BaseView {
 
     protected ViewGroup loading;
     protected int loadingStateColorDark = R.color.colorStateDark;
     protected int loadingStateColor = R.color.colorPrimary;
-
-    @Override
-    public boolean isBaseOnWidth() {
-        return false;
-    }
-
-    @Override
-    public float getSizeInDp() {
-        return 667;
-    }
 
     @Override
     public int createView(Bundle savedInstanceState) {

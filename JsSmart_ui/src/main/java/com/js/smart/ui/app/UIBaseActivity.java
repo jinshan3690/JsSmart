@@ -3,21 +3,9 @@ package com.js.smart.ui.app;
 import com.js.smart.common.app.BaseCompatActivity;
 import com.js.smart.ui.R;
 
-import me.jessyan.autosize.internal.CustomAdapt;
-
-public abstract class UIBaseActivity extends BaseCompatActivity implements CustomAdapt {
+public abstract class UIBaseActivity extends BaseCompatActivity  {
 
     public TitleUtil titleUtil;
-
-    @Override
-    public boolean isBaseOnWidth() {
-        return true;
-    }
-
-    @Override
-    public float getSizeInDp() {
-        return 375;
-    }
 
     @Override
     protected void initViewBefore() {
