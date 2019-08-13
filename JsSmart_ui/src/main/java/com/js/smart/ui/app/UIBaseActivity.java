@@ -11,12 +11,12 @@ public abstract class UIBaseActivity extends BaseCompatActivity implements Custo
 
     @Override
     public boolean isBaseOnWidth() {
-        return false;
+        return true;
     }
 
     @Override
     public float getSizeInDp() {
-        return 667;
+        return 375;
     }
 
     @Override
