@@ -35,12 +35,12 @@
         android:networkSecurityConfig="@xml/net_work">
 
         <!-- autoLayout -->
-        <meta-data
-            android:name="design_width_in_dp"
-            android:value="375" />
-        <meta-data
-            android:name="design_height_in_dp"
-            android:value="667" />
+        <!--<meta-data-->
+            <!--android:name="design_width_in_dp"-->
+            <!--android:value="375" />-->
+        <!--<meta-data-->
+            <!--android:name="design_height_in_dp"-->
+            <!--android:value="667" />-->
 
         <provider
             android:name="android.support.v4.content.FileProvider"
