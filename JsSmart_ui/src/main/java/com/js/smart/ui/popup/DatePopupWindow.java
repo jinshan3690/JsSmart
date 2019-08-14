@@ -542,45 +542,51 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
         void item(String year, String month, String day, String hour, String minute, String second);
     }
 
-    public void showYear(boolean visible) {
+    public DatePopupWindow showYear(boolean visible) {
         if (visible)
             this.yearWl.setVisibility(View.VISIBLE);
         else
             this.yearWl.setVisibility(View.GONE);
+        return this;
     }
 
-    public void setMonthWl(boolean visible) {
+    public DatePopupWindow setMonth(boolean visible) {
         if (visible)
             this.yearWl.setVisibility(View.VISIBLE);
         else
             this.yearWl.setVisibility(View.GONE);
+        return this;
     }
 
-    public void setDayWl(boolean visible) {
+    public DatePopupWindow setDay(boolean visible) {
         if (visible)
             this.yearWl.setVisibility(View.VISIBLE);
         else
             this.yearWl.setVisibility(View.GONE);
+        return this;
     }
 
-    public void setHourWl(boolean visible) {
+    public DatePopupWindow setHour(boolean visible) {
         if (visible)
             this.yearWl.setVisibility(View.VISIBLE);
         else
             this.yearWl.setVisibility(View.GONE);
+        return this;
     }
 
-    public void setMinuteWl(boolean visible) {
+    public DatePopupWindow setMinute(boolean visible) {
         if (visible)
             this.yearWl.setVisibility(View.VISIBLE);
         else
             this.yearWl.setVisibility(View.GONE);
+        return this;
     }
 
-    public void setSecondWl(boolean visible) {
+    public DatePopupWindow setSecond(boolean visible) {
         if (visible)
             this.yearWl.setVisibility(View.VISIBLE);
         else
             this.yearWl.setVisibility(View.GONE);
+        return this;
     }
 }
