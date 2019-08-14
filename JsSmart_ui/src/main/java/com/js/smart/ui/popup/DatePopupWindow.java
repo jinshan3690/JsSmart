@@ -550,7 +550,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
         return this;
     }
 
-    public DatePopupWindow setMonth(boolean visible) {
+    public DatePopupWindow showMonth(boolean visible) {
         if (visible)
             this.yearWl.setVisibility(View.VISIBLE);
         else
@@ -558,7 +558,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
         return this;
     }
 
-    public DatePopupWindow setDay(boolean visible) {
+    public DatePopupWindow showDay(boolean visible) {
         if (visible)
             this.yearWl.setVisibility(View.VISIBLE);
         else
@@ -566,7 +566,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
         return this;
     }
 
-    public DatePopupWindow setHour(boolean visible) {
+    public DatePopupWindow showHour(boolean visible) {
         if (visible)
             this.yearWl.setVisibility(View.VISIBLE);
         else
@@ -574,7 +574,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
         return this;
     }
 
-    public DatePopupWindow setMinute(boolean visible) {
+    public DatePopupWindow showMinute(boolean visible) {
         if (visible)
             this.yearWl.setVisibility(View.VISIBLE);
         else
@@ -582,7 +582,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
         return this;
     }
 
-    public DatePopupWindow setSecond(boolean visible) {
+    public DatePopupWindow showSecond(boolean visible) {
         if (visible)
             this.yearWl.setVisibility(View.VISIBLE);
         else
