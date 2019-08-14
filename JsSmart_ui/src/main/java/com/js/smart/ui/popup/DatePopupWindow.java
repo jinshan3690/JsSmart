@@ -68,6 +68,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                 e.printStackTrace();
             }
         }
+
         currentYear = calendar.get(Calendar.YEAR);
         currentMonth = calendar.get(Calendar.MONTH) + 1;
         currentDay = calendar.get(Calendar.DAY_OF_MONTH);
@@ -134,8 +135,8 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                 boolean hasBegin = hasBeginYear();
 
                 if (hasBegin) {
-                        setItemsMonth(getMonth(currentMonth));
-                        chooseMonth = Integer.valueOf(getSelectedItemMonth());
+                    setItemsMonth(getMonth(currentMonth));
+                    chooseMonth = Integer.valueOf(getSelectedItemMonth());
                     if (hasBeginMonth()) {
                         setItemsDay(getDay(currentDay, currentDayOfMonth));
                         chooseDay = Integer.valueOf(getSelectedItemDay());
@@ -179,8 +180,8 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                 boolean hasBegin = hasBeginMonth();
 
                 if (hasBegin) {
-                        setItemsDay(getDay(currentDay, currentDayOfMonth));
-                        chooseDay = Integer.valueOf(getSelectedItemDay());
+                    setItemsDay(getDay(currentDay, currentDayOfMonth));
+                    chooseDay = Integer.valueOf(getSelectedItemDay());
 
                     if (hasBeginDay()) {
                         setItemsHour(getHour(currentHour));
@@ -541,4 +542,45 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
         void item(String year, String month, String day, String hour, String minute, String second);
     }
 
+    public void showYear(boolean visible) {
+        if (visible)
+            this.yearWl.setVisibility(View.VISIBLE);
+        else
+            this.yearWl.setVisibility(View.GONE);
+    }
+
+    public void setMonthWl(boolean visible) {
+        if (visible)
+            this.yearWl.setVisibility(View.VISIBLE);
+        else
+            this.yearWl.setVisibility(View.GONE);
+    }
+
+    public void setDayWl(boolean visible) {
+        if (visible)
+            this.yearWl.setVisibility(View.VISIBLE);
+        else
+            this.yearWl.setVisibility(View.GONE);
+    }
+
+    public void setHourWl(boolean visible) {
+        if (visible)
+            this.yearWl.setVisibility(View.VISIBLE);
+        else
+            this.yearWl.setVisibility(View.GONE);
+    }
+
+    public void setMinuteWl(boolean visible) {
+        if (visible)
+            this.yearWl.setVisibility(View.VISIBLE);
+        else
+            this.yearWl.setVisibility(View.GONE);
+    }
+
+    public void setSecondWl(boolean visible) {
+        if (visible)
+            this.yearWl.setVisibility(View.VISIBLE);
+        else
+            this.yearWl.setVisibility(View.GONE);
+    }
 }
