@@ -240,7 +240,7 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
                 setBackgroundResource(background);
             }
         if (cancelIco != -1)
-            if (hasFocus && editText.getText().length() > 0 && isEnabled() && editText.isEnabled()) {
+            if (hasFocus && editText.getText().length() > 0 && isEnabled()) {
                 cancelBtn.setVisibility(View.VISIBLE);
             } else {
                 cancelBtn.setVisibility(View.GONE);
@@ -263,7 +263,7 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
         }
 
         if (cancelIco != -1) {
-            if (s.length() > 0 && isEnabled() && editText.isEnabled()) {
+            if (s.length() > 0 && isEnabled()) {
                 cancelBtn.setVisibility(View.VISIBLE);
             } else {
                 cancelBtn.setVisibility(View.GONE);

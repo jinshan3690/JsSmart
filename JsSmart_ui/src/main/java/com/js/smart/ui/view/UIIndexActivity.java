@@ -25,6 +25,7 @@ import com.js.smart.common.util.T;
 import com.js.smart.ui.R;
 import com.js.smart.ui.R2;
 import com.js.smart.ui.UIRoute;
+import com.js.smart.ui.adapter.ArraySearchAdapter;
 import com.js.smart.ui.app.UILoadingActivity;
 import com.js.smart.ui.dialog.ConfirmDialog;
 import com.js.smart.ui.dialog.DatePickerDialog;
@@ -38,6 +39,7 @@ import com.js.smart.ui.popup.MultiplePopupWindow;
 import com.js.smart.ui.popup.ThreeWheelPopupWindow;
 import com.js.smart.ui.popup.TwoWheelPopupWindow;
 import com.js.smart.ui.popup.WheelPopupWindow;
+import com.js.smart.ui.widget.CancelEditText;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -58,6 +60,8 @@ public class UIIndexActivity extends UILoadingActivity {
 
     @BindView(R2.id.layout1)
     ViewGroup group;
+    @BindView(R2.id.editText1)
+    CancelEditText editText1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +103,8 @@ public class UIIndexActivity extends UILoadingActivity {
         }
 
         initPopupWindow();
+        editText1.setAdapter(new ArraySearchAdapter(context,Arrays.asList("fasdf","fsadf","vasdvas","adfa","bagadsfsa","casdfasdf")));
+        editText1.setOnClickListener(v -> editText1.showDropDown());
     }
 
     private void initPopupWindow() {

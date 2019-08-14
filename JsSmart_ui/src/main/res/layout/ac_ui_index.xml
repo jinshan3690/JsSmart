@@ -462,11 +462,13 @@
                 </com.balysv.materialripple.MaterialRippleLayout>
 
                 <com.js.smart.ui.widget.CancelEditText
+                    android:id="@id/editText1"
                     android:layout_width="78dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/lay_15"
                     android:layout_marginBottom="@dimen/lay_15"
                     app:cet_hint="@string/app_name"
+                    app:cet_textEnabled="false"
                     app:cet_imeOptions="actionNext"
                     app:cet_background="@drawable/et_line_border_gray"
                     app:cet_textSize="@dimen/font_10"
