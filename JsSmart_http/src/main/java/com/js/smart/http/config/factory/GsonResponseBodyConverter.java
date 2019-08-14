@@ -47,6 +47,8 @@ public final class GsonResponseBodyConverter<T> implements Converter<ResponseBod
                 return gson.fromJson(response, type);
             }
         } catch (Exception e) {
+            if (e instanceof HttpException)
+                throw (HttpException) e;
             e.printStackTrace();
             throw new HttpException(e.getMessage(), -9999);
         }
