@@ -18,8 +18,14 @@ import com.js.smart.ui.R;
  */
 public class MessageDialog extends DialogBuilder<MessageDialog> {
 
+    private TextView contentTv;
+    private TextView leftBt;
+
     public MessageDialog(Context context) {
         super(context);
+        view = LayoutInflater.from(context).inflate(R.layout.dialog_message, null);
+        contentTv = view.findViewById(R.id.textView1);
+        leftBt = view.findViewById(R.id.btn1);
     }
 
     public MessageDialog showMessageDialog(String content, AntiShakeOnClickListener listener) {
@@ -27,11 +33,7 @@ public class MessageDialog extends DialogBuilder<MessageDialog> {
     }
 
     public MessageDialog showMessageDialog(Spanned content, AntiShakeOnClickListener listener) {
-        view = LayoutInflater.from(context).inflate(R.layout.dialog_message, null);
-        TextView contentTv = view.findViewById(R.id.textView1);
-
         contentTv.setText(content);
-        TextView leftBt = view.findViewById(R.id.btn1);
 
         if (listener != null)
             setLeftRightClick(listener, listener);

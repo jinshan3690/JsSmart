@@ -203,7 +203,7 @@ public class UIIndexActivity extends UILoadingActivity {
             dialog = new MessageDialog(context).showMessageDialog("内容", new AntiShakeOnClickListener() {
                 @Override
                 protected void antiShakeOnClick(View v) {
-                    if (v.getId() == R.id.btn2) {
+                    if (v.getId() == R.id.btn1) {
                         T.showSuccess("ok:");
                     }
                     dialog.dismiss();

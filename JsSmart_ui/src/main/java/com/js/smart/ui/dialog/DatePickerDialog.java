@@ -19,8 +19,20 @@ import org.apache.commons.lang.StringUtils;
  */
 public class DatePickerDialog extends DialogBuilder<DatePickerDialog> {
 
+    private TextView titleTv;
+    private TextView rightBt;
+    private TextView leftBt;
+    private DatePicker datePicker;
+
     public DatePickerDialog(Context context) {
         super(context);
+        view = LayoutInflater.from(context).inflate(R.layout.dialog_date, null);
+        titleTv = view.findViewById(R.id.textView1);
+        datePicker = view.findViewById(R.id.datePicker1);
+        rightBt = view.findViewById(R.id.btn2);
+        leftBt = view.findViewById(R.id.btn1);
+
+        PickerUtil.setDatePickerDividerColor(PickerUtil.getColor(context, R.color.colorPrimary), datePicker);
     }
 
     /**
@@ -36,9 +48,7 @@ public class DatePickerDialog extends DialogBuilder<DatePickerDialog> {
             if (date.length() >= 10)
                 day = Integer.valueOf(date.substring(date.lastIndexOf("-") + 1));
         }
-        view = LayoutInflater.from(context).inflate(R.layout.dialog_date, null);
-        TextView titleTv = view.findViewById(R.id.textView1);
-        datePicker = view.findViewById(R.id.datePicker1);
+
         titleTv.setText(title);
         if (year != 0 && month != 0 && day != 0)
             datePicker.init(year, month - 1, day, dateChangedListener);
@@ -47,11 +57,8 @@ public class DatePickerDialog extends DialogBuilder<DatePickerDialog> {
         }
         result = DateUtil.getDate(DateUtil.toTime(datePicker.getYear() + "-" + (datePicker.getMonth() + 1) + "-" + datePicker.getDayOfMonth()));
 
-        PickerUtil.setDatePickerDividerColor(PickerUtil.getColor(context, R.color.colorPrimary), datePicker);
 
-        TextView rightBt = view.findViewById(R.id.btn2);
-        TextView leftBt = view.findViewById(R.id.btn1);
-        if(listener != null)
+        if (listener != null)
             setLeftRightClick(listener, listener);
         leftBt.setOnClickListener(leftClickListener);
         rightBt.setOnClickListener(rightClickListener);
@@ -66,7 +73,6 @@ public class DatePickerDialog extends DialogBuilder<DatePickerDialog> {
         return this;
     }
 
-    private DatePicker datePicker;
     private DatePicker.OnDateChangedListener dateChangedListener = new DatePicker.OnDateChangedListener() {
         @Override
         public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {

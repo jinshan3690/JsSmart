@@ -21,28 +21,31 @@ import org.apache.commons.lang.StringUtils;
  */
 public class ConfirmDialog extends DialogBuilder<ConfirmDialog> {
 
+    private TextView titleTv;
+    private TextView contentTv;
+    private TextView rightBt;
+    private TextView leftBt;
+
     public ConfirmDialog(Context context) {
         super(context);
+        view = LayoutInflater.from(context).inflate(R.layout.dialog_confirm, null);
+        titleTv = view.findViewById(R.id.textView1);
+        contentTv = view.findViewById(R.id.textView2);
+        rightBt = view.findViewById(R.id.btn2);
+        leftBt = view.findViewById(R.id.btn1);
     }
-
 
     public ConfirmDialog showConfirmDialog(String title, String content, AntiShakeOnClickListener listener) {
         return showConfirmDialog(title, new SpannedString(content), listener);
     }
 
     public ConfirmDialog showConfirmDialog(String title, Spanned content, AntiShakeOnClickListener listener) {
-        view = LayoutInflater.from(context).inflate(R.layout.dialog_confirm, null);
-        TextView titleTv = view.findViewById(R.id.textView1);
-        TextView contentTv = view.findViewById(R.id.textView2);
-
-        if(StringUtils.isBlank(title))
+        if (StringUtils.isBlank(title))
             titleTv.setVisibility(View.GONE);
         titleTv.setText(title);
         contentTv.setText(content);
-        TextView rightBt = view.findViewById(R.id.btn2);
-        TextView leftBt = view.findViewById(R.id.btn1);
 
-        if(listener != null)
+        if (listener != null)
             setLeftRightClick(listener, listener);
         leftBt.setOnClickListener(leftClickListener);
         rightBt.setOnClickListener(rightClickListener);

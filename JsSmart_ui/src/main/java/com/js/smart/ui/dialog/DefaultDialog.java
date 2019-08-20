@@ -20,12 +20,27 @@ import com.js.smart.ui.R;
  */
 public class DefaultDialog extends DialogBuilder<DefaultDialog> {
 
+    private ImageView titleIco;
+    private TextView contentTv;
+
     public DefaultDialog(Context context) {
         super(context);
+        view = LayoutInflater.from(context).inflate(R.layout.dialog_default, null);
+        titleIco = view.findViewById(R.id.imageView1);
+        contentTv = view.findViewById(R.id.textView1);
+        view.findViewById(R.id.layout1).setOnClickListener(new AntiShakeOnClickListener() {
+            @Override
+            protected void antiShakeOnClick(View v) {
+                if (leftClickListener != null)
+                    dismiss();
+                else if (rightClickListener != null)
+                    dismiss();
+            }
+        });
     }
 
     public DefaultDialog showDefaultDialog(String content, AntiShakeOnClickListener listener) {
-        return showDefaultDialog(new SpannedString(content),0, listener);
+        return showDefaultDialog(new SpannedString(content), 0, listener);
     }
 
     public DefaultDialog showDefaultDialog(String content, int delayed, AntiShakeOnClickListener listener) {
@@ -35,21 +50,8 @@ public class DefaultDialog extends DialogBuilder<DefaultDialog> {
     /**
      * 默认样式
      */
-    public DefaultDialog showDefaultDialog(Spanned content,int delayed,  AntiShakeOnClickListener listener) {
-        view = LayoutInflater.from(context).inflate(R.layout.dialog_default, null);
-        ImageView titleIco = view.findViewById(R.id.imageView1);
-        TextView contentTv = view.findViewById(R.id.textView1);
-        view.findViewById(R.id.layout1).setOnClickListener(new AntiShakeOnClickListener() {
-            @Override
-            protected void antiShakeOnClick(View v) {
-                if(leftClickListener != null)
-                    dismiss();
-                else if(rightClickListener != null)
-                    dismiss();
-            }
-        });
-
-        if(listener != null)
+    public DefaultDialog showDefaultDialog(Spanned content, int delayed, AntiShakeOnClickListener listener) {
+        if (listener != null)
             setLeftRightClick(listener, listener);
 
         contentTv.setText(content);
@@ -57,14 +59,14 @@ public class DefaultDialog extends DialogBuilder<DefaultDialog> {
         setDialog(show());
 
         dialog.setOnDismissListener(dialog -> {
-            if(leftClickListener != null)
+            if (leftClickListener != null)
                 leftClickListener.onClick(view);
-            else if(rightClickListener != null)
+            else if (rightClickListener != null)
                 rightClickListener.onClick(view);
         });
 
         if (delayed != 0)
-            new Handler().postDelayed(() -> dismiss(),delayed);
+            new Handler().postDelayed(() -> dismiss(), delayed);
 
         return this;
     }

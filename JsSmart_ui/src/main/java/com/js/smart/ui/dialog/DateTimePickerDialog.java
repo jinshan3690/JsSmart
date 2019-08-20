@@ -19,21 +19,32 @@ import com.js.smart.ui.R;
  */
 public class DateTimePickerDialog extends DialogBuilder<DateTimePickerDialog> {
 
-    public DateTimePickerDialog(Context context) {
-        super(context);
-    }
+    private TextView titleTv;
+    private TextView rightBt;
+    private TextView leftBt;
+    private DatePicker datePicker;
+    private TimePicker timePicker;
 
     private String date;
     private String time;
+
+    public DateTimePickerDialog(Context context) {
+        super(context);
+        view = LayoutInflater.from(context).inflate(R.layout.dialog_date_time, null);
+        titleTv = view.findViewById(R.id.textView1);
+        datePicker = view.findViewById(R.id.datePicker1);
+        timePicker = view.findViewById(R.id.timePicker1);
+        PickerUtil.setDatePickerDividerColor(PickerUtil.getColor(context, R.color.colorPrimary), datePicker);
+        PickerUtil.setTimePickerDividerColor(PickerUtil.getColor(context, R.color.colorPrimary), timePicker);
+        rightBt = view.findViewById(R.id.btn2);
+        leftBt = view.findViewById(R.id.btn1);
+    }
 
     /**
      * date样式
      */
     public DateTimePickerDialog showDateTimePickerDialog(String date, AntiShakeOnClickListener listener) {
-        view = LayoutInflater.from(context).inflate(R.layout.dialog_date_time,null);
-        TextView titleTv =  view.findViewById(R.id.textView1);
-        datePicker = view.findViewById(R.id.datePicker1);
-        timePicker = view.findViewById(R.id.timePicker1);
+
         timePicker.setIs24HourView(true);
         titleTv.setText(title);
         if (!TextUtils.isEmpty(date)) {
@@ -42,22 +53,19 @@ public class DateTimePickerDialog extends DialogBuilder<DateTimePickerDialog> {
             int day = Integer.valueOf(date.substring(date.lastIndexOf("-") + 1, date.indexOf(" ")));
             datePicker.init(year, month - 1, day, dateChangedListener);
             int hour = Integer.valueOf(date.substring(date.indexOf(" ") + 1, date.indexOf(":")));
-            int minute = Integer.valueOf(date.substring(date.indexOf(":") + 1, date.lastIndexOf(":") == -1? date.length():date.lastIndexOf(":")));
+            int minute = Integer.valueOf(date.substring(date.indexOf(":") + 1, date.lastIndexOf(":") == -1 ? date.length() : date.lastIndexOf(":")));
             timePicker.setCurrentHour(hour);
             timePicker.setCurrentMinute(minute);
         } else {
             datePicker.init(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth(), dateChangedListener);
         }
         this.date = datePicker.getYear() + "-" + (datePicker.getMonth() + 1) + "-" + datePicker.getDayOfMonth();
-        time = " "+ DateUtil.getCurrentDate("HH:mm");
+        time = " " + DateUtil.getCurrentDate("HH:mm");
         result = this.date + time;
 
         timePicker.setOnTimeChangedListener(timeChangedListener);
-        PickerUtil.setDatePickerDividerColor(PickerUtil.getColor(context, R.color.colorPrimary), datePicker);
-        PickerUtil.setTimePickerDividerColor(PickerUtil.getColor(context, R.color.colorPrimary), timePicker);
-        TextView rightBt = view.findViewById(R.id.btn2);
-        TextView leftBt = view.findViewById(R.id.btn1);
-        if(listener != null)
+
+        if (listener != null)
             setLeftRightClick(listener, listener);
         leftBt.setOnClickListener(leftClickListener);
         rightBt.setOnClickListener(rightClickListener);
@@ -72,7 +80,6 @@ public class DateTimePickerDialog extends DialogBuilder<DateTimePickerDialog> {
         return this;
     }
 
-    private DatePicker datePicker;
     private DatePicker.OnDateChangedListener dateChangedListener = new DatePicker.OnDateChangedListener() {
         @Override
         public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -81,8 +88,6 @@ public class DateTimePickerDialog extends DialogBuilder<DateTimePickerDialog> {
         }
     };
 
-
-    private TimePicker timePicker;
     private TimePicker.OnTimeChangedListener timeChangedListener = new TimePicker.OnTimeChangedListener() {
         @Override
         public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
@@ -98,8 +103,6 @@ public class DateTimePickerDialog extends DialogBuilder<DateTimePickerDialog> {
             result = date + time;
         }
     };
-
-
 
 
 }

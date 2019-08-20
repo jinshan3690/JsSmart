@@ -108,9 +108,9 @@ public class AcStack {
      * 结束指定的Activity(重载)
      */
     public void finishActivity(Class<?> cls) {
-        for (BaseActivityI activity : activityStack) {
-            if (activity.getClass().equals(cls)) {
-                finishActivity((AppCompatActivity) activity);
+        for (int i = 0, size = activityStack.size(); i < size; i++) {
+            if (activityStack.get(i).getClass().equals(cls)) {
+                finishActivity((AppCompatActivity) activityStack.get(i));
             }
         }
     }
@@ -121,17 +121,17 @@ public class AcStack {
      * @param cls
      */
     public void finishOthersActivity(Class<?> cls) {
-        for (BaseActivityI activity : activityStack) {
-            if (!(activity.getClass().equals(cls))) {
-                finishActivity((AppCompatActivity) activity);
+        for (int i = 0, size = activityStack.size(); i < size; i++) {
+            if (!(activityStack.get(i).getClass().equals(cls))) {
+                finishActivity((AppCompatActivity) activityStack.get(i));
             }
         }
     }
 
     public void finishOthersActivity(String className) {
-        for (BaseActivityI activity : activityStack) {
-            if (!(activity.getClass().getSimpleName().equals(className))) {
-                finishActivity((AppCompatActivity) activity);
+        for (int i = 0, size = activityStack.size(); i < size; i++) {
+            if (!(activityStack.get(i).getClass().getSimpleName().equals(className))) {
+                finishActivity((AppCompatActivity) activityStack.get(i));
             }
         }
     }
