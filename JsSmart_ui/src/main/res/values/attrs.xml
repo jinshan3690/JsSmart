@@ -80,4 +80,8 @@
         <attr name="wheel_min_divider_width" format="dimension|reference" />
     </declare-styleable>
 
+    <declare-styleable name="NoScrollViewPager">
+        <attr name="no_scroll_view_pager_auto_height" format="boolean|reference" />
+    </declare-styleable>
+
 </resources>

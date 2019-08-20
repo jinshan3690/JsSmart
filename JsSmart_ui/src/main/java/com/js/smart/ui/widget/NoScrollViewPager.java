@@ -1,11 +1,14 @@
 package com.js.smart.ui.widget;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import com.js.smart.ui.R;
 
 
 public class NoScrollViewPager extends ViewPager {
@@ -13,9 +16,13 @@ public class NoScrollViewPager extends ViewPager {
     private boolean noScroll = false;
     private boolean intercept = false;
     private int lastX, lastY;
+    private boolean autoHeight;
     
     public NoScrollViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.NoScrollViewPager);
+
+        autoHeight = typedArray.getBoolean(R.styleable.NoScrollViewPager_no_scroll_view_pager_auto_height, false);
     }
  
     public NoScrollViewPager(Context context) {
@@ -101,7 +108,7 @@ public class NoScrollViewPager extends ViewPager {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         View child = getChildAt(getCurrentItem());
-        if (child != null) {
+        if (child != null && autoHeight) {
             child.measure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
             height = child.getMeasuredHeight();
 
@@ -113,12 +120,16 @@ public class NoScrollViewPager extends ViewPager {
     }
 
     public void resetHeight() {
+        if(!autoHeight)
+            return;
+
         View child = getChildAt(getCurrentItem());
         if (child != null) {
             View view = getChildAt(getCurrentItem());
             int height = view.getMeasuredHeight();
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
             layoutParams.height = height;
+            setLayoutParams(layoutParams);
         }
     }
 

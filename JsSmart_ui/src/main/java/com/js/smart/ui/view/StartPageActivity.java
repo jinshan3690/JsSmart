@@ -6,11 +6,14 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.js.smart.common.app.ac_anim.mode.AcAnimFast;
 import com.js.smart.common.util.SystemUtil;
 import com.js.smart.ui.R;
 import com.js.smart.ui.R2;
 import com.js.smart.ui.UIRoute;
 import com.js.smart.ui.app.UIBaseActivity;
+
+import org.apache.commons.lang.StringUtils;
 
 import java.util.concurrent.TimeUnit;
 
@@ -56,13 +59,13 @@ public class StartPageActivity extends UIBaseActivity implements CancelAdapt {
                     if (this.count - (count + 1) >= 0)
                         countTv.setText(this.count - (count + 1) + "");
                     if (this.count - (count + 1) == 0) {
-//                        if (StringUtils.isBlank(nextRoute)) {
-//                            nextRoute = UIRoute.ui_index;
-//                        }
-//
-//                        setTheme(R.style.AppTheme);//恢复原有的样式
-//                        toActivity(nextRoute, AcAnimFast.get());
-//                        finish();
+                        if (StringUtils.isBlank(nextRoute)) {
+                            nextRoute = UIRoute.ui_index;
+                        }
+
+                        setTheme(R.style.AppTheme);//恢复原有的样式
+                        toActivity(nextRoute, AcAnimFast.get());
+                        finish();
                     }
                 });
     }
