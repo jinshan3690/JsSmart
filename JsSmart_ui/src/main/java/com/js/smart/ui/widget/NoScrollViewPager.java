@@ -7,9 +7,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-
 
 public class NoScrollViewPager extends ViewPager {
 
@@ -91,16 +88,6 @@ public class NoScrollViewPager extends ViewPager {
 			}
             return false;
     }
- 
-    @Override
-    public void setCurrentItem(int item, boolean smoothScroll) {
-        super.setCurrentItem(item, smoothScroll);
-    }
- 
-    @Override
-    public void setCurrentItem(int item) {
-        super.setCurrentItem(item);
-    }
 
     public void setIntercept(boolean intercept) {
         this.intercept = intercept;
@@ -109,17 +96,12 @@ public class NoScrollViewPager extends ViewPager {
     /**
      * 自适应高度
      */
-    private int current;
     private int height = 0;
-    /**
-     * 保存position与对于的View
-     */
-    private HashMap<Integer, View> mChildrenViews = new LinkedHashMap<>();
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        if (mChildrenViews.size() > current) {
-            View child = mChildrenViews.get(current);
+        View child = getChildAt(getCurrentItem());
+        if (child != null) {
             child.measure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
             height = child.getMeasuredHeight();
 
@@ -130,25 +112,14 @@ public class NoScrollViewPager extends ViewPager {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
-    public void resetHeight(int current) {
-        this.current = current;
-        if (mChildrenViews.size() > current) {
-
+    public void resetHeight() {
+        View child = getChildAt(getCurrentItem());
+        if (child != null) {
+            View view = getChildAt(getCurrentItem());
+            int height = view.getMeasuredHeight();
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
-            if (layoutParams == null) {
-                layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
-            } else {
-                layoutParams.height = height;
-            }
-            setLayoutParams(layoutParams);
+            layoutParams.height = height;
         }
-    }
-    /**
-     * 保存position与对于的View
-     */
-    public void setObjectForPosition(View view, int position)
-    {
-        mChildrenViews.put(position, view);
     }
 
 }
