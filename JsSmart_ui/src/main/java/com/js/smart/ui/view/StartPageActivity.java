@@ -20,10 +20,9 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
-import me.jessyan.autosize.internal.CancelAdapt;
 
 @Route(path = UIRoute.ui_start_page)
-public class StartPageActivity extends UIBaseActivity implements CancelAdapt {
+public class StartPageActivity extends UIBaseActivity  {
 
     @BindView(R2.id.textView1)
     TextView countTv;

@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/titleLeft"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:gravity="center"
         android:orientation="horizontal">
@@ -48,7 +48,7 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
@@ -59,7 +59,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            android:layout_margin="@dimen/lay_10"
             android:text="标题"
             android:textColor="@color/textTitleColor"
             android:textSize="@dimen/titleTextSize" />
@@ -79,7 +78,7 @@
     <LinearLayout
         android:id="@+id/titleRight"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:gravity="center"

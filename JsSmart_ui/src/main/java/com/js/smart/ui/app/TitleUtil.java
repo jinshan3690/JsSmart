@@ -57,6 +57,7 @@ public class TitleUtil extends AntiShakeOnClickListener {
                 if(context.acManager.isStatusTrans()) {
                     int stateHeight = SystemUtil.getStatusHeight(context);
                     layout.getLayoutParams().height = layout.getLayoutParams().height + stateHeight;
+                    layout.setPadding(0,stateHeight,0,0);
                 }
 
                 right = layout.findViewById(R.id.titleRight);
