@@ -76,25 +76,25 @@ public class DialogBuilder<T extends DialogBuilder> implements BaseDialog {
     }
 
     @Override
-    public DialogBuilder setLeftText(String leftStr) {
+    public T setLeftText(String leftStr) {
         this.leftStr = leftStr;
         return (T) this;
     }
 
     @Override
-    public DialogBuilder setRightText(String rightStr) {
+    public T setRightText(String rightStr) {
         this.rightStr = rightStr;
         return (T) this;
     }
 
     @Override
-    public DialogBuilder setLeftOnClickListener(View.OnClickListener leftClickListener) {
+    public T setLeftOnClickListener(View.OnClickListener leftClickListener) {
         this.leftClickListener = leftClickListener;
         return (T) this;
     }
 
     @Override
-    public DialogBuilder setRightOnClickListener(View.OnClickListener rightListener) {
+    public T setRightOnClickListener(View.OnClickListener rightListener) {
         this.rightClickListener = rightListener;
         return (T) this;
     }
@@ -111,7 +111,7 @@ public class DialogBuilder<T extends DialogBuilder> implements BaseDialog {
         return (T) this;
     }
 
-    public DialogBuilder setLeftRightClick(View.OnClickListener leftClickListener, View.OnClickListener rightClickListener) {
+    public T setLeftRightClick(View.OnClickListener leftClickListener, View.OnClickListener rightClickListener) {
         setLeftOnClickListener(leftClickListener);
         setRightOnClickListener(rightClickListener);
         return (T) this;
