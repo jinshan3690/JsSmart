@@ -110,7 +110,7 @@ public class AcStack {
     public void finishActivity(Class<?> cls) {
         for (int i = 0, size = activityStack.size(); i < size; i++) {
             if (activityStack.get(i).getClass().equals(cls)) {
-                finishActivity((AppCompatActivity) activityStack.get(i));
+                ((AppCompatActivity) activityStack.get(i)).finish();
             }
         }
     }
@@ -123,7 +123,7 @@ public class AcStack {
     public void finishOthersActivity(Class<?> cls) {
         for (int i = 0, size = activityStack.size(); i < size; i++) {
             if (!(activityStack.get(i).getClass().equals(cls))) {
-                finishActivity((AppCompatActivity) activityStack.get(i));
+                ((AppCompatActivity) activityStack.get(i)).finish();
             }
         }
     }
@@ -131,7 +131,7 @@ public class AcStack {
     public void finishOthersActivity(String className) {
         for (int i = 0, size = activityStack.size(); i < size; i++) {
             if (!(activityStack.get(i).getClass().getSimpleName().equals(className))) {
-                finishActivity((AppCompatActivity) activityStack.get(i));
+                ((AppCompatActivity) activityStack.get(i)).finish();
             }
         }
     }
