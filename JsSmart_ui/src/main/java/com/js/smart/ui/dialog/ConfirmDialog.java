@@ -2,11 +2,14 @@ package com.js.smart.ui.dialog;
 
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Spanned;
 import android.text.SpannedString;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 import com.js.smart.common.app.AntiShakeOnClickListener;

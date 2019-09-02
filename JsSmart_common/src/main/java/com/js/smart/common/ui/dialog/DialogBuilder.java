@@ -2,6 +2,7 @@ package com.js.smart.common.ui.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 
@@ -20,6 +21,7 @@ public class DialogBuilder<T extends DialogBuilder> implements BaseDialog {
     protected String rightStr;
     protected View.OnClickListener leftClickListener;
     protected View.OnClickListener rightClickListener;
+    protected DialogInterface.OnShowListener showListener;
     protected View view;
     protected String result;
     protected String[] results;
@@ -126,6 +128,13 @@ public class DialogBuilder<T extends DialogBuilder> implements BaseDialog {
         dialog.setContentView(view);
         dialog.setCancelable(true);
         dialog.setCanceledOnTouchOutside(true);
+        dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                if(showListener != null)
+                    showListener.onShow(dialog);
+            }
+        });
         dialog.show();
         return dialog;
     }
@@ -169,4 +178,7 @@ public class DialogBuilder<T extends DialogBuilder> implements BaseDialog {
         return view;
     }
 
+    public void setShowListener(DialogInterface.OnShowListener showListener) {
+        this.showListener = showListener;
+    }
 }
