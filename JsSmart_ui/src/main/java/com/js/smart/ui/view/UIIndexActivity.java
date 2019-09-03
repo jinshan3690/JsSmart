@@ -18,6 +18,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.google.gson.Gson;
 import com.js.smart.common.app.AntiShakeOnClickListener;
 import com.js.smart.common.ui.dialog.DialogBuilder;
+import com.js.smart.common.util.DensityUtil;
 import com.js.smart.common.util.ImageUtil;
 import com.js.smart.common.util.L;
 import com.js.smart.common.util.PopupWindowUtil;
@@ -103,7 +104,7 @@ public class UIIndexActivity extends UILoadingActivity {
         }
 
         initPopupWindow();
-        editText1.setAdapter(new ArraySearchAdapter(context,Arrays.asList("fasdf","fsadf","vasdvas","adfa","bagadsfsa","casdfasdf")));
+        editText1.setAdapter(new ArraySearchAdapter(context, Arrays.asList("fasdf", "fsadf", "vasdvas", "adfa", "bagadsfsa", "casdfasdf")));
         editText1.setOnClickListener(v -> editText1.showDropDown());
     }
 
@@ -220,13 +221,24 @@ public class UIIndexActivity extends UILoadingActivity {
                 }
             });
         } else if (R.id.btn12 == v.getId()) {
-            popupWindow = new DatePopupWindow(context, view, "2020-09-08 18:25:53",false).show((year, month, day, hour, minute, second) -> {
-                T.showSuccess("ok:" + year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second);
-                popupWindow.dismiss();
-            });
+//            popupWindow = new DatePopupWindow(context, view, "2020-09-08 18:25:53",false).show((year, month, day, hour, minute, second) -> {
+            DatePopupWindow popupWindow = new DatePopupWindow(context, view, "2020-09-08 18:25:53");
+            popupWindow.getHourWl().setMaxWidth(DensityUtil.dp2px(context, 100));
+            popupWindow.getMinuteWl().setMaxWidth(DensityUtil.dp2px(context, 100));
+            popupWindow.getHourWl().setMinDivider(DensityUtil.dp2px(context, 70));
+            popupWindow.getMinuteWl().setMinDivider(DensityUtil.dp2px(context, 70));
+            popupWindow
+                    .showYear(false)
+                    .showMonth(false)
+                    .showDay(false)
+                    .showSecond(false)
+                    .show((year, month, day, hour, minute, second) -> {
+                        T.showSuccess("ok:" + year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second);
+//                        popupWindow.dismiss();
+                    });
         } else if (R.id.btn13 == v.getId()) {
-            popupWindow = new MultiplePopupWindow(context, view, Arrays.asList("a", "fasd", "aaadffff", "ccccc"))
-                    .setItems(Arrays.asList("eeeee", "a", "fasd", "aaadffff", "ccccc", "fffffff"))
+            popupWindow = new MultiplePopupWindow(context, view, Arrays.asList("周一", "周三", "周六", "周日"))
+                    .setItems(Arrays.asList("周一", "周二", "周三", "周四", "周五", "周六", "周日"))
                     .show(items -> {
                         T.showSuccess("ok:" + new Gson().toJson(items));
                         popupWindow.dismiss();

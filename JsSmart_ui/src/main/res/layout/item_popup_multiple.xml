@@ -32,7 +32,8 @@
         android:layout_alignParentRight="true"/>
 
     <include layout="@layout/v_divider"
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
+        android:layout_marginRight="30dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"/>
 

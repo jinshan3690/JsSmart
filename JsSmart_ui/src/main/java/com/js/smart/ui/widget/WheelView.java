@@ -20,6 +20,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.js.smart.common.util.DensityUtil;
+import com.js.smart.common.util.L;
 import com.js.smart.ui.R;
 
 import java.util.ArrayList;
@@ -31,11 +32,11 @@ import java.util.List;
  * Date: 7/1/14.
  */
 public class WheelView extends ScrollView {
-    public static final String TAG = WheelView.class.getSimpleName();
 
     private float textSize;
     private int textPadding;
     private int minDivider;
+    private int maxWidth;
 
     public static class OnWheelViewListener {
         public void onSelected(int selectedIndex, String item) {
@@ -63,7 +64,8 @@ public class WheelView extends ScrollView {
         textSize = DensityUtil.px2sp(context,
                 typedArray.getDimension(R.styleable.WheelView_wheel_text_size, DensityUtil.sp2px(context, 20)));
         textPadding = (int) typedArray.getDimension(R.styleable.WheelView_wheel_text_padding, DensityUtil.dp2px(context, 15));
-        minDivider = (int) typedArray.getDimension(R.styleable.WheelView_wheel_min_divider_width, DensityUtil.dp2px(context, 50));
+        minDivider = (int) typedArray.getDimension(R.styleable.WheelView_wheel_min_divider_width, DensityUtil.dp2px(context, 70));
+        maxWidth = (int) typedArray.getDimension(R.styleable.WheelView_wheel_max_width, DensityUtil.dp2px(context, 0));
 
         init(context);
     }
@@ -115,7 +117,7 @@ public class WheelView extends ScrollView {
 
 //        scrollView = ((ScrollView)this.getParent());
 //        Log.d(TAG, "scrollview: " + scrollView);
-        Log.d(TAG, "parent: " + this.getParent());
+        L.d( "parent: " + this.getParent());
 //        this.setOrientation(VERTICAL);
         this.setVerticalScrollBarEnabled(false);
 
@@ -190,7 +192,7 @@ public class WheelView extends ScrollView {
             views.addView(createView(item));
         }
 
-        refreshItemView((selectedIndex-offset) * itemHeight);
+        refreshItemView((selectedIndex - offset) * itemHeight);
     }
 
     int itemHeight = 0;
@@ -206,7 +208,7 @@ public class WheelView extends ScrollView {
         tv.setPadding(0, padding, 0, padding);
         if (0 == itemHeight) {
             itemHeight = getViewMeasuredHeight(tv);
-            Log.d(TAG, "itemHeight: " + itemHeight);
+            L.d("itemHeight: " + itemHeight);
             views.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, itemHeight * displayItemCount));
             LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) this.getLayoutParams();
             lp.height = itemHeight * displayItemCount;
@@ -246,8 +248,6 @@ public class WheelView extends ScrollView {
             scrollDirection = SCROLL_DIRECTION_UP;
 
         }
-
-
     }
 
     private void refreshItemView(int y) {
@@ -327,11 +327,6 @@ public class WheelView extends ScrollView {
 
     @Override
     public void setBackgroundDrawable(Drawable background) {
-
-        if (viewWidth == 0) {
-            viewWidth = ((Activity) context).getWindowManager().getDefaultDisplay().getWidth();
-            Log.d(TAG, "viewWidth: " + viewWidth);
-        }
         if (minDivider != 0) {
             dividerWidth = minDivider;
         } else {
@@ -378,13 +373,14 @@ public class WheelView extends ScrollView {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) this.getLayoutParams();
-        if (w < minDivider) {
-            w = minDivider;
-            lp.width = minDivider;
+        if ((maxWidth != 0 && w > maxWidth) || w < minDivider) {
+            w = maxWidth > minDivider? maxWidth:minDivider;
+            lp.weight = 0;
+            lp.width = w;
         }
-        super.onSizeChanged(w, h, oldw, oldh);
-        Log.d(TAG, "w: " + w + ", h: " + h + ", oldw: " + oldw + ", oldh: " + oldh);
         viewWidth = w;
+        super.onSizeChanged(w, h, oldw, oldh);
+        L.e("w: " + w + ", h: " + h + ", oldw: " + oldw + ", oldh: " + oldh);
         setBackgroundDrawable(null);
     }
 
@@ -455,4 +451,11 @@ public class WheelView extends ScrollView {
         return view.getMeasuredHeight();
     }
 
+    public void setMinDivider(int minDivider) {
+        this.minDivider = minDivider;
+    }
+
+    public void setMaxWidth(int maxWidth) {
+        this.maxWidth = maxWidth;
+    }
 }
