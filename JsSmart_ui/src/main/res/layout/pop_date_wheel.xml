@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:text="取消"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/textSize"
+                android:textSize="@dimen/dialogBtnTextSize"
                 android:padding="@dimen/lay_10"/>
 
             <TextView
@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:textSize="@dimen/titleTextSize" />
+                android:textSize="@dimen/dialogTitleTextSize" />
 
             <TextView
                 android:id="@id/textView3"
@@ -37,7 +37,7 @@
                 android:layout_height="match_parent"
                 android:text="确定"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/textSize"
+                android:textSize="@dimen/dialogBtnTextSize"
                 android:padding="@dimen/lay_10" />
 
         </LinearLayout>
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 app:wheel_min_divider_width="@dimen/lay_40"
                 app:wheel_text_padding="10dp"
-                app:wheel_text_size="@dimen/font_14" />
+                app:wheel_text_size="@dimen/dialogTextSize" />
 
             <com.js.smart.ui.widget.WheelView
                 android:id="@id/wheelView2"
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 app:wheel_min_divider_width="@dimen/lay_40"
                 app:wheel_text_padding="10dp"
-                app:wheel_text_size="@dimen/font_14" />
+                app:wheel_text_size="@dimen/dialogTextSize" />
 
             <com.js.smart.ui.widget.WheelView
                 android:id="@id/wheelView3"
@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 app:wheel_min_divider_width="@dimen/lay_40"
                 app:wheel_text_padding="10dp"
-                app:wheel_text_size="@dimen/font_14" />
+                app:wheel_text_size="@dimen/dialogTextSize" />
 
             <com.js.smart.ui.widget.WheelView
                 android:id="@id/wheelView4"
@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 app:wheel_min_divider_width="@dimen/lay_40"
                 app:wheel_text_padding="10dp"
-                app:wheel_text_size="@dimen/font_14" />
+                app:wheel_text_size="@dimen/dialogTextSize" />
 
             <com.js.smart.ui.widget.WheelView
                 android:id="@id/wheelView5"
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 app:wheel_min_divider_width="@dimen/lay_40"
                 app:wheel_text_padding="10dp"
-                app:wheel_text_size="@dimen/font_14" />
+                app:wheel_text_size="@dimen/dialogTextSize" />
 
             <com.js.smart.ui.widget.WheelView
                 android:id="@id/wheelView6"
@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 app:wheel_min_divider_width="@dimen/lay_40"
                 app:wheel_text_padding="10dp"
-                app:wheel_text_size="@dimen/font_14" />
+                app:wheel_text_size="@dimen/dialogTextSize" />
 
         </LinearLayout>
     </LinearLayout>

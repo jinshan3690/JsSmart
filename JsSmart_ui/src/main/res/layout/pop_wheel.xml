@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textSize="@dimen/font_16" />
+            android:textSize="@dimen/dialogTitleTextSize" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,7 +27,8 @@
             <com.js.smart.ui.widget.WheelView
                 android:id="@id/wheelView1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                app:wheel_text_size="@dimen/dialogTextSize"/>
 
         </LinearLayout>
 
@@ -60,7 +61,7 @@
                     android:gravity="center"
                     android:text="@string/cancel"
                     android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/btnTextSize" />
+                    android:textSize="@dimen/dialogBtnTextSize" />
 
             </com.balysv.materialripple.MaterialRippleLayout>
 
@@ -90,7 +91,7 @@
                     android:gravity="center"
                     android:text="@string/ok"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/btnTextSize" />
+                    android:textSize="@dimen/dialogBtnTextSize" />
 
             </com.balysv.materialripple.MaterialRippleLayout>
 

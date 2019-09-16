@@ -30,7 +30,7 @@
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:textColor="@color/textColor"
-            android:textSize="@dimen/btnTextSize" />
+            android:textSize="@dimen/dialogBtnTextSize" />
 
     </RelativeLayout>
 

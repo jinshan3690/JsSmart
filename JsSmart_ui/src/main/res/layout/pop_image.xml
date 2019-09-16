@@ -13,7 +13,7 @@
         android:background="@drawable/btn_shape_top_white"
         android:gravity="center"
         android:text="@string/camera"
-        android:textSize="@dimen/font_18"
+        android:textSize="@dimen/dialogBtnTextSize"
         android:textColor="@color/textColorTint" />
 
     <View
@@ -28,7 +28,7 @@
         android:background="@drawable/btn_white"
         android:gravity="center"
         android:text="@string/album"
-        android:textSize="@dimen/font_18"
+        android:textSize="@dimen/dialogBtnTextSize"
         android:textColor="@color/textColorTint" />
 
     <View
@@ -43,7 +43,7 @@
         android:background="@drawable/btn_shape_bottom_white"
         android:gravity="center"
         android:text="@string/cancel"
-        android:textSize="@dimen/font_18"
+        android:textSize="@dimen/dialogBtnTextSize"
         android:textColor="@color/textColorTint" />
 
 </LinearLayout>

@@ -19,7 +19,7 @@
             android:layout_marginBottom="@dimen/lay_15"
             android:gravity="center"
             android:text="@string/gender_selection"
-            android:textSize="@dimen/titleTextSize" />
+            android:textSize="@dimen/dialogTitleTextSize" />
 
         <include
             android:id="@id/refer1"
@@ -48,7 +48,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/male"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/font_15" />
+                android:textSize="@dimen/dialogTextSize" />
 
             <RadioButton
                 android:id="@id/radioButton2"
@@ -59,7 +59,7 @@
                 android:text="@string/female"
                 android:gravity="center_horizontal"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/font_15" />
+                android:textSize="@dimen/dialogTextSize" />
 
         </RadioGroup>
 
@@ -92,7 +92,7 @@
                     android:text="@string/confirm"
                     android:gravity="center"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/btnTextSize" />
+                    android:textSize="@dimen/dialogBtnTextSize" />
 
             </com.balysv.materialripple.MaterialRippleLayout>
 

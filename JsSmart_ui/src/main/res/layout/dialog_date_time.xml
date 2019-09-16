@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="提示"
-            android:textSize="@dimen/titleTextSize" />
+            android:textSize="@dimen/dialogTitleTextSize" />
 
         <RelativeLayout
             android:id="@id/layout3"
@@ -87,7 +87,7 @@
                     android:gravity="center"
                     android:text="@string/cancel"
                     android:textColor="@color/textColor"
-                    android:textSize="@dimen/btnTextSize" />
+                    android:textSize="@dimen/dialogBtnTextSize" />
 
             </com.balysv.materialripple.MaterialRippleLayout>
 
@@ -118,7 +118,7 @@
                     android:gravity="center"
                     android:text="@string/confirm"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/btnTextSize" />
+                    android:textSize="@dimen/dialogBtnTextSize" />
 
             </com.balysv.materialripple.MaterialRippleLayout>
 
