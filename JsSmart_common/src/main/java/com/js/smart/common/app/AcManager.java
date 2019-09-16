@@ -100,13 +100,6 @@ public class AcManager {
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.KITKAT)
-    public void setStateTextDark() {
-        Window window = context.getWindow();
-        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-    }
-
     /**
      * 获得状态栏的高度
      */
@@ -177,16 +170,16 @@ public class AcManager {
         context.view.setPadding(0, stateHeight + actionHeight, 0, 0);
     }
 
-    public void setStatusLight(Activity context) {
+    public void setStatusLight() {
         Window window = context.getWindow();
-        mTintManager.setStatusBarTintResource(R.color.colorTransparent);
-        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-
+        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
     }
 
-    public void setStatusDark(Activity context) {
+    public void setStatusDark() {
         Window window = context.getWindow();
-        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
     }
 
     /**
