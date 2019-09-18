@@ -29,7 +29,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
     protected WheelView secondWl;
     protected TextView confirm;
 
-    protected SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    protected SimpleDateFormat sdf;
     protected int yearDiff = 50;
     protected int currentYear;
     protected int currentMonth;
@@ -45,16 +45,21 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
     protected Integer chooseYearIndex, chooseMonthIndex, chooseDayIndex, chooseHourIndex, chooseMinuteIndex, chooseSecondIndex;
 
     public DatePopupWindow(Context context, View view, String chooseDate) {
-        this(context, view, chooseDate, null, null);
+        this(context, view, chooseDate, null, null, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
+    }
+
+    public DatePopupWindow(Context context, View view, String chooseDate, SimpleDateFormat dateFormat) {
+        this(context, view, chooseDate, null, null, dateFormat);
     }
 
     public DatePopupWindow(Context context, View view, String chooseDate, boolean beforeOfAfter) {
-        this(context, view, chooseDate, beforeOfAfter, null);
+        this(context, view, chooseDate, beforeOfAfter, null, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
     }
 
-    public DatePopupWindow(Context context, View view, String chooseDate, Boolean beforeOfAfter, String beforeOfAfterStr) {
+    public DatePopupWindow(Context context, View view, String chooseDate, Boolean beforeOfAfter, String beforeOfAfterStr, SimpleDateFormat dateFormat) {
         super(context, view, R.layout.pop_date_wheel);
         this.beforeOfAfter = beforeOfAfter;
+        this.sdf = dateFormat;
 
         initView();
 
