@@ -707,4 +707,8 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
     public WheelView getSecondWl() {
         return secondWl;
     }
+
+    public void setDateFormat(SimpleDateFormat sdf) {
+        this.sdf = sdf;
+    }
 }
