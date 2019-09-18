@@ -108,7 +108,20 @@ public class CancelEditText extends LinearLayout implements OnFocusChangeListene
             switchBtn.setBackgroundResource(switchIco);
             switchBtn.setVisibility(VISIBLE);
         }
-
+        switch (typedArray.getInt(R.styleable.CancelEditText_cet_gravity, 0)) {
+            case 1:
+                editText.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
+                break;
+            case 2:
+                editText.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.TOP);
+                break;
+            case 3:
+                editText.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
+                break;
+            default:
+                editText.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
+                break;
+        }
         editText.setText(typedArray.getText(R.styleable.CancelEditText_cet_text));
         editText.setSelection(editText.length());
         editText.setTextColor(

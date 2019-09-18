@@ -32,6 +32,12 @@
             <enum name="textVisiblePassword" value="2" />
             <enum name="textEmailAddress" value="3" />
         </attr>
+        <attr name="cet_gravity" format="integer">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="top" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
         <attr name="cet_enabled" format="boolean" />
         <attr name="cet_textEnabled" format="boolean" />
         <attr name="cet_singleLine" format="boolean" />
