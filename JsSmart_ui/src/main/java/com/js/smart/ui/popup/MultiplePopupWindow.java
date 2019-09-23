@@ -56,6 +56,11 @@ public class MultiplePopupWindow extends BasePopupWindow<MultiplePopupWindow> {
         return this;
     }
 
+    public MultiplePopupWindow setMultiple(List<String> selected) {
+        adapter.setMultiple(selected);
+        return this;
+    }
+
     public List<String> getMultiple() {
         return adapter.getMultiple();
     }

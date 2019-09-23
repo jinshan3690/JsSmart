@@ -51,6 +51,10 @@ public class WheelPopupWindow<T> extends BasePopupWindow<T> {
         return this;
     }
 
+    public WheelPopupWindow setItemsOne(List<String> items, String index) {
+        return setItemsOne(items, items.indexOf(index));
+    }
+
     public String getSelectedItemOne(){
         return wheelView1.getSeletedItem();
     }

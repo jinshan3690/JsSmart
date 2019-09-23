@@ -40,6 +40,14 @@ public class MultipleAdapter extends BaseRecyclerAdapter<MultipleAdapter.ItemVie
         else
             holder.checkBox.setChecked(false);
 
+        holder.checkBox.setTag(title);
+        holder.checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            String title1 = (String) buttonView.getTag();
+            if (isChecked)
+                selected.add(title1);
+            else
+                selected.remove(title1);
+        });
         holder.layout.setTag(holder.checkBox);
         holder.layout.setOnClickListener(v -> {
             CheckBox checkBox = (CheckBox) v.getTag();
@@ -65,6 +73,10 @@ public class MultipleAdapter extends BaseRecyclerAdapter<MultipleAdapter.ItemVie
         }
 
         return list;
+    }
+
+    public void setMultiple(List<String> selected) {
+        this.selected = selected;
     }
 
     @Override
