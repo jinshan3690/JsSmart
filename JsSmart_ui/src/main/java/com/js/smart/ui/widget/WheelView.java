@@ -37,6 +37,8 @@ public class WheelView extends ScrollView {
     private int textPadding;
     private int minDivider;
     private int maxWidth;
+    private int textColor;
+    private int borderColor;
 
     public static class OnWheelViewListener {
         public void onSelected(int selectedIndex, String item) {
@@ -66,6 +68,8 @@ public class WheelView extends ScrollView {
         textPadding = (int) typedArray.getDimension(R.styleable.WheelView_wheel_text_padding, DensityUtil.dp2px(context, 15));
         minDivider = (int) typedArray.getDimension(R.styleable.WheelView_wheel_min_divider_width, DensityUtil.dp2px(context, 70));
         maxWidth = (int) typedArray.getDimension(R.styleable.WheelView_wheel_max_width, DensityUtil.dp2px(context, 0));
+        textColor = typedArray.getResourceId(R.styleable.WheelView_wheel_text_color, R.color.colorPrimary);
+        borderColor = typedArray.getResourceId(R.styleable.WheelView_wheel_border_color, R.color.colorPrimary);
 
         init(context);
     }
@@ -295,7 +299,7 @@ public class WheelView extends ScrollView {
                 return;
             }
             if (position == i) {
-                itemView.setTextColor(context.getResources().getColor(R.color.colorPrimary));
+                itemView.setTextColor(context.getResources().getColor(textColor));
             } else {
                 itemView.setTextColor(Color.parseColor("#bbbbbb"));
             }
@@ -335,7 +339,7 @@ public class WheelView extends ScrollView {
 
         if (null == paint) {
             paint = new Paint();
-            paint.setColor(context.getResources().getColor(R.color.colorPrimary));
+            paint.setColor(context.getResources().getColor(borderColor));
             paint.setStrokeWidth(dip2px(1f));
         }
 
