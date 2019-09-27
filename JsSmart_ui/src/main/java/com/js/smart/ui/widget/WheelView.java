@@ -8,6 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
+import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -365,7 +366,7 @@ public class WheelView extends ScrollView {
 
             @Override
             public int getOpacity() {
-                return 0;
+                return PixelFormat.UNKNOWN;
             }
         };
 
@@ -399,6 +400,11 @@ public class WheelView extends ScrollView {
     }
 
     public void setSeletion(int position) {
+        if (position < 0)
+            position = 0;
+        else if(position > items.size() -1){
+            position = items.size() -1;
+        }
         final int p = position;
         selectedIndex = p + offset;
         this.post(new Runnable() {
