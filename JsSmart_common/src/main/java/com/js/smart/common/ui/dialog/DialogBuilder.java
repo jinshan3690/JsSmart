@@ -128,12 +128,14 @@ public class DialogBuilder<T extends DialogBuilder> implements BaseDialog {
         dialog.setContentView(view);
         dialog.setCancelable(true);
         dialog.setCanceledOnTouchOutside(true);
-        dialog.setOnShowListener(new DialogInterface.OnShowListener() {
-            @Override
-            public void onShow(DialogInterface dialog) {
-                if(showListener != null)
-                    showListener.onShow(dialog);
-            }
+        dialog.setOnShowListener(dialog -> {
+            if(showListener != null)
+                showListener.onShow(dialog);
+        });
+        dialog.setOnDismissListener(d -> {
+            dialog.setOnShowListener(null);
+            dialog.setOnCancelListener(null);
+            dialog.setOnDismissListener(null);
         });
         dialog.show();
         return dialog;
