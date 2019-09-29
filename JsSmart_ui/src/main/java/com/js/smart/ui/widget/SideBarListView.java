@@ -18,6 +18,8 @@ import android.widget.TextView;
 import com.js.smart.common.util.DensityUtil;
 import com.js.smart.ui.R;
 
+import static android.util.TypedValue.COMPLEX_UNIT_SP;
+
 /**
  * 带搜索条的listView
  */
@@ -53,7 +55,7 @@ public class SideBarListView extends RelativeLayout {
         hintParams.addRule(RelativeLayout.CENTER_IN_PARENT);
         hint.setLayoutParams(hintParams);
         hint.setTextColor(ContextCompat.getColor(context, R.color.white));
-        hint.setTextSize(DensityUtil.sp2px(context, 18));
+        hint.setTextSize(COMPLEX_UNIT_SP, 18);
         hint.setGravity(Gravity.CENTER);
         hint.setVisibility(View.GONE);
 //        hint.setBackgroundResource(R.drawable.btn_shape_gray);
@@ -146,7 +148,7 @@ public class SideBarListView extends RelativeLayout {
                 // paint.setColor(Color.WHITE);
                 paint.setTypeface(Typeface.DEFAULT_BOLD);
                 paint.setAntiAlias(true);
-                paint.setTextSize(DensityUtil.sp2px(context, 30));
+                paint.setTextSize(DensityUtil.sp2px(context, 40));
                 // 选中的状态
                 if (i == choose) {
                     paint.setColor(context.getResources().getColor(R.color.colorPrimary));
