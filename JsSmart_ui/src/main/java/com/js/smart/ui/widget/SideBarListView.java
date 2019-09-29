@@ -55,7 +55,7 @@ public class SideBarListView extends RelativeLayout {
         hintParams.addRule(RelativeLayout.CENTER_IN_PARENT);
         hint.setLayoutParams(hintParams);
         hint.setTextColor(ContextCompat.getColor(context, R.color.white));
-        hint.setTextSize(COMPLEX_UNIT_SP, 18);
+        hint.setTextSize(COMPLEX_UNIT_SP, 22);
         hint.setGravity(Gravity.CENTER);
         hint.setVisibility(View.GONE);
 //        hint.setBackgroundResource(R.drawable.btn_shape_gray);
@@ -148,7 +148,7 @@ public class SideBarListView extends RelativeLayout {
                 // paint.setColor(Color.WHITE);
                 paint.setTypeface(Typeface.DEFAULT_BOLD);
                 paint.setAntiAlias(true);
-                paint.setTextSize(DensityUtil.sp2px(context, 40));
+                paint.setTextSize(DensityUtil.sp2px(context, 18));
                 // 选中的状态
                 if (i == choose) {
                     paint.setColor(context.getResources().getColor(R.color.colorPrimary));
