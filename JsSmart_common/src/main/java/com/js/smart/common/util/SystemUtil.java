@@ -9,11 +9,13 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 
@@ -291,6 +293,24 @@ public class SystemUtil {
             }
         }
         return false;
+    }
+
+    /**
+     * 是否打开gps
+     */
+    public static boolean GPSProviderEnabled(Context context){
+        LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+        boolean gpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        return gpsEnabled;
+    }
+
+    /**
+     * 设置gps界面
+     */
+    public static void toggleGPS(Context context){
+        Intent settingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+        settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(settingsIntent);
     }
 
 }
