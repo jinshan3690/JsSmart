@@ -99,6 +99,9 @@ public class TitleUtil extends AntiShakeOnClickListener {
         titleIv.setImageDrawable(drawable);
         titleIv.setVisibility(View.VISIBLE);
         titleTv.setVisibility(View.GONE);
+        if (drawable == null){
+            titleIv.setVisibility(View.GONE);
+        }
         return this;
     }
 
@@ -114,7 +117,11 @@ public class TitleUtil extends AntiShakeOnClickListener {
      */
     public TitleUtil setLeftSrc(Drawable drawable) {
         leftIv.setImageDrawable(drawable);
+        leftIv.setVisibility(View.VISIBLE);
         leftTv.setVisibility(View.GONE);
+        if (drawable == null){
+            leftIv.setVisibility(View.GONE);
+        }
         return this;
     }
 
@@ -157,7 +164,11 @@ public class TitleUtil extends AntiShakeOnClickListener {
      */
     public TitleUtil setRightSrc(Drawable drawable) {
         rightIv.setImageDrawable(drawable);
+        rightIv.setVisibility(View.VISIBLE);
         rightTv.setVisibility(View.GONE);
+        if (drawable == null){
+            rightIv.setVisibility(View.GONE);
+        }
         return this;
     }
 
