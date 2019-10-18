@@ -689,6 +689,11 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
         return this;
     }
 
+    public DatePopupWindow setTitle(String title) {
+        titleTv.setText(title);
+        return this;
+    }
+
     public WheelView getYearWl() {
         return yearWl;
     }
