@@ -4,7 +4,6 @@ package com.js.smart.ui.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
@@ -120,7 +119,7 @@ public class WheelView extends ScrollView {
 
 //        scrollView = ((ScrollView)this.getParent());
 //        Log.d(TAG, "scrollview: " + scrollView);
-        L.d( "parent: " + this.getParent());
+        L.d("parent: " + this.getParent());
 //        this.setOrientation(VERTICAL);
         this.setVerticalScrollBarEnabled(false);
 
@@ -195,7 +194,7 @@ public class WheelView extends ScrollView {
             views.addView(createView(item));
         }
 
-        refreshItemView((selectedIndex - offset) * itemHeight);
+        refreshItemView((selectedIndex - 1) * itemHeight);
     }
 
     int itemHeight = 0;
@@ -300,7 +299,7 @@ public class WheelView extends ScrollView {
             if (position == i) {
                 itemView.setTextColor(context.getResources().getColor(textColor));
             } else {
-                itemView.setTextColor(Color.parseColor("#bbbbbb"));
+                itemView.setTextColor(context.getResources().getColor(R.color.textColorTint));
             }
         }
     }
@@ -377,7 +376,7 @@ public class WheelView extends ScrollView {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) this.getLayoutParams();
         if ((maxWidth != 0 && w > maxWidth) || w < minDivider) {
-            w = maxWidth > minDivider? maxWidth:minDivider;
+            w = maxWidth > minDivider ? maxWidth : minDivider;
             lp.weight = 0;
             lp.width = w;
         }
@@ -400,8 +399,8 @@ public class WheelView extends ScrollView {
     public void setSeletion(int position) {
         if (position < 0)
             position = 0;
-        else if(position > items.size() -1){
-            position = items.size() -1;
+        else if (position > items.size() - 1) {
+            position = items.size() - 1;
         }
         final int p = position;
         selectedIndex = p + offset;
