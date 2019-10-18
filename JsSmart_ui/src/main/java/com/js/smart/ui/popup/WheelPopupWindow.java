@@ -55,6 +55,11 @@ public class WheelPopupWindow<T> extends BasePopupWindow<T> {
         return setItemsOne(items, items.indexOf(index));
     }
 
+    public WheelPopupWindow setOffset(int offset) {
+        wheelView1.setOffset(offset);
+        return this;
+    }
+
     public String getSelectedItemOne(){
         return wheelView1.getSeletedItem();
     }

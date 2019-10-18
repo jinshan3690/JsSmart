@@ -264,6 +264,7 @@ public class UIIndexActivity extends UILoadingActivity {
             UIIndexActivityPermissionsDispatcher.showCameraWithPermissionCheck(UIIndexActivity.this);
         } else if (R.id.btn17 == v.getId()) {
             popupWindow = new WheelPopupWindow(context, view)
+                    .setOffset(2)
                     .setItemsOne(Arrays.asList("111", "222", "333", "444"), "333")
                     .show(one -> {
                         T.showSuccess("ok:" + one);
