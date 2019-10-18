@@ -56,6 +56,10 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
         this(context, view, chooseDate, beforeOfAfter, null, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
     }
 
+    public DatePopupWindow(Context context, View view, String chooseDate, Boolean beforeOfAfter, String beforeOfAfterStr) {
+        this(context, view, chooseDate, beforeOfAfter, beforeOfAfterStr, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
+    }
+
     public DatePopupWindow(Context context, View view, String chooseDate, Boolean beforeOfAfter, String beforeOfAfterStr, SimpleDateFormat dateFormat) {
         super(context, view, R.layout.pop_date_wheel);
         this.beforeOfAfter = beforeOfAfter;
@@ -83,6 +87,8 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
 
         Calendar chooseCalendar = Calendar.getInstance();
 
+        if (StringUtils.isBlank(chooseDate))
+            chooseDate = beforeOfAfterStr;
         if (StringUtils.isNotBlank(chooseDate)) {
             try {
                 chooseCalendar.setTime(sdf.parse(chooseDate));
