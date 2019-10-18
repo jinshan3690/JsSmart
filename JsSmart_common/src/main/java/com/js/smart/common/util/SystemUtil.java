@@ -1,6 +1,7 @@
 package com.js.smart.common.util;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -18,6 +19,7 @@ import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
+import android.view.WindowManager;
 
 import java.io.File;
 import java.io.Serializable;
@@ -311,6 +313,16 @@ public class SystemUtil {
         Intent settingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
         settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(settingsIntent);
+    }
+
+    /**
+     * 背景变暗
+     */
+    public static void darkenBackground(Activity context, Float alpha) {
+        WindowManager.LayoutParams lp = context.getWindow().getAttributes();
+        lp.alpha = alpha;
+        context.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        context.getWindow().setAttributes(lp);
     }
 
 }

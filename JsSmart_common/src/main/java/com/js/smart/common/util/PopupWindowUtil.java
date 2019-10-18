@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.PopupWindow;
 
 
@@ -42,6 +41,7 @@ public class PopupWindowUtil {
         this.parent = parent;
         this.view = view;
         window = new PopupWindow(view, width, height, true);
+
         init();
         return this;
     }
@@ -77,17 +77,14 @@ public class PopupWindowUtil {
      */
     public PopupWindowUtil setObscure() {
         final AppCompatActivity activity = (AppCompatActivity) context;
-        final WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
-        lp.alpha = 0.7f;
-        activity.getWindow().setAttributes(lp);
+        SystemUtil.darkenBackground(activity,0.7f);
         window.setOnDismissListener(() -> {
-            lp.alpha = 1f;
-            activity.getWindow().setAttributes(lp);
+            SystemUtil.darkenBackground(activity, 1f);
         });
         return this;
     }
 
-    public PopupWindowUtil setAnimationStyle(int anim) {
+        public PopupWindowUtil setAnimationStyle(int anim) {
         window.setAnimationStyle(anim);
         return this;
     }
