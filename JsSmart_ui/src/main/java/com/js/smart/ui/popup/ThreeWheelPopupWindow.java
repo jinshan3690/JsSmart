@@ -118,4 +118,15 @@ public class ThreeWheelPopupWindow<T> extends BasePopupWindow<T> {
         void item(String one, String two, String three);
     }
 
+    public WheelView getOne() {
+        return wheelView1;
+    }
+
+    public WheelView getTwo() {
+        return wheelView2;
+    }
+
+    public WheelView getThree() {
+        return wheelView3;
+    }
 }

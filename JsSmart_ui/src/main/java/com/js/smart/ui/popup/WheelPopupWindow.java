@@ -80,4 +80,8 @@ public class WheelPopupWindow<T> extends BasePopupWindow<T> {
         void item(String one);
     }
 
+    public WheelView getWheelView() {
+        return wheelView1;
+    }
+
 }

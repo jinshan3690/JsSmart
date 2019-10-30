@@ -96,4 +96,11 @@ public class TwoWheelPopupWindow<T> extends BasePopupWindow<T> {
         void item(String one, String two);
     }
 
+    public WheelView getOneWl() {
+        return wheelView1;
+    }
+
+    public WheelView getTwoWl() {
+        return wheelView2;
+    }
 }
