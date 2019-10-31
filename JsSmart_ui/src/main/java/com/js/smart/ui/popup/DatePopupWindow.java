@@ -83,7 +83,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
         currentHour = calendar.get(Calendar.HOUR_OF_DAY);
         currentMinute = calendar.get(Calendar.MINUTE);
         currentSecond = calendar.get(Calendar.SECOND);
-        currentDayOfMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        currentDayOfMonth = getCurrentDayOfMonth();
 
         Calendar chooseCalendar = Calendar.getInstance();
 
@@ -101,7 +101,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                     chooseHour = chooseCalendar.get(Calendar.HOUR_OF_DAY);
                     chooseMinute = chooseCalendar.get(Calendar.MINUTE);
                     chooseSecond = chooseCalendar.get(Calendar.SECOND);
-                    currentDayOfMonth = chooseCalendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+                    currentDayOfMonth = getChooseDayOfMonth();
                 }
             } catch (ParseException e) {
                 e.printStackTrace();
@@ -142,7 +142,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                     super.onSelected(selectedIndex, item);
                     chooseYear = Integer.valueOf(getSelectedItemYear());
                     chooseYearIndex = selectedIndex;
-                    currentDayOfMonth = getCurrentDayOfMonth();
+                    currentDayOfMonth = getChooseDayOfMonth();
 
                             setItemsDay(getDay(0, currentDayOfMonth));
                             chooseDay = Integer.valueOf(getSelectedItemDay());
@@ -156,7 +156,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                     super.onSelected(selectedIndex, item);
                     chooseMonth = Integer.valueOf(getSelectedItemMonth());
                     chooseMonthIndex = selectedIndex;
-                    currentDayOfMonth = getCurrentDayOfMonth();
+                    currentDayOfMonth = getChooseDayOfMonth();
 
                     setItemsDay(getDay(0, currentDayOfMonth));
                 }
@@ -177,7 +177,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                     super.onSelected(selectedIndex, item);
                     chooseYear = Integer.valueOf(getSelectedItemYear());
                     chooseYearIndex = selectedIndex;
-                    currentDayOfMonth = getCurrentDayOfMonth();
+                    currentDayOfMonth = getChooseDayOfMonth();
                     boolean hasBegin = hasBeginYear();
 
                     if (hasBegin) {
@@ -222,7 +222,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                     super.onSelected(selectedIndex, item);
                     chooseMonth = Integer.valueOf(getSelectedItemMonth());
                     chooseMonthIndex = selectedIndex;
-                    currentDayOfMonth = getCurrentDayOfMonth();
+                    currentDayOfMonth = getChooseDayOfMonth();
                     boolean hasBegin = hasBeginMonth();
 
                     if (hasBegin) {
@@ -608,8 +608,17 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
 
     private int getCurrentDayOfMonth() {
         Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, currentYear);
+        calendar.set(Calendar.MONTH, currentMonth - 1);
+        calendar.set(Calendar.DAY_OF_MONTH, 0);//当前日期31bug
+        return calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+    }
+
+    private int getChooseDayOfMonth() {
+        Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, chooseYear);
         calendar.set(Calendar.MONTH, chooseMonth - 1);
+        calendar.set(Calendar.DAY_OF_MONTH, 0);//当前日期31bug
         return calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
     }
 
