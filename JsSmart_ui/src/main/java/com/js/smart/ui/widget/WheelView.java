@@ -182,7 +182,7 @@ public class WheelView extends ScrollView {
     int newCheck = 50;
 
     public void startScrollerTask() {
-
+        removeCallbacks(scrollerTask);
         initialY = getScrollY();
         this.postDelayed(scrollerTask, newCheck);
     }

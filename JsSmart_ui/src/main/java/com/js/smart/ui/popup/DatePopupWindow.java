@@ -88,7 +88,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
         Calendar chooseCalendar = Calendar.getInstance();
 
         if (StringUtils.isBlank(chooseDate))
-            chooseDate = beforeOfAfterStr;
+            chooseDate = sdf.format(calendar.getTime());
         if (StringUtils.isNotBlank(chooseDate)) {
             try {
                 chooseCalendar.setTime(sdf.parse(chooseDate));
@@ -609,7 +609,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
     private int getCurrentDayOfMonth() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, currentYear);
-        calendar.set(Calendar.MONTH, currentMonth - 1);
+        calendar.set(Calendar.MONTH, currentMonth);
         calendar.set(Calendar.DAY_OF_MONTH, 0);//当前日期31bug
         return calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
     }
@@ -617,7 +617,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
     private int getChooseDayOfMonth() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, chooseYear);
-        calendar.set(Calendar.MONTH, chooseMonth - 1);
+        calendar.set(Calendar.MONTH, chooseMonth);
         calendar.set(Calendar.DAY_OF_MONTH, 0);//当前日期31bug
         return calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
     }
