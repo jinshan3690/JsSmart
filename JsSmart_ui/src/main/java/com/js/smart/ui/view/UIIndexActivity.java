@@ -231,7 +231,7 @@ public class UIIndexActivity extends UILoadingActivity {
 //                    .showYear(false)
 //                    .showMonth(false)
 //                    .showDay(false)
-                    .showSecond(false)
+//                    .showSecond(false)
                     .show((year, month, day, hour, minute, second) -> {
                         T.showSuccess("ok:" + year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second);
 //                        popupWindow.dismiss();
