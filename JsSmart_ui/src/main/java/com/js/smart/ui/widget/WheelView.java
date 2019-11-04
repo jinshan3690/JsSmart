@@ -106,6 +106,7 @@ public class WheelView extends ScrollView {
     }
 
     public void setOffset(int offset) {
+        selectedIndex = selectedIndex + offset - this.offset;
         this.offset = offset;
     }
 
@@ -136,7 +137,7 @@ public class WheelView extends ScrollView {
                     if (remainder == 0) {
                         selectedIndex = divided + offset;
 
-                        onSeletedCallBack();
+                        onSelectedCallBack();
                     } else {
                         if (remainder > itemHeight / 2) {
                             WheelView.this.post(new Runnable() {
@@ -144,7 +145,7 @@ public class WheelView extends ScrollView {
                                 public void run() {
                                     WheelView.this.smoothScrollTo(0, initialY - remainder + itemHeight);
                                     selectedIndex = divided + offset + 1;
-                                    onSeletedCallBack();
+                                    onSelectedCallBack();
                                 }
                             });
                         } else {
@@ -153,7 +154,7 @@ public class WheelView extends ScrollView {
                                 public void run() {
                                     WheelView.this.smoothScrollTo(0, initialY - remainder);
                                     selectedIndex = divided + offset;
-                                    onSeletedCallBack();
+                                    onSelectedCallBack();
                                 }
                             });
                         }
@@ -197,8 +198,8 @@ public class WheelView extends ScrollView {
         tv.setTag(index - offset);
         if (index - offset >= 0 && index - offset < items.size() - getOffset() * 2)
             tv.setOnClickListener(v -> {
-                setSeletion((Integer) v.getTag(), false);
-                onSeletedCallBack();
+                setSelection((Integer) v.getTag(), false);
+                onSelectedCallBack();
             });
         tv.setSingleLine(true);
         tv.setTextSize(textSize);
@@ -342,18 +343,18 @@ public class WheelView extends ScrollView {
     /**
      * 选中回调
      */
-    private void onSeletedCallBack() {
+    private void onSelectedCallBack() {
         if (null != onWheelViewListener) {
             onWheelViewListener.onSelected(selectedIndex - offset, items.get(selectedIndex));
         }
 
     }
 
-    public void setSeletion(int position) {
-        setSeletion(position, true);
+    public void setSelection(int position) {
+        setSelection(position, true);
     }
 
-    public void setSeletion(int position, boolean hasSmooth) {
+    public void setSelection(int position, boolean hasSmooth) {
         if (position < 0)
             position = 0;
         else if (position > items.size() - 1 - getOffset() * 2) {
@@ -368,7 +369,7 @@ public class WheelView extends ScrollView {
 
     }
 
-    public String getSeletedItem() {
+    public String getSelectedItem() {
         return items.get(selectedIndex);
     }
 

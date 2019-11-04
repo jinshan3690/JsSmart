@@ -548,62 +548,62 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
 
     public DatePopupWindow setItemsYear(List<String> items) {
         yearWl.setItems(new ArrayList<>(items));
-        yearWl.setSeletion(chooseYearIndex);
+        yearWl.setSelection(chooseYearIndex);
         return this;
     }
 
     public DatePopupWindow setItemsMonth(List<String> items) {
         monthWl.setItems(new ArrayList<>(items));
-        monthWl.setSeletion(chooseMonthIndex);
+        monthWl.setSelection(chooseMonthIndex);
         return this;
     }
 
     public DatePopupWindow setItemsDay(List<String> items) {
         dayWl.setItems(new ArrayList<>(items));
-        dayWl.setSeletion(chooseDayIndex);
+        dayWl.setSelection(chooseDayIndex);
         return this;
     }
 
     public DatePopupWindow setItemsHour(List<String> items) {
         hourWl.setItems(new ArrayList<>(items));
-        hourWl.setSeletion(chooseHourIndex);
+        hourWl.setSelection(chooseHourIndex);
         return this;
     }
 
     public DatePopupWindow setItemsMinute(List<String> items) {
         minuteWl.setItems(new ArrayList<>(items));
-        minuteWl.setSeletion(chooseMinuteIndex);
+        minuteWl.setSelection(chooseMinuteIndex);
         return this;
     }
 
     public DatePopupWindow setItemsSecond(List<String> items) {
         secondWl.setItems(new ArrayList<>(items));
-        secondWl.setSeletion(chooseSecondIndex);
+        secondWl.setSelection(chooseSecondIndex);
         return this;
     }
 
     public String getSelectedItemYear() {
-        return yearWl.getSeletedItem().replace("年", "");
+        return yearWl.getSelectedItem().replace("年", "");
     }
 
     public String getSelectedItemMonth() {
-        return String.format("%02d", Integer.valueOf(monthWl.getSeletedItem().replace("月", "")));
+        return String.format("%02d", Integer.valueOf(monthWl.getSelectedItem().replace("月", "")));
     }
 
     public String getSelectedItemDay() {
-        return String.format("%02d", Integer.valueOf(dayWl.getSeletedItem().replace("日", "")));
+        return String.format("%02d", Integer.valueOf(dayWl.getSelectedItem().replace("日", "")));
     }
 
     public String getSelectedItemHour() {
-        return String.format("%02d", Integer.valueOf(hourWl.getSeletedItem().replace("时", "")));
+        return String.format("%02d", Integer.valueOf(hourWl.getSelectedItem().replace("时", "")));
     }
 
     public String getSelectedItemMinute() {
-        return String.format("%02d", Integer.valueOf(minuteWl.getSeletedItem().replace("分", "")));
+        return String.format("%02d", Integer.valueOf(minuteWl.getSelectedItem().replace("分", "")));
     }
 
     public String getSelectedItemSecond() {
-        return String.format("%02d", Integer.valueOf(secondWl.getSeletedItem().replace("秒", "")));
+        return String.format("%02d", Integer.valueOf(secondWl.getSelectedItem().replace("秒", "")));
     }
 
     private int getCurrentDayOfMonth() {

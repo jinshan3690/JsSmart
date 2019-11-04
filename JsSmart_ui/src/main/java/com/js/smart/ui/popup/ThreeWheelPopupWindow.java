@@ -54,7 +54,7 @@ public class ThreeWheelPopupWindow<T> extends BasePopupWindow<T> {
 
     public ThreeWheelPopupWindow setItemsOne(List<String> items, int index) {
         wheelView1.setItems(new ArrayList<>(items));
-        wheelView1.setSeletion(index);
+        wheelView1.setSelection(index);
         return this;
     }
 
@@ -68,7 +68,7 @@ public class ThreeWheelPopupWindow<T> extends BasePopupWindow<T> {
 
     public ThreeWheelPopupWindow setItemsTwo(List<String> items, int index) {
         wheelView2.setItems(new ArrayList<>(items));
-        wheelView2.setSeletion(index);
+        wheelView2.setSelection(index);
         return this;
     }
 
@@ -82,7 +82,7 @@ public class ThreeWheelPopupWindow<T> extends BasePopupWindow<T> {
 
     public ThreeWheelPopupWindow setItemsThree(List<String> items, int index) {
         wheelView3.setItems(new ArrayList<>(items));
-        wheelView3.setSeletion(index);
+        wheelView3.setSelection(index);
         return this;
     }
 
@@ -91,15 +91,15 @@ public class ThreeWheelPopupWindow<T> extends BasePopupWindow<T> {
     }
 
     public String getSelectedItemOne(){
-        return wheelView1.getSeletedItem();
+        return wheelView1.getSelectedItem();
     }
 
     public String getSelectedItemTwo(){
-        return wheelView2.getSeletedItem();
+        return wheelView2.getSelectedItem();
     }
 
     public String getSelectedItemThree(){
-        return wheelView3.getSeletedItem();
+        return wheelView3.getSelectedItem();
     }
 
     public PopupWindow show(ThreeWheelPopupListener threeWheelListener) {

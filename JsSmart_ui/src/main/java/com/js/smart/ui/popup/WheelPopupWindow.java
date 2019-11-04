@@ -47,7 +47,7 @@ public class WheelPopupWindow<T> extends BasePopupWindow<T> {
 
     public WheelPopupWindow setItemsOne(List<String> items, int index) {
         wheelView1.setItems(new ArrayList<>(items));
-        wheelView1.setSeletion(index);
+        wheelView1.setSelection(index);
         return this;
     }
 
@@ -61,7 +61,7 @@ public class WheelPopupWindow<T> extends BasePopupWindow<T> {
     }
 
     public String getSelectedItemOne(){
-        return wheelView1.getSeletedItem();
+        return wheelView1.getSelectedItem();
     }
 
     public PopupWindow show(ThreeWheelPopupListener threeWheelListener) {
