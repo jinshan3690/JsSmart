@@ -12,6 +12,7 @@ import com.js.smart.http.cookies.CookiesManager;
 import com.js.smart.http.gson.StringTypeAdapter;
 import com.js.smart.http.interceptor.HeaderInterceptor;
 import com.js.smart.http.interceptor.ParameterInterceptor;
+import com.js.smart.http.interceptor.PostCacheInterceptor;
 import com.js.smart.ui.UIApp;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.smtt.sdk.QbSdk;
@@ -59,8 +60,9 @@ public class UIInitTask implements InitTask {
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         UIApp.client = RetrofitUrlManager.getInstance().with(new OkHttpClient.Builder())
                 .cookieJar(CookiesManager.getInstance(context))
-                .cache(cache)
+//                .cache(cache)//only get
                 .addInterceptor(new HeaderInterceptor())
+                .addInterceptor(new PostCacheInterceptor(context))
 //                .addInterceptor(new NetworkCacheInterceptor())//only get
                 .addInterceptor(new ParameterInterceptor())
                 .addInterceptor(loggingInterceptor)

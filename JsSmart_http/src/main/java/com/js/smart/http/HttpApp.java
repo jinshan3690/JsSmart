@@ -17,6 +17,7 @@ public abstract class HttpApp extends CommonApp {
 
     public static InitStrategy initStrategy;
 
+    public static String hasCache = "hasCache";
     public static OkHttpClient client;
     public static Gson gson;
     public static GsonResponseBodyConverter.OnGsonResponseListener gsonResponseListener;
