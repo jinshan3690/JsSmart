@@ -56,7 +56,7 @@ public class PostCacheInterceptor implements Interceptor {
         String key = createKey(chain.request());
         L.d("cache key: " + key);
         Response cacheResponse = null;
-        String cacheRes = key!=null
+        String cacheRes = key != null
                 ? LocalManager.getInstance().getShareString(key)
                 : null;
 
@@ -83,7 +83,7 @@ public class PostCacheInterceptor implements Interceptor {
         } finally {
             if (networkResponse == null) {
                 L.d("close cache response...");
-                if (cacheResponse!=null&& HttpHeaders.hasBody(cacheResponse)){
+                if (cacheResponse != null && HttpHeaders.hasBody(cacheResponse)) {
                     closeQuietly(cacheResponse.body());
                 }
                 return chain.proceed(netWorkRequest);
@@ -102,10 +102,10 @@ public class PostCacheInterceptor implements Interceptor {
                             .build())
                     .build();
             L.d("update cache response");
-            if (key!=null){
+            if (key != null) {
                 LocalManager.getInstance().setShare(key, createCache(response));
             }
-            if (cacheResponse!=null&&HttpHeaders.hasBody(cacheResponse)){
+            if (cacheResponse != null && HttpHeaders.hasBody(cacheResponse)) {
                 closeQuietly(cacheResponse.body());
             }
             return networkResponse;
@@ -126,25 +126,25 @@ public class PostCacheInterceptor implements Interceptor {
         L.d("init cache response");
         //放入缓存
 //        if (cache != null) {
-            L.d("url: " + netWorkRequest.url().toString());
-            if (HttpHeaders.hasBody(newResponse)) {
-                try {
-                    L.d("chain request url: " + newResponse.request().url());
-                    if (key!=null){
-                        LocalManager.getInstance().setShare(key, createCache(newResponse));
-                        L.d("put cache response key: " + key);
-                    }
+        L.d("url: " + netWorkRequest.url().toString());
+        if (HttpHeaders.hasBody(newResponse)) {
+            try {
+                L.d("chain request url: " + newResponse.request().url());
+                if (key != null) {
+                    LocalManager.getInstance().setShare(key, createCache(newResponse));
+                    L.d("put cache response key: " + key);
+                }
 //                    String resp1 = cache.getAsString(key);
 //                    LogUtil.d("resp1: " + resp1);
-                    return networkResponse;
-                } catch (Exception e) {
-                    L.d("put cache exception: " + e);
-                }finally {
-                    if (cacheResponse != null && HttpHeaders.hasBody(cacheResponse)) {
-                        closeQuietly(cacheResponse.body());
-                    }
+                return networkResponse;
+            } catch (Exception e) {
+                L.d("put cache exception: " + e);
+            } finally {
+                if (cacheResponse != null && HttpHeaders.hasBody(cacheResponse)) {
+                    closeQuietly(cacheResponse.body());
                 }
             }
+        }
 //        }
         return networkResponse;
     }
@@ -156,18 +156,20 @@ public class PostCacheInterceptor implements Interceptor {
         String url = request.url().toString();
         StringBuilder sb = new StringBuilder();
         sb.append(url + "&");
-        MediaType type = requestBody.contentType();
-        if (type != null) {
-            charset = type.charset() == null ? charset : type.charset();
-        }
-        Buffer buffer = new Buffer();
-        try {
-            requestBody.writeTo(buffer);
-            sb.append(buffer.readString(charset));
-        } catch (Exception e) {
-            L.d("read request error: " + e);
-        } finally {
-            buffer.close();
+        if (requestBody != null) {
+            MediaType type = requestBody.contentType();
+            if (type != null) {
+                charset = type.charset() == null ? charset : type.charset();
+            }
+            Buffer buffer = new Buffer();
+            try {
+                requestBody.writeTo(buffer);
+                sb.append(buffer.readString(charset));
+            } catch (Exception e) {
+                L.d("read request error: " + e);
+            } finally {
+                buffer.close();
+            }
         }
 //        if (url.startsWith(BuildConfig.SERVER_URL + "your own url")) {
 //            return //这里可以根据url来定制化key
@@ -183,7 +185,6 @@ public class PostCacheInterceptor implements Interceptor {
         L.d("index0: " + indexs[0] + " index1: " + indexs[1]);
         return indexs;
     }
-
 
 
     private boolean isNeedCache(String url) {
@@ -247,7 +248,7 @@ public class PostCacheInterceptor implements Interceptor {
                 caches[REPONSE_BODY] = buffer.clone().readString(charset);
             } catch (IOException e) {
                 e.printStackTrace();
-            }finally {
+            } finally {
 //                closeQuietly(response.body());
             }
         }
