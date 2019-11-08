@@ -108,12 +108,13 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
             }
         }
 
-        setItemsYear(getYear(yearDiff, currentYear));
-        setItemsMonth(getMonth(currentMonth));
-        setItemsDay(getDay(currentDay, currentDayOfMonth));
-        setItemsHour(getHour(currentHour));
-        setItemsMinute(getMinute(currentMinute));
-        setItemsSecond(getSecond(currentSecond));
+        setItemsYear(getYear(yearDiff, currentYear), false);
+        setItemsMonth(getMonth(currentMonth), false);
+        setItemsDay(getDay(currentDay, currentDayOfMonth), false);
+        setItemsHour(getHour(currentHour), false);
+        setItemsMinute(getMinute(currentMinute), false);
+        setItemsSecond(getSecond(currentSecond), false);
+        chooseItem();
         if (StringUtils.isNotBlank(chooseDate))
             yearWheelViewListener.onSelected(chooseYearIndex, chooseYear == 0 ? String.valueOf(currentYear) : String.valueOf(chooseYear));
     }
@@ -144,7 +145,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                     chooseYearIndex = selectedIndex;
                     currentDayOfMonth = getChooseDayOfMonth();
 
-                    setItemsDay(getDay(0, currentDayOfMonth));
+                    setItemsDay(getDay(0, currentDayOfMonth), true);
                     chooseDay = Integer.valueOf(getSelectedItemDay());
                 }
             };
@@ -158,7 +159,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                     chooseMonthIndex = selectedIndex;
                     currentDayOfMonth = getChooseDayOfMonth();
 
-                    setItemsDay(getDay(0, currentDayOfMonth));
+                    setItemsDay(getDay(0, currentDayOfMonth), true);
                 }
 
             });
@@ -181,36 +182,36 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                     boolean hasBegin = hasBeginYear();
 
                     if (hasBegin) {
-                        setItemsMonth(getMonth(currentMonth));
+                        setItemsMonth(getMonth(currentMonth), true);
                         chooseMonth = Integer.valueOf(getSelectedItemMonth());
-                        if (hasBeginMonth()) {
-                            setItemsDay(getDay(currentDay, currentDayOfMonth));
-                            chooseDay = Integer.valueOf(getSelectedItemDay());
-                        }
-                        if (hasBeginDay()) {
-                            setItemsHour(getHour(currentHour));
-                            chooseHour = Integer.valueOf(getSelectedItemHour());
-                        }
-                        if (hasBeginHour()) {
-                            setItemsMinute(getMinute(currentMinute));
-                            chooseMinute = Integer.valueOf(getSelectedItemMinute());
-                        }
-                        if (hasBeginMinute()) {
-                            setItemsSecond(getSecond(currentSecond));
-                            chooseSecond = Integer.valueOf(getSelectedItemSecond());
-                        }
+//                        if (hasBeginMonth()) {
+//                            setItemsDay(getDay(currentDay, currentDayOfMonth), true);
+//                            chooseDay = Integer.valueOf(getSelectedItemDay());
+//                        }
+//                        if (hasBeginDay()) {
+//                            setItemsHour(getHour(currentHour), true);
+//                            chooseHour = Integer.valueOf(getSelectedItemHour());
+//                        }
+//                        if (hasBeginHour()) {
+//                            setItemsMinute(getMinute(currentMinute), true);
+//                            chooseMinute = Integer.valueOf(getSelectedItemMinute());
+//                        }
+//                        if (hasBeginMinute()) {
+//                            setItemsSecond(getSecond(currentSecond), true);
+//                            chooseSecond = Integer.valueOf(getSelectedItemSecond());
+//                        }
                     } else {
                         if (monthWl.getItems().size() != 12 + monthWl.getOffset() * 2)//首尾为空
-                            setItemsMonth(getMonth(beforeOfAfter ? 12 : 1));
-                        if (dayWl.getItems().size() - dayWl.getOffset() != currentDayOfMonth) {//首尾为空
-                            setItemsDay(getDay(beforeOfAfter ? currentDayOfMonth : 1, currentDayOfMonth));
-                        }
-                        if (hourWl.getItems().size() != 24 + hourWl.getOffset() * 2)//首尾为空
-                            setItemsHour(getHour(beforeOfAfter ? 24 : 0));
-                        if (minuteWl.getItems().size() != 60 + minuteWl.getOffset() * 2)//首尾为空
-                            setItemsMinute(getMinute(beforeOfAfter ? 60 : 0));
-                        if (secondWl.getItems().size() != 60 + secondWl.getOffset() * 2)//首尾为空
-                            setItemsSecond(getSecond(beforeOfAfter ? 60 : 0));
+                            setItemsMonth(getMonth(beforeOfAfter ? 12 : 1), true);
+//                        if (dayWl.getItems().size() - dayWl.getOffset() != currentDayOfMonth) {//首尾为空
+//                            setItemsDay(getDay(beforeOfAfter ? currentDayOfMonth : 1, currentDayOfMonth), true);
+//                        }
+//                        if (hourWl.getItems().size() != 24 + hourWl.getOffset() * 2)//首尾为空
+//                            setItemsHour(getHour(beforeOfAfter ? 24 : 0), true);
+//                        if (minuteWl.getItems().size() != 60 + minuteWl.getOffset() * 2)//首尾为空
+//                            setItemsMinute(getMinute(beforeOfAfter ? 60 : 0), true);
+//                        if (secondWl.getItems().size() != 60 + secondWl.getOffset() * 2)//首尾为空
+//                            setItemsSecond(getSecond(beforeOfAfter ? 60 : 0), true);
                     }
                 }
             };
@@ -226,31 +227,31 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                     boolean hasBegin = hasBeginMonth();
 
                     if (hasBegin) {
-                        setItemsDay(getDay(currentDay, currentDayOfMonth));
+                        setItemsDay(getDay(currentDay, currentDayOfMonth), true);
                         chooseDay = Integer.valueOf(getSelectedItemDay());
 
-                        if (hasBeginDay()) {
-                            setItemsHour(getHour(currentHour));
-                            chooseHour = Integer.valueOf(getSelectedItemHour());
-                        }
-                        if (hasBeginHour()) {
-                            setItemsMinute(getMinute(currentMinute));
-                            chooseMinute = Integer.valueOf(getSelectedItemMinute());
-                        }
-                        if (hasBeginMinute()) {
-                            setItemsSecond(getSecond(currentSecond));
-                            chooseSecond = Integer.valueOf(getSelectedItemSecond());
-                        }
+//                        if (hasBeginDay()) {
+//                            setItemsHour(getHour(currentHour), true);
+//                            chooseHour = Integer.valueOf(getSelectedItemHour());
+//                        }
+//                        if (hasBeginHour()) {
+//                            setItemsMinute(getMinute(currentMinute), true);
+//                            chooseMinute = Integer.valueOf(getSelectedItemMinute());
+//                        }
+//                        if (hasBeginMinute()) {
+//                            setItemsSecond(getSecond(currentSecond), true);
+//                            chooseSecond = Integer.valueOf(getSelectedItemSecond());
+//                        }
                     } else {
                         if (dayWl.getItems().size() - dayWl.getOffset() != currentDayOfMonth) {//首尾为空
-                            setItemsDay(getDay(beforeOfAfter ? currentDayOfMonth : 1, currentDayOfMonth));
+                            setItemsDay(getDay(beforeOfAfter ? currentDayOfMonth : 1, currentDayOfMonth), true);
                         }
-                        if (hourWl.getItems().size() != 24 + hourWl.getOffset() * 2)//首尾为空
-                            setItemsHour(getHour(beforeOfAfter ? 24 : 0));
-                        if (minuteWl.getItems().size() != 60 + minuteWl.getOffset() * 2)//首尾为空
-                            setItemsMinute(getMinute(beforeOfAfter ? 60 : 0));
-                        if (secondWl.getItems().size() != 60 + secondWl.getOffset() * 2)//首尾为空
-                            setItemsSecond(getSecond(beforeOfAfter ? 60 : 0));
+//                        if (hourWl.getItems().size() != 24 + hourWl.getOffset() * 2)//首尾为空
+//                            setItemsHour(getHour(beforeOfAfter ? 24 : 0), true);
+//                        if (minuteWl.getItems().size() != 60 + minuteWl.getOffset() * 2)//首尾为空
+//                            setItemsMinute(getMinute(beforeOfAfter ? 60 : 0), true);
+//                        if (secondWl.getItems().size() != 60 + secondWl.getOffset() * 2)//首尾为空
+//                            setItemsSecond(getSecond(beforeOfAfter ? 60 : 0), true);
                     }
                 }
 
@@ -265,23 +266,23 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                     boolean hasBegin = hasBeginDay();
 
                     if (hasBegin) {
-                        setItemsHour(getHour(currentHour));
+                        setItemsHour(getHour(currentHour), true);
                         chooseHour = Integer.valueOf(getSelectedItemHour());
-                        if (hasBeginHour()) {
-                            setItemsMinute(getMinute(currentMinute));
-                            chooseMinute = Integer.valueOf(getSelectedItemMinute());
-                        }
-                        if (hasBeginMinute()) {
-                            setItemsSecond(getSecond(currentSecond));
-                            chooseSecond = Integer.valueOf(getSelectedItemSecond());
-                        }
+//                        if (hasBeginHour()) {
+//                            setItemsMinute(getMinute(currentMinute), true);
+//                            chooseMinute = Integer.valueOf(getSelectedItemMinute());
+//                        }
+//                        if (hasBeginMinute()) {
+//                            setItemsSecond(getSecond(currentSecond), true);
+//                            chooseSecond = Integer.valueOf(getSelectedItemSecond());
+//                        }
                     } else {
                         if (hourWl.getItems().size() != 60 + hourWl.getOffset() * 2)//首尾为空
-                            setItemsHour(getHour(beforeOfAfter ? 24 : 0));
-                        if (minuteWl.getItems().size() != 60 + minuteWl.getOffset() * 2)//首尾为空
-                            setItemsMinute(getMinute(beforeOfAfter ? 60 : 0));
-                        if (secondWl.getItems().size() != 60 + secondWl.getOffset() * 2)//首尾为空
-                            setItemsSecond(getSecond(beforeOfAfter ? 60 : 0));
+                            setItemsHour(getHour(beforeOfAfter ? 24 : 0), true);
+//                        if (minuteWl.getItems().size() != 60 + minuteWl.getOffset() * 2)//首尾为空
+//                            setItemsMinute(getMinute(beforeOfAfter ? 60 : 0), true);
+//                        if (secondWl.getItems().size() != 60 + secondWl.getOffset() * 2)//首尾为空
+//                            setItemsSecond(getSecond(beforeOfAfter ? 60 : 0), true);
                     }
                 }
             });
@@ -295,18 +296,18 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                     boolean hasBegin = hasBeginHour();
 
                     if (hasBegin) {
-                        setItemsMinute(getMinute(currentMinute));
+                        setItemsMinute(getMinute(currentMinute), true);
                         chooseMinute = Integer.valueOf(getSelectedItemMinute());
 
-                        if (hasBeginMinute()) {
-                            setItemsSecond(getSecond(currentSecond));
-                            chooseSecond = Integer.valueOf(getSelectedItemSecond());
-                        }
+//                        if (hasBeginMinute()) {
+//                            setItemsSecond(getSecond(currentSecond), true);
+//                            chooseSecond = Integer.valueOf(getSelectedItemSecond());
+//                        }
                     } else {
                         if (minuteWl.getItems().size() != 60 + minuteWl.getOffset() * 2)//首尾为空
-                            setItemsMinute(getMinute(beforeOfAfter ? 60 : 0));
-                        if (secondWl.getItems().size() != 60 + secondWl.getOffset() * 2)//首尾为空
-                            setItemsSecond(getSecond(beforeOfAfter ? 60 : 0));
+                            setItemsMinute(getMinute(beforeOfAfter ? 60 : 0), true);
+//                        if (secondWl.getItems().size() != 60 + secondWl.getOffset() * 2)//首尾为空
+//                            setItemsSecond(getSecond(beforeOfAfter ? 60 : 0), true);
                     }
                 }
             });
@@ -320,11 +321,11 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                     boolean hasBegin = hasBeginMinute();
 
                     if (hasBegin) {
-                        setItemsSecond(getSecond(currentSecond));
+                        setItemsSecond(getSecond(currentSecond), true);
                         chooseSecond = Integer.valueOf(getSelectedItemSecond());
                     } else {
                         if (secondWl.getItems().size() != 60 + secondWl.getOffset() * 2) {//首尾为空
-                            setItemsSecond(getSecond(beforeOfAfter ? 60 : 0));
+                            setItemsSecond(getSecond(beforeOfAfter ? 60 : 0), true);
                         }
                     }
                 }
@@ -335,7 +336,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                 public void onSelected(int selectedIndex, String item) {
                     super.onSelected(selectedIndex, item);
                     chooseSecond = Integer.valueOf(getSelectedItemSecond());
-                    chooseSecondIndex = selectedIndex - 1;
+                    chooseSecondIndex = selectedIndex;
                 }
             });
         }
@@ -546,38 +547,54 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
         return list;
     }
 
-    public DatePopupWindow setItemsYear(List<String> items) {
+    public DatePopupWindow setItemsYear(List<String> items, boolean hasChoose) {
         yearWl.setItems(new ArrayList<>(items));
-        yearWl.setSelection(chooseYearIndex);
+        if (hasChoose)
+            yearWl.setSelection(chooseYearIndex);
         return this;
     }
 
-    public DatePopupWindow setItemsMonth(List<String> items) {
+    public DatePopupWindow setItemsMonth(List<String> items, boolean hasChoose) {
         monthWl.setItems(new ArrayList<>(items));
+        if (hasChoose)
         monthWl.setSelection(chooseMonthIndex);
         return this;
     }
 
-    public DatePopupWindow setItemsDay(List<String> items) {
+    public DatePopupWindow setItemsDay(List<String> items, boolean hasChoose) {
         dayWl.setItems(new ArrayList<>(items));
+        if (hasChoose)
         dayWl.setSelection(chooseDayIndex);
         return this;
     }
 
-    public DatePopupWindow setItemsHour(List<String> items) {
+    public DatePopupWindow setItemsHour(List<String> items, boolean hasChoose) {
         hourWl.setItems(new ArrayList<>(items));
+        if (hasChoose)
         hourWl.setSelection(chooseHourIndex);
         return this;
     }
 
-    public DatePopupWindow setItemsMinute(List<String> items) {
+    public DatePopupWindow setItemsMinute(List<String> items, boolean hasChoose) {
         minuteWl.setItems(new ArrayList<>(items));
+        if (hasChoose)
         minuteWl.setSelection(chooseMinuteIndex);
         return this;
     }
 
-    public DatePopupWindow setItemsSecond(List<String> items) {
+    public DatePopupWindow setItemsSecond(List<String> items, boolean hasChoose) {
         secondWl.setItems(new ArrayList<>(items));
+        if (hasChoose)
+        secondWl.setSelection(chooseSecondIndex);
+        return this;
+    }
+
+    public DatePopupWindow chooseItem() {
+        yearWl.setSelection(chooseYearIndex);
+        monthWl.setSelection(chooseMonthIndex);
+        dayWl.setSelection(chooseDayIndex);
+        hourWl.setSelection(chooseHourIndex);
+        minuteWl.setSelection(chooseMinuteIndex);
         secondWl.setSelection(chooseSecondIndex);
         return this;
     }

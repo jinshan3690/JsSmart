@@ -222,7 +222,7 @@ public class UIIndexActivity extends UILoadingActivity {
             });
         } else if (R.id.btn12 == v.getId()) {
 //            popupWindow = new DatePopupWindow(context, view, "2020-09-08 18:25:53",false).show((year, month, day, hour, minute, second) -> {
-            DatePopupWindow popupWindow = new DatePopupWindow(context, view, null, true, "2019-09-08 18:25:53");
+            DatePopupWindow popupWindow = new DatePopupWindow(context, view, "2019-07-08 18:25:53", true, "2019-09-08 18:25:53");
             popupWindow.getHourWl().setMaxWidth(DensityUtil.dp2px(context, 100));
             popupWindow.getMinuteWl().setMaxWidth(DensityUtil.dp2px(context, 100));
             popupWindow.getHourWl().setMinDivider(DensityUtil.dp2px(context, 70));

@@ -366,7 +366,7 @@ public class WheelView extends ScrollView {
             this.post(() -> WheelView.this.smoothScrollTo(0, p * itemHeight));
         else
             this.post(() -> WheelView.this.scrollTo(0, p * itemHeight));
-
+        onSelectedCallBack();
     }
 
     public String getSelectedItem() {
