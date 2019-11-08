@@ -168,7 +168,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                 public void onSelected(int selectedIndex, String item) {
                     super.onSelected(selectedIndex, item);
                     chooseDay = Integer.valueOf(getSelectedItemDay());
-                    chooseDayIndex = selectedIndex - 1;
+                    chooseDayIndex = selectedIndex;
                 }
             });
         } else {
@@ -262,7 +262,7 @@ public class DatePopupWindow extends BasePopupWindow<DatePopupWindow> {
                 public void onSelected(int selectedIndex, String item) {
                     super.onSelected(selectedIndex, item);
                     chooseDay = Integer.valueOf(getSelectedItemDay());
-                    chooseDayIndex = selectedIndex - 1;
+                    chooseDayIndex = selectedIndex;
                     boolean hasBegin = hasBeginDay();
 
                     if (hasBegin) {
