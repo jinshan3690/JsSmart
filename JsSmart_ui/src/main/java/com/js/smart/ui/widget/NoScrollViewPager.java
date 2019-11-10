@@ -127,7 +127,7 @@ public class NoScrollViewPager extends ViewPager {
         if (child != null) {
             View view = getChildAt(getCurrentItem());
             int height = view.getMeasuredHeight();
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
+            MarginLayoutParams layoutParams = (MarginLayoutParams) getLayoutParams();
             layoutParams.height = height;
             setLayoutParams(layoutParams);
         }
