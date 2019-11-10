@@ -19,7 +19,7 @@ public class PopupWindowUtil {
     }
 
     private void init() {
-        setCancel(false);
+        setCancel(true);
     }
 
     public PopupWindow getWindow() {
@@ -51,6 +51,7 @@ public class PopupWindowUtil {
      */
     public PopupWindowUtil setCancel(boolean cancel) {
         window.setOutsideTouchable(cancel);
+        window.setFocusable(cancel);
         if (!cancel) {
             window.setBackgroundDrawable(new BitmapDrawable());
         }else {
