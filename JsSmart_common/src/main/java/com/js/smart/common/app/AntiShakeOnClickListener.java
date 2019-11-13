@@ -20,18 +20,11 @@ public abstract class AntiShakeOnClickListener implements View.OnClickListener {
 
     protected abstract void antiShakeOnClick(View v);
 
-    public static void resetOnClick(View v){
+    public static void resetOnClick(){//解决butterknife fragment销毁时状态不能重置
         try {
-            Field field1 = View.class.getDeclaredField("mListenerInfo");
-            field1.setAccessible(true);
-            Field field2 = field1.get(v).getClass().getDeclaredField("mOnClickListener");
-            field2.setAccessible(true);
-            View.OnClickListener onClickListener = (View.OnClickListener) field2.get(field1.get(v));
-            if(onClickListener instanceof DebouncingOnClickListener) {
-                Field field = DebouncingOnClickListener.class.getDeclaredField("enabled");
-                field.setAccessible(true);
-                field.setBoolean(onClickListener, true);
-            }
+            Field field = DebouncingOnClickListener.class.getDeclaredField("enabled");
+            field.setAccessible(true);
+            field.setBoolean(null, true);
         } catch (Exception e) {
             e.printStackTrace();
         }
