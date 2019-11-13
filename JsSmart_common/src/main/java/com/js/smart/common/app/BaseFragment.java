@@ -31,7 +31,6 @@ public abstract class BaseFragment extends RxFragment implements BaseActivityI {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = (BaseCompatActivity) getActivity();
-        AntiShakeOnClickListener.resetOnClick();
     }
 
     @Override
@@ -47,6 +46,12 @@ public abstract class BaseFragment extends RxFragment implements BaseActivityI {
             setUserVisibleHint(true);
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        AntiShakeOnClickListener.resetOnClick();
     }
 
     protected void initViewBefore(Bundle savedInstanceState){

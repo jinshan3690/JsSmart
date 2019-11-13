@@ -34,7 +34,6 @@ public abstract class BaseCompatActivity extends RxAppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
-        AntiShakeOnClickListener.resetOnClick();
         ARouter.getInstance().inject(this);
         acManager = AcManager.getInstance(context);
 
@@ -43,6 +42,12 @@ public abstract class BaseCompatActivity extends RxAppCompatActivity implements
         AcStack.create().addActivity(context);
 //        getResources();
         setContentView(createView(savedInstanceState));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AntiShakeOnClickListener.resetOnClick();
     }
 
     @Override
