@@ -1,10 +1,12 @@
 package com.js.smart.common.util;
 
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
@@ -23,11 +25,32 @@ public class NotificationUtil {
     private static NotificationCompat.Builder builder;
     private NotificationManager notificationManager;
     private static final int DEFAULT_ID = 1;
+    private static String channelId;
 
     public NotificationUtil(Context context) {
         this.context = context;
         notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-
+        channelId = android.R.class.getPackage().getName();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // 通知渠道的id
+            String id = channelId;
+            // 用户可以看到的通知渠道的名字.
+            CharSequence name = "JsSmart APP";
+            // 用户可以看到的通知渠道的描述
+            String description = "JsSmart APP Notify";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel mChannel = new NotificationChannel(id, name, importance);
+            // 配置通知渠道的属性
+            mChannel.setDescription(description);
+            // 设置通知出现时的闪灯（如果 android 设备支持的话）
+            mChannel.enableLights(true);
+            mChannel.setLightColor(Color.RED);
+            // 设置通知出现时的震动（如果 android 设备支持的话）
+            mChannel.enableVibration(true);
+            mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 300, 200, 400});
+            //最后在notificationmanager中创建该通知渠道
+            notificationManager.createNotificationChannel(mChannel);
+        }
     }
 
     public static NotificationUtil Build(Context context) {
@@ -42,7 +65,7 @@ public class NotificationUtil {
 
     private static void init(){
         // 设置Notification
-        builder = new NotificationCompat.Builder(util.context, "DEFAULT_ID");
+        builder = new NotificationCompat.Builder(util.context, channelId);
         builder.setSmallIcon(R.mipmap.ico_logo)
                 .setContentTitle("通知")
                 .setContentText("这是一条消息");
@@ -99,6 +122,13 @@ public class NotificationUtil {
     public NotificationUtil build(int id) {
         notificationManager.notify(id, builder.build());
         return util;
+    }
+
+    /**
+     * 设置通道id
+     */
+    public static void setChannelId(String channelId) {
+        NotificationUtil.channelId = channelId;
     }
 
     /**
