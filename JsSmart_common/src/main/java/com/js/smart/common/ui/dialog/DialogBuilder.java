@@ -26,6 +26,7 @@ public class DialogBuilder<T extends DialogBuilder> implements BaseDialog {
     protected String result;
     protected String[] results;
     protected Dialog dialog;
+    protected int theme = R.style.CustomDialogTransparent;
 
 
     public DialogBuilder(Context context) {
@@ -119,12 +120,17 @@ public class DialogBuilder<T extends DialogBuilder> implements BaseDialog {
         return (T) this;
     }
 
+    public T setTheme(int theme){
+        this.theme = theme;
+        return (T) this;
+    }
+
     /**
      * 创建自定义dialog
      */
     @Override
     public Dialog show() {
-        dialog = new Dialog(context, R.style.CustomDialogTransparent);
+        dialog = new Dialog(context, theme);
         dialog.setContentView(view);
         dialog.setCancelable(true);
         dialog.setCanceledOnTouchOutside(true);
