@@ -45,8 +45,14 @@
         <item name="android:windowBackground">@color/transparent</item>
     </style>
 
+    <!-- pop顶部弹出动画 -->
+    <style name="popupWindow_anim_style_top" parent="@android:style/Animation.Toast">
+        <item name="android:windowEnterAnimation">@anim/pop_top_show</item>
+        <item name="android:windowExitAnimation">@anim/pop_top_hide</item>
+    </style>
+
     <!-- pop底部弹出动画 -->
-    <style name="popupWindow_anim_style">
+    <style name="popupWindow_anim_style" parent="@android:style/Animation.Toast">
         <item name="android:windowEnterAnimation">@anim/pop_bottom_show</item>
         <item name="android:windowExitAnimation">@anim/pop_bottom_hide</item>
     </style>
